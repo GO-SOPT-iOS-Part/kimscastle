@@ -32,8 +32,8 @@ class SecondViewController: UIViewController {
     }
     
     func dataBind(name: String) {
-        nameLabel.text = name
-    }
+            nameLabel.text = name
+        }
 }
 
 private extension SecondViewController {
