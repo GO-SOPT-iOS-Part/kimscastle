@@ -7,6 +7,7 @@
 
 import UIKit
 
+// git fork너무 어렵다
 final class FirstViewController_1st_Seminar: UIViewController {
     
     private let nameLabel: UILabel = {
