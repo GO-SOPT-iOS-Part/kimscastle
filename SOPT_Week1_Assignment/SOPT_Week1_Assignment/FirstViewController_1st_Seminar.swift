@@ -31,7 +31,9 @@ final class FirstViewController_1st_Seminar: UIViewController {
         textField.layer.borderWidth = 1
         
         // MARK: - UIComponent들에 속성 추가하기
-        textField.borderStyle = .roundedRect
+        textField.addLeftPadding()
+        textField.layer.cornerRadius = 10
+        textField.clipsToBounds = true
         textField.keyboardType = .numberPad
         return textField
     }()
@@ -155,4 +157,12 @@ private extension FirstViewController_1st_Seminar {
     func switchChanged(_ sender: UISwitch) {
         view.backgroundColor = sender.isOn ? .white : .red
     }
+}
+
+extension UITextField {
+  func addLeftPadding() {
+    let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: self.frame.height))
+    self.leftView = paddingView
+    self.leftViewMode = ViewMode.always
+  }
 }
