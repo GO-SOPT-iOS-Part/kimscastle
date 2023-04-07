@@ -13,13 +13,8 @@ final class FirstViewController_1st_Seminar: UIViewController {
         let label = UILabel()
         label.text = "이름이 무엇인가요!?"
         label.font = .systemFont(ofSize: 16)
-        label.textColor = .white
+        label.textColor = .blue
         label.textAlignment = .center
-        
-        // MARK: - UIComponent들에 속성 추가하기
-        label.backgroundColor = .black
-        label.layer.masksToBounds = true
-        label.layer.cornerRadius = 10
         return label
     }()
     
@@ -29,12 +24,6 @@ final class FirstViewController_1st_Seminar: UIViewController {
         textField.clearButtonMode = .whileEditing
         textField.layer.borderColor = UIColor.gray.cgColor
         textField.layer.borderWidth = 1
-        
-        // MARK: - UIComponent들에 속성 추가하기
-        textField.addLeftPadding()
-        textField.layer.cornerRadius = 10
-        textField.clipsToBounds = true
-        textField.keyboardType = .numberPad
         return textField
     }()
     
@@ -43,10 +32,6 @@ final class FirstViewController_1st_Seminar: UIViewController {
         button.setTitle("present!", for: .normal)
         button.backgroundColor = .yellow
         button.setTitleColor(.blue, for: .normal)
-        
-        // MARK: - UIComponent들에 속성 추가하기
-        button.titleLabel?.font = .systemFont(ofSize: 15, weight: .bold)
-        button.setImage(UIImage(systemName: "snow"), for: .normal)
         
         // 새롭게 추가
         button.addTarget(self,
@@ -61,24 +46,11 @@ final class FirstViewController_1st_Seminar: UIViewController {
         button.backgroundColor = .yellow
         button.setTitleColor(.blue, for: .normal)
         
-        // MARK: - UIComponent들에 속성 추가하기
-        button.titleLabel?.font = .systemFont(ofSize: 15, weight: .bold)
-        button.setImage(UIImage(systemName: "sunset"), for: .normal)
-        
         // 새롭게 추가
         button.addTarget(self,
                          action: #selector(pushButtonTapped),
                          for: .touchUpInside)
         return button
-    }()
-    
-    // MARK: - 새로운 UIComponent 추가하고 속성부여하기
-    private lazy var testSwitch: UISwitch = {
-        let mySwitch = UISwitch()
-        mySwitch.onTintColor = .orange
-        mySwitch.isOn = true
-        mySwitch.addTarget(self, action: #selector(switchChanged(_:)), for: .valueChanged)
-        return mySwitch
     }()
     
     override func viewDidLoad() {
@@ -92,13 +64,14 @@ final class FirstViewController_1st_Seminar: UIViewController {
 private extension FirstViewController_1st_Seminar {
     
     func style() {
+        
         view.backgroundColor = .white
     }
     
     func setLayout() {
         
         [nameLabel, nameTextField,
-         presentButton, pushButton, testSwitch].forEach {
+         presentButton, pushButton].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview($0)
         }
@@ -121,9 +94,6 @@ private extension FirstViewController_1st_Seminar {
                                      pushButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
                                      pushButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
                                      pushButton.heightAnchor.constraint(equalToConstant: 48)])
-        
-        testSwitch.topAnchor.constraint(equalTo: pushButton.bottomAnchor, constant: 50).isActive = true
-        testSwitch.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     
     func presentToSecondViewController() {
@@ -152,17 +122,4 @@ private extension FirstViewController_1st_Seminar {
         
         pushToSecondViewController()
     }
-    
-    @objc
-    func switchChanged(_ sender: UISwitch) {
-        view.backgroundColor = sender.isOn ? .white : .red
-    }
-}
-
-extension UITextField {
-  func addLeftPadding() {
-    let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: self.frame.height))
-    self.leftView = paddingView
-    self.leftViewMode = ViewMode.always
-  }
 }
