@@ -4,8 +4,7 @@
 #### Xcode 사용, iOS기초, 화면전환, 데이터 전달 기초
 |과제|과제링크|참고링크|
 |------|---|---|
-|테스트1|[📘](https://github.com/kimscastle)|테스트3|
-|테스트1|[📘](https://github.com/kimscastle)|테스트3|
+|1주차과제|[📘1주차과제링크](https://github.com/GO-SOPT-iOS-Part/kimscastle/tree/main/SOPT_Week1_Assignment)|컴포넌트 속성추가하기, 컴포넌트 추가하기|
 
 ### ✅2주차
 #### 데이터전달 심화, snapkit을 통한 오토레이아웃
