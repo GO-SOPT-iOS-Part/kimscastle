@@ -8,7 +8,8 @@
 import UIKit
 import SnapKit
 
-final class UITrainingViewController: UIViewController {
+final
+class UITrainingViewController: UIViewController {
     
     let yellowView = UIView()
     let greenView = UIView()
