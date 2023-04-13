@@ -13,40 +13,38 @@ enum Font {
         case pretendard = "Pretendard"
     }
     
+    // 피그마기준 존재하는 font size => 14,15,23
     enum Size: CGFloat {
-        case _10 = 10
-        case _11 = 11
-        case _13 = 13
+        case _14 = 14
         case _15 = 15
-        case _17 = 17
-        case _20 = 20
-        case _25 = 25
-        case _30 = 30
+        case _23 = 23
     }
 
     enum Weight: String {
-        case heavy = "Heavy"
-        case bold = "Bold"
-        case medium = "Medium"
-        case regular = "Regular"
-        case light = "Light"
+//        case _100 = "Thin"
+//        case _200 = "ExtraLight"
+//        case _300 = "Light"
+//        case _400 = "Regular"
+        case _500 = "Medium"
+        case _600 = "SemiBold"
+        case _700 = "Bold"
 
         var real: UIFont.Weight {
             switch self {
-            case .heavy:
-                return .heavy
-                
-            case .bold:
-                return .bold
-                
-            case .medium:
+//            case ._100:
+//                return .thin
+//            case ._200:
+//                return .ultraLight
+//            case ._300:
+//                return .light
+//            case ._400:
+//                return .regular
+            case ._500:
                 return .medium
-                
-            case .regular:
-                return .regular
-                
-            case .light:
-                return .light
+            case ._600:
+                return .semibold
+            case ._700:
+                return .bold
             }
         }
     }
@@ -65,7 +63,7 @@ enum Font {
         }
 
         var `extension`: String {
-            "otf"
+            "ttf"
         }
     }
 
@@ -79,9 +77,9 @@ enum Font {
 extension Font {
     static var fonts: [CustomFont] {
         [
-            CustomFont(name: .pretendard, weight: .light),
-            CustomFont(name: .pretendard, weight: .medium),
-            CustomFont(name: .pretendard, weight: .bold)
+            CustomFont(name: .pretendard, weight: ._500),
+            CustomFont(name: .pretendard, weight: ._600),
+            CustomFont(name: .pretendard, weight: ._700)
         ]
     }
 
