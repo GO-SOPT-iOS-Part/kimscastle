@@ -18,7 +18,13 @@ final class TvingTextField: UITextField {
     private var textFieldType: TextFieldType
     private let sidePadding: Int
     
-    lazy var clearButton: UIButton = {
+    var clearButtonClicked: Bool = false {
+        didSet {
+            clearButton.isHidden = clearButtonClicked
+        }
+    }
+    
+    private lazy var clearButton: UIButton = {
         let button = UIButton()
         button.setImage(.makeLoginImage(type: .clear), for: .normal)
         button.contentMode = .scaleAspectFill

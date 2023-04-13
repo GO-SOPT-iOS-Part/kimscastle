@@ -24,14 +24,20 @@ final class LoginCompletedViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .designSystem(.black)
+        hierarchy()
         setUI()
+        setButtonTarget()
+    }
+
+}
+
+private extension LoginCompletedViewController {
+    func hierarchy() {
+        view.addSubviews(tvingMainImageView, userEmailLabel, presentMainViewControllerButton)
     }
     
-    
-    
-    private func setUI() {
-        view.backgroundColor = .designSystem(.black)
-        view.addSubviews(tvingMainImageView, userEmailLabel, presentMainViewControllerButton)
+    func setUI() {
         tvingMainImageView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide)
             make.leading.trailing.equalToSuperview()
@@ -45,9 +51,13 @@ final class LoginCompletedViewController: UIViewController {
             make.leading.trailing.equalToSuperview().inset(20)
             make.height.equalTo(52)
         }
+
+    }
+    
+    func setButtonTarget() {
         presentMainViewControllerButton.addTarget(self, action: #selector(presentMainViewControllerButtonTapped(_:)), for: .touchUpInside)
     }
-     
+    
     @objc func presentMainViewControllerButtonTapped(_ sender: UIButton) {
         self.dismiss(animated: true)
     }

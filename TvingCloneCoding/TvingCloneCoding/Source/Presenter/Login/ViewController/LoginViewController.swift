@@ -19,9 +19,12 @@ final class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .designSystem(.black)
+        hierarchy()
         setUI()
         setNavigationBar()
         setDelegate()
+        setButtonTarget()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -35,7 +38,7 @@ extension LoginViewController: UITextFieldDelegate {
         guard let text = textField.text, let tvingTextField = textField as? TvingTextField else { return }
         guard let emailText = emailTextField.text, let passwordText = passwordTextField.text else { return }
         
-        tvingTextField.clearButton.isHidden = text.isNotEmpty ? false : true
+        tvingTextField.clearButtonClicked = text.isNotEmpty ? false : true
         loginButton.makeActiveTypeButton(activeType: emailText.checkEmail && passwordText.checkPassword ? .active : .nonActive)
     }
     
@@ -44,7 +47,7 @@ extension LoginViewController: UITextFieldDelegate {
         
         textField.makeTextFieldFocused()
         tvingTextField.rightViewMode = .always
-        tvingTextField.clearButton.isHidden = text.isEmpty ? true : false
+        tvingTextField.clearButtonClicked = text.isEmpty ? true : false
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -55,8 +58,6 @@ extension LoginViewController: UITextFieldDelegate {
 
 private extension LoginViewController {
     func setUI() {
-        view.backgroundColor = .designSystem(.black)
-        view.addSubviews(loginTitleLabel, emailTextField, passwordTextField, loginButton, loginSettingView)
         loginTitleLabel.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).offset(10)
             make.leading.trailing.equalToSuperview().inset(110)
@@ -83,10 +84,15 @@ private extension LoginViewController {
             make.leading.trailing.equalToSuperview()
             make.height.equalTo(200)
         }
-        
+    }
+    
+    func setButtonTarget() {
         loginSettingView.makeNicknameButton.addTarget(self, action: #selector(makeNicknameButtonTapped(_:)), for: .touchUpInside)
         loginButton.addTarget(self, action: #selector(loginButtonTapped(_:)), for: .touchUpInside)
-        
+    }
+    
+    func hierarchy() {
+        view.addSubviews(loginTitleLabel, emailTextField, passwordTextField, loginButton, loginSettingView)
     }
     
     func setDelegate() {
