@@ -20,12 +20,14 @@ final class LoginCompletedViewController: UIViewController {
 
     private lazy var tvingMainImageView = TvingImageView(imageName: Constant.ImageName.tvingMainImage, contentMode: .scaleAspectFill)
     private lazy var userEmailLabel = TvingLabel(fontWeight: ._700, fontSize: ._23, fontColor: .grayD6D6D6)
-    private lazy var presentMainViewControllerButton = TvingButton(title: "메인으로", buttonType: .active)
+    private lazy var presentMainViewControllerButton = TvingButton(title: Constant.ButtonTitle.presentMainButtonTitle, buttonType: .active)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
     }
+    
+    
     
     private func setUI() {
         view.backgroundColor = .designSystem(.black)
@@ -43,6 +45,10 @@ final class LoginCompletedViewController: UIViewController {
             make.leading.trailing.equalToSuperview().inset(20)
             make.height.equalTo(52)
         }
+        presentMainViewControllerButton.addTarget(self, action: #selector(presentMainViewControllerButtonTapped(_:)), for: .touchUpInside)
     }
-
+     
+    @objc func presentMainViewControllerButtonTapped(_ sender: UIButton) {
+        self.dismiss(animated: true)
+    }
 }

@@ -29,8 +29,8 @@ final class TvingTextField: UITextField {
     
     private lazy var securityButton: UIButton = {
         let button = UIButton()
-        button.setImage(.makeLoginImage(type: .hidePassword), for: .normal)
-        button.setImage(.makeLoginImage(type: .showPassword), for: .selected)
+        button.setImage(.makeLoginImage(type: .hidePassword), for: .selected)
+        button.setImage(.makeLoginImage(type: .showPassword), for: .normal)
         button.contentMode = .scaleAspectFill
         button.addTarget(self, action: #selector(securityButtonTapped(_:)), for: .touchUpInside)
         return button

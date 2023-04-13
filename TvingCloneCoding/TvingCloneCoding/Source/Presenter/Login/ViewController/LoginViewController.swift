@@ -15,13 +15,17 @@ final class LoginViewController: UIViewController {
     private let emailTextField = TvingTextField(textFieldType: .email, sidePadding: 20)
     private let passwordTextField = TvingTextField(textFieldType: .password, sidePadding: 20)
     private let loginSettingView = LoginSettingView()    
-    private lazy var loginButton = TvingButton(title: "로그인하기", buttonType: .nonActive)
+    private lazy var loginButton = TvingButton(title: Constant.ButtonTitle.loginButtonTitle, buttonType: .nonActive)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
         setNavigationBar()
         setDelegate()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
 }
 
@@ -51,6 +55,7 @@ extension LoginViewController: UITextFieldDelegate {
 
 private extension LoginViewController {
     func setUI() {
+        view.backgroundColor = .designSystem(.black)
         view.addSubviews(loginTitleLabel, emailTextField, passwordTextField, loginButton, loginSettingView)
         loginTitleLabel.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).offset(10)
