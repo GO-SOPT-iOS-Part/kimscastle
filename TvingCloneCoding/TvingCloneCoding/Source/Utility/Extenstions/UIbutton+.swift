@@ -12,33 +12,53 @@ extension UIButton {
     enum ButtonActive {
         case active
         case nonActive
-    }
-    
-    func makeActiveTypeButton(activeType: ButtonActive) {
-        switch activeType {
-        case .active:
-            activeButton()
-        case .nonActive:
-            nonActiveButton()
+            
+        var isEnabled: Bool {
+            switch self {
+            case .active:
+                return true
+            case .nonActive:
+                return false
+            }
+        }
+        
+        var titleColor: UIColor? {
+            switch self {
+            case .active:
+                return .designSystem(.white)
+            case .nonActive:
+                return .designSystem(.gray9C9C9C)
+            }
+        }
+        
+        var backgroundColor: UIColor? {
+            switch self {
+            case .active:
+                return .designSystem(.mainRed)
+            case .nonActive:
+                return .designSystem(.black)
+            }
         }
     }
     
-    private func activeButton() {
-        self.titleLabel?.font = .pretendard(weight: ._600, size: ._14)
-        self.setTitleColor(.designSystem(.white), for: .normal)
-        self.backgroundColor = .designSystem(.mainRed)
+    func makeActiveTypeButton(activeType: ButtonActive) {
         self.layer.cornerRadius = 3
-        self.isEnabled = true
+        self.titleLabel?.font = .pretendard(weight: ._600, size: ._14)
+        configureButton(status: activeType)
     }
     
-    func nonActiveButton() {
-        self.titleLabel?.font = .pretendard(weight: ._600, size: ._14)
-        self.setTitleColor(.designSystem(.gray9C9C9C), for: .normal)
-        self.backgroundColor = .designSystem(.black)
-        self.layer.cornerRadius = 3
-        self.layer.borderWidth = 1
-        self.layer.borderColor = .designSystem(.gray2E2E2E)
-        self.isEnabled = false
+    private func configureButton(status: ButtonActive) {
+        self.isEnabled = status.isEnabled
+        self.setTitleColor(status.titleColor, for: .normal)
+        self.backgroundColor = status.backgroundColor
+        self.setBorderInButton(isActive: status.isEnabled)
+    }
+    
+    private func setBorderInButton(isActive: Bool) {
+        if !isActive {
+            self.layer.borderWidth = 1
+            self.layer.borderColor = .designSystem(.gray2E2E2E)
+        }
     }
 }
 
@@ -59,16 +79,31 @@ extension UIButton {
         case clear
         case hidePassword
         case showPassword
+        
+        var loginImage: UIImage? {
+            switch self {
+            case .clear:
+                return UIImage(named: Constant.ImageName.clearButton)
+            case .hidePassword:
+                return UIImage(named: Constant.ImageName.hidePasswordButton)
+            case .showPassword:
+                return UIImage(named: Constant.ImageName.showPasswordButton)
+            }
+        }
+        
+        var controlState: UIControl.State {
+            switch self {
+            case .clear:
+                return .normal
+            case .hidePassword:
+                return .selected
+            case .showPassword:
+                return .normal
+            }
+        }
     }
     
     func setLoginImage(type: LoginButtonImageType) {
-        switch type {
-        case .clear:
-            self.setImage(UIImage(named: Constant.ImageName.clearButton), for: .normal)
-        case .hidePassword:
-            self.setImage(UIImage(named: Constant.ImageName.hidePasswordButton), for: .selected)
-        case .showPassword:
-            self.setImage(UIImage(named: Constant.ImageName.showPasswordButton), for: .normal)
-        }
+        self.setImage(type.loginImage, for: type.controlState)
     }
 }
