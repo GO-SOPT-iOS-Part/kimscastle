@@ -7,25 +7,7 @@
 
 import UIKit
 
-extension UIImage {
-    
-    enum LoginButtonImageType {
-        case clear
-        case hidePassword
-        case showPassword
-    }
-    
-    static func makeLoginImage(type: LoginButtonImageType) -> UIImage? {
-        switch type {
-        case .clear:
-            return UIImage(named: Constant.ImageName.clearButton)
-        case .hidePassword:
-            return UIImage(named: Constant.ImageName.hidePasswordButton)
-        case .showPassword:
-            return UIImage(named: Constant.ImageName.showPasswordButton)
-        }
-    }
-    
+extension UIImage {    
     static var setNavigationBackButtonImage: UIImage? {
         return UIImage(named: Constant.ImageName.backButton)
     }

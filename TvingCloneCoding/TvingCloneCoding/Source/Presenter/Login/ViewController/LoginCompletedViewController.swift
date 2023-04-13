@@ -20,7 +20,7 @@ final class LoginCompletedViewController: UIViewController {
 
     private lazy var tvingMainImageView = TvingImageView(imageName: Constant.ImageName.tvingMainImage, contentMode: .scaleAspectFill)
     private lazy var userEmailLabel = TvingLabel(fontWeight: ._700, fontSize: ._23, fontColor: .grayD6D6D6)
-    private lazy var presentMainViewControllerButton = TvingButton(title: Constant.ButtonTitle.presentMainButtonTitle, buttonType: .active)
+    private lazy var presentMainViewControllerButton = TvingRectangleButton(title: Constant.ButtonTitle.presentMainButtonTitle, buttonType: .active)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,16 +42,17 @@ private extension LoginCompletedViewController {
             make.top.equalTo(view.safeAreaLayoutGuide)
             make.leading.trailing.equalToSuperview()
         }
+        
         userEmailLabel.snp.makeConstraints { make in
             make.top.equalTo(tvingMainImageView.snp.bottom).offset(67)
             make.leading.trailing.equalToSuperview().inset(75)
         }
+        
         presentMainViewControllerButton.snp.makeConstraints { make in
             make.bottom.equalToSuperview().inset(66)
             make.leading.trailing.equalToSuperview().inset(20)
             make.height.equalTo(52)
         }
-
     }
     
     func setButtonTarget() {

@@ -48,8 +48,27 @@ extension UIButton {
         let attributedString = NSMutableAttributedString(string: title)
         attributedString.addAttribute(.underlineStyle,
                                       value: NSUnderlineStyle.single.rawValue,
-                                      range: NSRange(location: 0, length: title.count)
-        )
+                                      range: NSRange(location: 0, length: title.count))
+        
         setAttributedTitle(attributedString, for: .normal)
+    }
+}
+
+extension UIButton {
+    enum LoginButtonImageType {
+        case clear
+        case hidePassword
+        case showPassword
+    }
+    
+    func setLoginImage(type: LoginButtonImageType) {
+        switch type {
+        case .clear:
+            self.setImage(UIImage(named: Constant.ImageName.clearButton), for: .normal)
+        case .hidePassword:
+            self.setImage(UIImage(named: Constant.ImageName.hidePasswordButton), for: .selected)
+        case .showPassword:
+            self.setImage(UIImage(named: Constant.ImageName.showPasswordButton), for: .normal)
+        }
     }
 }

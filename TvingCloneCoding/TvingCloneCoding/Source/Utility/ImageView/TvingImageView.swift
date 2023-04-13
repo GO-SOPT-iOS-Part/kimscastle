@@ -8,8 +8,7 @@
 import UIKit
 
 final class TvingImageView: UIImageView {
-    
-    
+
     init(imageName: String, contentMode: ContentMode) {
         super.init(frame: .zero)
         self.image = UIImage(named: imageName)

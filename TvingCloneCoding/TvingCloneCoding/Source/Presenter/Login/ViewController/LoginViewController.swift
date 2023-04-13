@@ -15,7 +15,7 @@ final class LoginViewController: UIViewController {
     private let emailTextField = TvingTextField(textFieldType: .email, sidePadding: 20)
     private let passwordTextField = TvingTextField(textFieldType: .password, sidePadding: 20)
     private let loginSettingView = LoginSettingView()    
-    private lazy var loginButton = TvingButton(title: Constant.ButtonTitle.loginButtonTitle, buttonType: .nonActive)
+    private lazy var loginButton = TvingRectangleButton(title: Constant.ButtonTitle.loginButtonTitle, buttonType: .nonActive)
 
     override func viewDidLoad() {
         super.viewDidLoad()

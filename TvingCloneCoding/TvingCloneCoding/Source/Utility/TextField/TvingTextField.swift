@@ -26,7 +26,7 @@ final class TvingTextField: UITextField {
     
     private lazy var clearButton: UIButton = {
         let button = UIButton()
-        button.setImage(.makeLoginImage(type: .clear), for: .normal)
+        button.setLoginImage(type: .clear)
         button.contentMode = .scaleAspectFill
         button.addTarget(self, action: #selector(clearButtonTapped(_:)), for: .touchUpInside)
         return button
@@ -35,8 +35,8 @@ final class TvingTextField: UITextField {
     
     private lazy var securityButton: UIButton = {
         let button = UIButton()
-        button.setImage(.makeLoginImage(type: .hidePassword), for: .selected)
-        button.setImage(.makeLoginImage(type: .showPassword), for: .normal)
+        button.setLoginImage(type: .hidePassword)
+        button.setLoginImage(type: .showPassword)
         button.contentMode = .scaleAspectFill
         button.addTarget(self, action: #selector(securityButtonTapped(_:)), for: .touchUpInside)
         return button
@@ -81,7 +81,5 @@ final class TvingTextField: UITextField {
     @objc func securityButtonTapped(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
         self.isSecureTextEntry = !sender.isSelected
-    }
-    
-    
+    } 
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class TvingButton: UIButton {
+final class TvingRectangleButton: UIButton {
     
     init(title: String, buttonType: ButtonActive) {
         super.init(frame: .zero)
