@@ -32,6 +32,11 @@
 		C0E4631D29E7D5D1005CCEC6 /* Pretendard-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C0E4631429E7D5D0005CCEC6 /* Pretendard-Medium.ttf */; };
 		C0E4631E29E7D5D1005CCEC6 /* Pretendard-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C0E4631529E7D5D1005CCEC6 /* Pretendard-Light.ttf */; };
 		C0E4631F29E7D5D1005CCEC6 /* Pretendard-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C0E4631629E7D5D1005CCEC6 /* Pretendard-Bold.ttf */; };
+		C0E4632129E80056005CCEC6 /* LoginSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E4632029E80056005CCEC6 /* LoginSettingView.swift */; };
+		C0E4632329E8081C005CCEC6 /* LoginCompletedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E4632229E8081C005CCEC6 /* LoginCompletedViewController.swift */; };
+		C0E4632629E80D28005CCEC6 /* TvingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E4632529E80D28005CCEC6 /* TvingButton.swift */; };
+		C0E4632929E80F00005CCEC6 /* TvingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E4632829E80F00005CCEC6 /* TvingLabel.swift */; };
+		C0E4632E29E814E3005CCEC6 /* TvingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E4632D29E814E2005CCEC6 /* TvingImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +66,11 @@
 		C0E4631429E7D5D0005CCEC6 /* Pretendard-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.ttf"; sourceTree = "<group>"; };
 		C0E4631529E7D5D1005CCEC6 /* Pretendard-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.ttf"; sourceTree = "<group>"; };
 		C0E4631629E7D5D1005CCEC6 /* Pretendard-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.ttf"; sourceTree = "<group>"; };
+		C0E4632029E80056005CCEC6 /* LoginSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSettingView.swift; sourceTree = "<group>"; };
+		C0E4632229E8081C005CCEC6 /* LoginCompletedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCompletedViewController.swift; sourceTree = "<group>"; };
+		C0E4632529E80D28005CCEC6 /* TvingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvingButton.swift; sourceTree = "<group>"; };
+		C0E4632829E80F00005CCEC6 /* TvingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvingLabel.swift; sourceTree = "<group>"; };
+		C0E4632D29E814E2005CCEC6 /* TvingImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvingImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +198,9 @@
 		C0E4630329E7CE69005CCEC6 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				C0E4632C29E814D7005CCEC6 /* ImageView */,
+				C0E4632729E80EF2005CCEC6 /* Label */,
+				C0E4632429E80D00005CCEC6 /* Button */,
 				C0E4630929E7D064005CCEC6 /* Constants */,
 				C0E4630629E7CF11005CCEC6 /* TextField */,
 				C0E462ED29E6FC50005CCEC6 /* Extenstions */,
@@ -206,7 +219,8 @@
 		C0E4630529E7CE91005CCEC6 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				C0E462C429E6F646005CCEC6 /* LoginViewController.swift */,
+				C0E4632B29E810A4005CCEC6 /* View */,
+				C0E4632A29E8109F005CCEC6 /* ViewController */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -225,6 +239,47 @@
 				C0E4630A29E7D087005CCEC6 /* Constant.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		C0E4632429E80D00005CCEC6 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				C0E4632529E80D28005CCEC6 /* TvingButton.swift */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
+		C0E4632729E80EF2005CCEC6 /* Label */ = {
+			isa = PBXGroup;
+			children = (
+				C0E4632829E80F00005CCEC6 /* TvingLabel.swift */,
+			);
+			path = Label;
+			sourceTree = "<group>";
+		};
+		C0E4632A29E8109F005CCEC6 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C0E4632229E8081C005CCEC6 /* LoginCompletedViewController.swift */,
+				C0E462C429E6F646005CCEC6 /* LoginViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C0E4632B29E810A4005CCEC6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C0E4632029E80056005CCEC6 /* LoginSettingView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C0E4632C29E814D7005CCEC6 /* ImageView */ = {
+			isa = PBXGroup;
+			children = (
+				C0E4632D29E814E2005CCEC6 /* TvingImageView.swift */,
+			);
+			path = ImageView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,11 +368,16 @@
 				C0E4630829E7CF22005CCEC6 /* TvingTextField.swift in Sources */,
 				C0E462EC29E6FB2F005CCEC6 /* Font.swift in Sources */,
 				C0E462C529E6F646005CCEC6 /* LoginViewController.swift in Sources */,
+				C0E4632129E80056005CCEC6 /* LoginSettingView.swift in Sources */,
 				C0E462F929E703D9005CCEC6 /* String+.swift in Sources */,
+				C0E4632E29E814E3005CCEC6 /* TvingImageView.swift in Sources */,
 				C0E462FB29E70400005CCEC6 /* UITextField+.swift in Sources */,
+				C0E4632929E80F00005CCEC6 /* TvingLabel.swift in Sources */,
 				C0E462EF29E6FC68005CCEC6 /* UIFont+.swift in Sources */,
+				C0E4632329E8081C005CCEC6 /* LoginCompletedViewController.swift in Sources */,
 				C0E462C129E6F646005CCEC6 /* AppDelegate.swift in Sources */,
 				C0E4630B29E7D087005CCEC6 /* Constant.swift in Sources */,
+				C0E4632629E80D28005CCEC6 /* TvingButton.swift in Sources */,
 				C0E462C329E6F646005CCEC6 /* SceneDelegate.swift in Sources */,
 				C0E462F529E7037A005CCEC6 /* CGColor+.swift in Sources */,
 				C0E462F729E703BC005CCEC6 /* UIView+.swift in Sources */,

@@ -25,6 +25,8 @@ extension UITextField {
 
 extension UITextField {
     func setLoginPlaceholder(placeholder: String) {
-        self.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [.foregroundColor: UIColor.designSystem(.gray9C9C9C)!, .font: UIFont.pretendard(weight: ._600, size: ._15)])
+        self.attributedPlaceholder = NSAttributedString(string: placeholder,
+                                                        attributes: [.foregroundColor: UIColor.designSystem(.gray9C9C9C)!,
+                                                                     .font: UIFont.pretendard(weight: ._600, size: ._15)])
     }
 }

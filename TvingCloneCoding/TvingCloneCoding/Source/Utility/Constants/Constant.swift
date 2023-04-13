@@ -13,5 +13,6 @@ struct Constant {
         static let hidePasswordButton = "EyeSlash"
         static let showPasswordButton = "Eye"
         static let backButton = "NavigationBackButton"
+        static let tvingMainImage = "TvingMainImage"
     }
 }

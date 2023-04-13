@@ -24,7 +24,7 @@ enum Font {
 //        case _100 = "Thin"
 //        case _200 = "ExtraLight"
 //        case _300 = "Light"
-//        case _400 = "Regular"
+        case _400 = "Regular"
         case _500 = "Medium"
         case _600 = "SemiBold"
         case _700 = "Bold"
@@ -37,8 +37,8 @@ enum Font {
 //                return .ultraLight
 //            case ._300:
 //                return .light
-//            case ._400:
-//                return .regular
+            case ._400:
+                return .regular
             case ._500:
                 return .medium
             case ._600:
@@ -77,6 +77,7 @@ enum Font {
 extension Font {
     static var fonts: [CustomFont] {
         [
+            CustomFont(name: .pretendard, weight: ._400),
             CustomFont(name: .pretendard, weight: ._500),
             CustomFont(name: .pretendard, weight: ._600),
             CustomFont(name: .pretendard, weight: ._700)
