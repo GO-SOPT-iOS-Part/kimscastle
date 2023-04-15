@@ -17,7 +17,7 @@ final class LoginNicknameBottomSheetViewController: UIViewController {
     
     weak var delegate: PassingNicknameDataProtocol?
     
-    private let bottomSheetHeightPercentage: CGFloat
+    private let bottomSheetHeight: CGFloat
     
     private let backgroundView: UIView = {
         let view = UIView()
@@ -60,7 +60,7 @@ final class LoginNicknameBottomSheetViewController: UIViewController {
     }
     
     init(bottomSheetHeightPercentage: CGFloat) {
-        self.bottomSheetHeightPercentage = bottomSheetHeightPercentage
+        self.bottomSheetHeight = bottomSheetHeightPercentage.makePercentage * Constant.Screen.height
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -116,8 +116,8 @@ extension LoginNicknameBottomSheetViewController {
         bottomSheetView.clipsToBounds = true
         bottomSheetView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
-            make.top.equalTo(view.snp.bottom)
-            make.bottom.equalToSuperview().inset(Constant.Screen.height*(-bottomSheetHeightPercentage.makePercentage))
+            make.height.equalTo(bottomSheetHeight)
+            make.bottom.equalToSuperview().inset(-bottomSheetHeight)
         }
         
         nicknameLabel.snp.makeConstraints { make in
@@ -136,13 +136,13 @@ extension LoginNicknameBottomSheetViewController {
             make.leading.trailing.equalToSuperview().inset(20)
             make.height.equalTo(52)
         }
-        
     }
     
     private func hideButtonSheetAndDismissViewController() {
+        bottomSheetView.snp.updateConstraints { $0.bottom.equalToSuperview().inset(-bottomSheetHeight) }
         UIView.animate(withDuration: 0.25) {
-            self.resetPosition(views: self.bottomSheetView, self.clearView)
             self.backgroundView.alpha = 0
+            self.view.layoutIfNeeded()
         } completion: { _ in
             if self.presentationController != nil {
                 self.dismiss(animated: true)
@@ -151,10 +151,10 @@ extension LoginNicknameBottomSheetViewController {
     }
     
     private func showBottomSheet() {
-        let moveDistance = -self.bottomSheetView.bounds.height
+        bottomSheetView.snp.updateConstraints { $0.bottom.equalToSuperview() }
         UIView.animate(withDuration: 0.25) {
-            self.moveVerticalPosition(views: self.bottomSheetView, self.clearView, distance: moveDistance)
             self.backgroundView.alpha = 0.7
+            self.view.layoutIfNeeded()
         }
     }
     
@@ -163,9 +163,10 @@ extension LoginNicknameBottomSheetViewController {
     }
     
     @objc func saveNicknameButtonTapped() {
+        bottomSheetView.snp.updateConstraints { $0.bottom.equalToSuperview().inset(-bottomSheetHeight) }
         UIView.animate(withDuration: 0.15) {
-            self.resetPosition(views: self.bottomSheetView, self.clearView)
             self.backgroundView.alpha = 0
+            self.view.layoutIfNeeded()
         } completion: { _ in
             if self.presentationController != nil {
                 guard let nickName = self.nicknameTextField.text else { return }
