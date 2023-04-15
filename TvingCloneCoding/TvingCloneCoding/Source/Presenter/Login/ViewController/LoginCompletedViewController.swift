@@ -11,39 +11,44 @@ import SnapKit
 
 final class LoginCompletedViewController: UIViewController {
     
-    var userEmail: String? {
+    var userNickName: String? {
         didSet {
-            guard let userEmail else { return }
-            userEmailLabel.text = userEmail + "님" + "\n반가워요"
+            guard let userNickName else { return }
+            userNicNameLabel.text = userNickName + "님" + "\n반가워요"
         }
     }
 
     private lazy var tvingMainImageView = TvingImageView(imageName: Constant.ImageName.tvingMainImage, contentMode: .scaleAspectFill)
-    private lazy var userEmailLabel = TvingLabel(fontWeight: ._700, fontSize: ._23, fontColor: .grayD6D6D6)
+    private lazy var userNicNameLabel = TvingLabel(fontWeight: ._700, fontSize: ._23, fontColor: .grayD6D6D6)
     private lazy var presentMainViewControllerButton = TvingRectangleButton(title: Constant.ButtonTitle.presentMainButtonTitle, buttonType: .active)
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .designSystem(.black)
-        hierarchy()
         setUI()
+        hierarchy()
+        setLayout()
         setButtonTarget()
     }
 
 }
 
 private extension LoginCompletedViewController {
-    func hierarchy() {
-        view.addSubviews(tvingMainImageView, userEmailLabel, presentMainViewControllerButton)
-    }
     
     func setUI() {
+        view.backgroundColor = .designSystem(.black)
+    }
+    
+    func hierarchy() {
+        view.addSubviews(tvingMainImageView, userNicNameLabel, presentMainViewControllerButton)
+    }
+
+    func setLayout() {
         tvingMainImageView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide)
             make.leading.trailing.equalToSuperview()
         }
         
-        userEmailLabel.snp.makeConstraints { make in
+        userNicNameLabel.snp.makeConstraints { make in
             make.top.equalTo(tvingMainImageView.snp.bottom).offset(67)
             make.leading.trailing.equalToSuperview().inset(75)
         }

@@ -11,6 +11,8 @@ import SnapKit
 
 final class LoginViewController: UIViewController {
     
+    private var nickName: String?
+    
     private let loginTitleLabel = TvingLabel(title: "TVING ID 로그인", fontWeight: ._500, fontSize: ._23, fontColor: .white)
     private let emailTextField = TvingTextField(textFieldType: .email, sidePadding: 20)
     private let passwordTextField = TvingTextField(textFieldType: .password, sidePadding: 20)
@@ -39,7 +41,7 @@ extension LoginViewController: UITextFieldDelegate {
         guard let emailText = emailTextField.text, let passwordText = passwordTextField.text else { return }
         
         tvingTextField.clearButtonClicked = text.isNotEmpty ? false : true
-        loginButton.makeActiveTypeButton(activeType: emailText.checkEmail && passwordText.checkPassword ? .active : .nonActive)
+        loginButton.makeActiveTypeButton(activeType: emailText.checkEmail && passwordText.checkPassword && ((nickName?.isNotEmpty) != nil) ? .active : .nonActive)
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -114,15 +116,26 @@ private extension LoginViewController {
     }
     
     @objc func loginButtonTapped(_ sender: UIButton) {
-        print("로그인버튼이 눌렸습니다")
         let loginCompletedViewController = LoginCompletedViewController()
         loginCompletedViewController.modalPresentationStyle = .fullScreen
-        loginCompletedViewController.userEmail = emailTextField.text
+        loginCompletedViewController.userNickName = nickName
         self.present(loginCompletedViewController, animated: true)
     }
     
     @objc func makeNicknameButtonTapped(_ sender: UIButton) {
-        print("닉네임만들러가기 버튼이 눌렸습니다")
+        let bottomSheetVC = LoginNicknameBottomSheetViewController(bottomSheetHeightPercentage: 50)
+        bottomSheetVC.delegate = self
+        bottomSheetVC.modalPresentationStyle = .overFullScreen
+        self.present(bottomSheetVC, animated: false)
     }
+}
+
+extension LoginViewController: PassingNicknameDataProtocol {
+    func sendNickname(_ nickName: String) {
+        guard let emailText = emailTextField.text, let passwordText = passwordTextField.text else { return }
+        self.nickName = nickName
+        loginButton.makeActiveTypeButton(activeType: emailText.checkEmail && passwordText.checkPassword ? .active : .nonActive)
+    }
+
 }
 

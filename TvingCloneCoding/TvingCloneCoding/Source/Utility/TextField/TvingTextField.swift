@@ -12,6 +12,7 @@ final class TvingTextField: UITextField {
     enum TextFieldType {
         case email
         case password
+        case normal
     }
     
     private let righthButtonView = UIView()
@@ -70,6 +71,10 @@ final class TvingTextField: UITextField {
             self.setLoginPlaceholder(placeholder: "비밀번호")
             isSecureTextEntry = true
             rightView = righthButtonView.addButtonsInTextfield(views: [clearButton, securityButton], padding: sidePadding)
+        case .normal:
+            self.setLoginPlaceholder(placeholder: "닉네임")
+            isSecureTextEntry = false
+            rightView = righthButtonView.addButtonsInTextfield(views: [clearButton], padding: sidePadding)
         }
     }
     

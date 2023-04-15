@@ -20,4 +20,9 @@ struct Constant {
         static let loginButtonTitle = "로그인하기"
         static let presentMainButtonTitle = "메인으로"
     }
+    
+    struct Screen {
+        static let width = UIScreen.main.bounds.width
+        static let height = UIScreen.main.bounds.height
+    }
 }
