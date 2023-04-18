@@ -138,11 +138,7 @@ extension LoginNicknameBottomSheetViewController {
     }
     
     private func hideBottomSheetAndDismissViewController() {
-        bottomSheetView.snp.updateConstraints { $0.bottom.equalToSuperview().inset(-bottomSheetHeight) }
-        UIView.animate(withDuration: 0.25) {
-            self.backgroundView.alpha = 0
-            self.view.layoutIfNeeded()
-        } completion: { _ in
+        hideBottomSheet(bottomSheet: bottomSheetView) {
             if self.presentationController != nil {
                 self.dismiss(animated: true)
             }
@@ -162,16 +158,22 @@ extension LoginNicknameBottomSheetViewController {
     }
     
     @objc func saveNicknameButtonTapped() {
-        bottomSheetView.snp.updateConstraints { $0.bottom.equalToSuperview().inset(-bottomSheetHeight) }
-        UIView.animate(withDuration: 0.15) {
-            self.backgroundView.alpha = 0
-            self.view.layoutIfNeeded()
-        } completion: { _ in
+        hideBottomSheet(bottomSheet: bottomSheetView) {
             if self.presentationController != nil {
                 guard let nickName = self.nicknameTextField.text else { return }
                 self.delegate?.sendNickname(nickName)
                 self.dismiss(animated: true)
             }
+        }
+    }
+    
+    private func hideBottomSheet<T: TvingBottomSheet>(bottomSheet: T, duration: CGFloat = 0.25, completionHandler: @escaping () -> Void) {
+        bottomSheet.snp.updateConstraints { $0.bottom.equalToSuperview().inset(-bottomSheet.bounds.height) }
+        UIView.animate(withDuration: duration) {
+            self.backgroundView.alpha = 0
+            self.view.layoutIfNeeded()
+        } completion: { _ in
+            completionHandler()
         }
     }
     
