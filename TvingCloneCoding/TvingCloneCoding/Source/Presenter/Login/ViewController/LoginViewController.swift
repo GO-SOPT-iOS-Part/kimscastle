@@ -22,7 +22,7 @@ final class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .designSystem(.black)
-        hierarchy()
+        setHierarchy()
         setUI()
         setNavigationBar()
         setDelegate()
@@ -93,7 +93,7 @@ private extension LoginViewController {
         loginButton.addTarget(self, action: #selector(loginButtonTapped(_:)), for: .touchUpInside)
     }
     
-    func hierarchy() {
+    func setHierarchy() {
         view.addSubviews(loginTitleLabel, emailTextField, passwordTextField, loginButton, loginSettingView)
     }
     

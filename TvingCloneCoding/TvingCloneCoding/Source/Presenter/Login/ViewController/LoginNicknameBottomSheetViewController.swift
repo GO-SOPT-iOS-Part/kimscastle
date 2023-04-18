@@ -48,7 +48,7 @@ final class LoginNicknameBottomSheetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         nicknameTextField.delegate = self
-        hierarchy()
+        setHierarchy()
         setTapGesture()
         setAddTarget()
         setLayout()
@@ -79,7 +79,7 @@ extension LoginNicknameBottomSheetViewController: UITextFieldDelegate {
 extension LoginNicknameBottomSheetViewController {
     
     
-    private func hierarchy() {
+    private func setHierarchy() {
         view.addSubviews(backgroundView, bottomSheetView, clearView)
         clearView.addSubview(handleView)
         bottomSheetView.addSubviews(nicknameLabel, nicknameTextField, saveNicknameButton)
@@ -113,7 +113,6 @@ extension LoginNicknameBottomSheetViewController {
             make.height.equalTo(22)
         }
         
-        bottomSheetView.clipsToBounds = true
         bottomSheetView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
             make.height.equalTo(bottomSheetHeight)
@@ -138,7 +137,7 @@ extension LoginNicknameBottomSheetViewController {
         }
     }
     
-    private func hideButtonSheetAndDismissViewController() {
+    private func hideBottomSheetAndDismissViewController() {
         bottomSheetView.snp.updateConstraints { $0.bottom.equalToSuperview().inset(-bottomSheetHeight) }
         UIView.animate(withDuration: 0.25) {
             self.backgroundView.alpha = 0
@@ -159,7 +158,7 @@ extension LoginNicknameBottomSheetViewController {
     }
     
     @objc func backgroundViewTapped(_ tapRecongnizer: UITapGestureRecognizer) {
-        hideButtonSheetAndDismissViewController()
+        hideBottomSheetAndDismissViewController()
     }
     
     @objc func saveNicknameButtonTapped() {

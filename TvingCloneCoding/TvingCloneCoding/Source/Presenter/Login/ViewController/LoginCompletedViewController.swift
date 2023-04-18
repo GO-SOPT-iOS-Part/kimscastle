@@ -25,7 +25,7 @@ final class LoginCompletedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
-        hierarchy()
+        setHierarchy()
         setLayout()
         setButtonTarget()
     }
@@ -38,7 +38,7 @@ private extension LoginCompletedViewController {
         view.backgroundColor = .designSystem(.black)
     }
     
-    func hierarchy() {
+    func setHierarchy() {
         view.addSubviews(tvingMainImageView, userNicNameLabel, presentMainViewControllerButton)
     }
 
