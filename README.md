@@ -10,8 +10,8 @@
 #### 데이터전달 심화, snapkit을 통한 오토레이아웃
 |과제|과제링크|참고|
 |------|---|---|
-|2주차과제(기본,심화)|[📘2주차과제링크](https://github.com/GO-SOPT-iOS-Part/kimscastle/pull/10)|TVING클론코딩(로그인)|
-|테스트1|[📘](https://github.com/kimscastle)|테스트3|
+|2주차과제(기본,심화)|[📘2주차기본,심화과제링크](https://github.com/GO-SOPT-iOS-Part/kimscastle/pull/10)|TVING클론코딩(로그인)|
+|2주차과제(도전)|[📘2주차도전과제링크](https://github.com/GO-SOPT-iOS-Part/kimscastle/pull/11)|Custom BottomSheet구현(snapkit)|
 
 ### ✅3주차
 #### TableView, CollectionView, ScrollView
