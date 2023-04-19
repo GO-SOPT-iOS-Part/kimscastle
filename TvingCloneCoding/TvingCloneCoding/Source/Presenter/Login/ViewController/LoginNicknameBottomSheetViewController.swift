@@ -72,7 +72,12 @@ final class LoginNicknameBottomSheetViewController: UIViewController {
 extension LoginNicknameBottomSheetViewController: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
         guard let text = textField.text else { return }
+        nicknameTextField.showClearButton = text.isNotEmpty ? false : true
         saveNicknameButton.makeActiveTypeButton(activeType: text.isNotEmpty ? .active : .nonActive)
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.rightViewMode = .always
     }
 }
 

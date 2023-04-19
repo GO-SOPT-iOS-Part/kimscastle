@@ -19,9 +19,9 @@ final class TvingTextField: UITextField {
     private var textFieldType: TextFieldType
     private let sidePadding: Int
     
-    var clearButtonClicked: Bool = false {
+    var showClearButton: Bool = false {
         didSet {
-            clearButton.isHidden = clearButtonClicked
+            clearButton.isHidden = showClearButton
         }
     }
     

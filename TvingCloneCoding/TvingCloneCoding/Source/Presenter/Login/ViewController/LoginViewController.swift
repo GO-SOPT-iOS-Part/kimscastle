@@ -40,16 +40,26 @@ extension LoginViewController: UITextFieldDelegate {
         guard let text = textField.text, let tvingTextField = textField as? TvingTextField else { return }
         guard let emailText = emailTextField.text, let passwordText = passwordTextField.text else { return }
         
-        tvingTextField.clearButtonClicked = text.isNotEmpty ? false : true
-        loginButton.makeActiveTypeButton(activeType: emailText.checkEmail && passwordText.checkPassword && ((nickName?.isNotEmpty) != nil) ? .active : .nonActive)
+        tvingTextField.showClearButton = text.isNotEmpty ? false : true
+        loginButton.makeActiveTypeButton(activeType: checkUserInputIsValid(emailText)(passwordText)(nickName) ? .active : .nonActive)
     }
+    
+    private func checkUserInputIsValid(_ email: String) -> (_ password: String) -> (_ nickName: String?) -> Bool {
+        return { password in
+            return { nickName in
+                return email.checkEmail && password.checkPassword && ((nickName?.isNotEmpty) != nil)
+            }
+        }
+    }
+    
+    
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         guard let text = textField.text, let tvingTextField = textField as? TvingTextField else { return }
         
         textField.makeTextFieldFocused()
         tvingTextField.rightViewMode = .always
-        tvingTextField.clearButtonClicked = text.isEmpty ? true : false
+        tvingTextField.showClearButton = text.isEmpty ? true : false
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
