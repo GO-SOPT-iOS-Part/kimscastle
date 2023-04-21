@@ -13,6 +13,26 @@ final class TvingTextField: UITextField {
         case email
         case password
         case normal
+        
+        var placeHolder: String {
+            switch self {
+            case .email:
+                return "아이디"
+            case .password:
+                return "비밀번호"
+            case .normal:
+                return "닉네임"
+            }
+        }
+        
+        var isSecureTextEntry: Bool {
+            switch self {
+            case .email, .normal:
+                return false
+            case .password:
+                return true
+            }
+        }
     }
     
     private let righthButtonView = UIView()
@@ -62,19 +82,14 @@ final class TvingTextField: UITextField {
         self.font = .pretendard(weight: ._600, size: ._15)
         self.textColor = .designSystem(.gray9C9C9C)
         
+        self.setLoginPlaceholder(placeholder: textFieldType.placeHolder)
+        self.isSecureTextEntry = textFieldType.isSecureTextEntry
+        
         switch textFieldType {
-        case .email:
-            self.setLoginPlaceholder(placeholder: "아이디")
-            isSecureTextEntry = false
+        case .email, .normal:
             rightView = righthButtonView.addButtonsInTextfield(views: [clearButton], padding: sidePadding)
         case .password:
-            self.setLoginPlaceholder(placeholder: "비밀번호")
-            isSecureTextEntry = true
             rightView = righthButtonView.addButtonsInTextfield(views: [clearButton, securityButton], padding: sidePadding)
-        case .normal:
-            self.setLoginPlaceholder(placeholder: "닉네임")
-            isSecureTextEntry = false
-            rightView = righthButtonView.addButtonsInTextfield(views: [clearButton], padding: sidePadding)
         }
     }
     

@@ -9,6 +9,7 @@ import UIKit
 
 extension UIButton {
     
+    @frozen
     enum ButtonActive {
         case active
         case nonActive
@@ -75,6 +76,8 @@ extension UIButton {
 }
 
 extension UIButton {
+    
+    @frozen
     enum LoginButtonImageType {
         case clear
         case hidePassword
