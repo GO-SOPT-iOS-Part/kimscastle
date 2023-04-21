@@ -11,6 +11,8 @@ import SnapKit
 
 final class LoginViewController: UIViewController {
     
+    private var nickName: String?
+    
     private let loginTitleLabel = TvingLabel(title: "TVING ID 로그인", fontWeight: ._500, fontSize: ._23, fontColor: .white)
     private let emailTextField = TvingTextField(textFieldType: .email, sidePadding: 20)
     private let passwordTextField = TvingTextField(textFieldType: .password, sidePadding: 20)
@@ -20,7 +22,7 @@ final class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .designSystem(.black)
-        hierarchy()
+        setHierarchy()
         setUI()
         setNavigationBar()
         setDelegate()
@@ -38,16 +40,26 @@ extension LoginViewController: UITextFieldDelegate {
         guard let text = textField.text, let tvingTextField = textField as? TvingTextField else { return }
         guard let emailText = emailTextField.text, let passwordText = passwordTextField.text else { return }
         
-        tvingTextField.clearButtonClicked = text.isNotEmpty ? false : true
-        loginButton.makeActiveTypeButton(activeType: emailText.checkEmail && passwordText.checkPassword ? .active : .nonActive)
+        tvingTextField.showClearButton = text.isNotEmpty ? false : true
+        loginButton.makeActiveTypeButton(activeType: checkUserInputIsValid(emailText)(passwordText)(nickName) ? .active : .nonActive)
     }
+    
+    private func checkUserInputIsValid(_ email: String) -> (_ password: String) -> (_ nickName: String?) -> Bool {
+        return { password in
+            return { nickName in
+                return email.checkEmail && password.checkPassword && ((nickName?.isNotEmpty) != nil)
+            }
+        }
+    }
+    
+    
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         guard let text = textField.text, let tvingTextField = textField as? TvingTextField else { return }
         
         textField.makeTextFieldFocused()
         tvingTextField.rightViewMode = .always
-        tvingTextField.clearButtonClicked = text.isEmpty ? true : false
+        tvingTextField.showClearButton = text.isEmpty ? true : false
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -91,7 +103,7 @@ private extension LoginViewController {
         loginButton.addTarget(self, action: #selector(loginButtonTapped(_:)), for: .touchUpInside)
     }
     
-    func hierarchy() {
+    func setHierarchy() {
         view.addSubviews(loginTitleLabel, emailTextField, passwordTextField, loginButton, loginSettingView)
     }
     
@@ -114,15 +126,26 @@ private extension LoginViewController {
     }
     
     @objc func loginButtonTapped(_ sender: UIButton) {
-        print("로그인버튼이 눌렸습니다")
         let loginCompletedViewController = LoginCompletedViewController()
         loginCompletedViewController.modalPresentationStyle = .fullScreen
-        loginCompletedViewController.userEmail = emailTextField.text
+        loginCompletedViewController.userNickName = nickName
         self.present(loginCompletedViewController, animated: true)
     }
     
     @objc func makeNicknameButtonTapped(_ sender: UIButton) {
-        print("닉네임만들러가기 버튼이 눌렸습니다")
+        let bottomSheetVC = LoginNicknameBottomSheetViewController(bottomSheetHeightPercentage: 50)
+        bottomSheetVC.delegate = self
+        bottomSheetVC.modalPresentationStyle = .overFullScreen
+        self.present(bottomSheetVC, animated: false)
     }
+}
+
+extension LoginViewController: PassingNicknameDataProtocol {
+    func sendNickname(_ nickName: String) {
+        guard let emailText = emailTextField.text, let passwordText = passwordTextField.text else { return }
+        self.nickName = nickName
+        loginButton.makeActiveTypeButton(activeType: emailText.checkEmail && passwordText.checkPassword ? .active : .nonActive)
+    }
+
 }
 

@@ -9,6 +9,7 @@ import UIKit
 
 extension UIButton {
     
+    @frozen
     enum ButtonActive {
         case active
         case nonActive
@@ -55,8 +56,8 @@ extension UIButton {
     }
     
     private func setBorderInButton(isActive: Bool) {
+        self.layer.borderWidth = isActive ? 0 : 1
         if !isActive {
-            self.layer.borderWidth = 1
             self.layer.borderColor = .designSystem(.gray2E2E2E)
         }
     }
@@ -75,6 +76,8 @@ extension UIButton {
 }
 
 extension UIButton {
+    
+    @frozen
     enum LoginButtonImageType {
         case clear
         case hidePassword
