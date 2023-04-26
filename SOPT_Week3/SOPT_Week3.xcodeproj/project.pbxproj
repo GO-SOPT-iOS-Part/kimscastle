@@ -9,20 +9,41 @@
 /* Begin PBXBuildFile section */
 		C00C0F5A29F3B0C7002C4D14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00C0F5929F3B0C7002C4D14 /* AppDelegate.swift */; };
 		C00C0F5C29F3B0C7002C4D14 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00C0F5B29F3B0C7002C4D14 /* SceneDelegate.swift */; };
-		C00C0F5E29F3B0C7002C4D14 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00C0F5D29F3B0C7002C4D14 /* ViewController.swift */; };
+		C00C0F5E29F3B0C7002C4D14 /* CarrotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00C0F5D29F3B0C7002C4D14 /* CarrotViewController.swift */; };
 		C00C0F6329F3B0C8002C4D14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C00C0F6229F3B0C8002C4D14 /* Assets.xcassets */; };
 		C00C0F6629F3B0C8002C4D14 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C00C0F6429F3B0C8002C4D14 /* LaunchScreen.storyboard */; };
 		C00C0F6F29F3B121002C4D14 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C00C0F6E29F3B121002C4D14 /* SnapKit */; };
+		C00C0F7129F3B1B9002C4D14 /* Carrot.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00C0F7029F3B1B9002C4D14 /* Carrot.swift */; };
+		C00C0F7329F3B1DB002C4D14 /* Carrot+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00C0F7229F3B1DB002C4D14 /* Carrot+.swift */; };
+		C00C0F7729F3B26D002C4D14 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00C0F7629F3B26D002C4D14 /* UIImage+.swift */; };
+		C00C0F7929F3B53E002C4D14 /* CarrotTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00C0F7829F3B53E002C4D14 /* CarrotTableViewCell.swift */; };
+		C00C0F7C29F3B574002C4D14 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = C00C0F7B29F3B574002C4D14 /* Then */; };
+		C00C0F7E29F3B5F6002C4D14 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00C0F7D29F3B5F6002C4D14 /* UIView+.swift */; };
+		C00C0F8029F3B743002C4D14 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00C0F7F29F3B743002C4D14 /* BaseViewController.swift */; };
+		C00C0F8629F3BEAF002C4D14 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00C0F8529F3BEAF002C4D14 /* PhotoViewController.swift */; };
+		C00C0F8829F3BEF4002C4D14 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00C0F8729F3BEF4002C4D14 /* PhotoCell.swift */; };
+		C00C0F8A29F3BF0E002C4D14 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00C0F8929F3BF0E002C4D14 /* Photo.swift */; };
+		C00C0F8C29F3C062002C4D14 /* Photo+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00C0F8B29F3C062002C4D14 /* Photo+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C00C0F5629F3B0C7002C4D14 /* SOPT_Week3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SOPT_Week3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C00C0F5929F3B0C7002C4D14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C00C0F5B29F3B0C7002C4D14 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C00C0F5D29F3B0C7002C4D14 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C00C0F5D29F3B0C7002C4D14 /* CarrotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrotViewController.swift; sourceTree = "<group>"; };
 		C00C0F6229F3B0C8002C4D14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C00C0F6529F3B0C8002C4D14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C00C0F6729F3B0C8002C4D14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C00C0F7029F3B1B9002C4D14 /* Carrot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Carrot.swift; sourceTree = "<group>"; };
+		C00C0F7229F3B1DB002C4D14 /* Carrot+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Carrot+.swift"; sourceTree = "<group>"; };
+		C00C0F7629F3B26D002C4D14 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
+		C00C0F7829F3B53E002C4D14 /* CarrotTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrotTableViewCell.swift; sourceTree = "<group>"; };
+		C00C0F7D29F3B5F6002C4D14 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		C00C0F7F29F3B743002C4D14 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		C00C0F8529F3BEAF002C4D14 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		C00C0F8729F3BEF4002C4D14 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
+		C00C0F8929F3BF0E002C4D14 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		C00C0F8B29F3C062002C4D14 /* Photo+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +52,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C00C0F6F29F3B121002C4D14 /* SnapKit in Frameworks */,
+				C00C0F7C29F3B574002C4D14 /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,14 +78,80 @@
 		C00C0F5829F3B0C7002C4D14 /* SOPT_Week3 */ = {
 			isa = PBXGroup;
 			children = (
+				C00C0F8D29F3C116002C4D14 /* BaseView */,
+				C00C0F8229F3B859002C4D14 /* View */,
+				C00C0F8129F3B7E4002C4D14 /* ViewController */,
+				C00C0F7529F3B1F1002C4D14 /* Model */,
+				C00C0F7429F3B1E5002C4D14 /* Extension */,
 				C00C0F5929F3B0C7002C4D14 /* AppDelegate.swift */,
 				C00C0F5B29F3B0C7002C4D14 /* SceneDelegate.swift */,
-				C00C0F5D29F3B0C7002C4D14 /* ViewController.swift */,
 				C00C0F6229F3B0C8002C4D14 /* Assets.xcassets */,
 				C00C0F6429F3B0C8002C4D14 /* LaunchScreen.storyboard */,
 				C00C0F6729F3B0C8002C4D14 /* Info.plist */,
 			);
 			path = SOPT_Week3;
+			sourceTree = "<group>";
+		};
+		C00C0F7429F3B1E5002C4D14 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				C00C0F7229F3B1DB002C4D14 /* Carrot+.swift */,
+				C00C0F7629F3B26D002C4D14 /* UIImage+.swift */,
+				C00C0F7D29F3B5F6002C4D14 /* UIView+.swift */,
+				C00C0F8B29F3C062002C4D14 /* Photo+.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		C00C0F7529F3B1F1002C4D14 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C00C0F7029F3B1B9002C4D14 /* Carrot.swift */,
+				C00C0F8929F3BF0E002C4D14 /* Photo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C00C0F8129F3B7E4002C4D14 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C00C0F8429F3BE8B002C4D14 /* CollectionView */,
+				C00C0F8329F3BE80002C4D14 /* TableView */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C00C0F8229F3B859002C4D14 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C00C0F7829F3B53E002C4D14 /* CarrotTableViewCell.swift */,
+				C00C0F8729F3BEF4002C4D14 /* PhotoCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C00C0F8329F3BE80002C4D14 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				C00C0F5D29F3B0C7002C4D14 /* CarrotViewController.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		C00C0F8429F3BE8B002C4D14 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				C00C0F8529F3BEAF002C4D14 /* PhotoViewController.swift */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		C00C0F8D29F3C116002C4D14 /* BaseView */ = {
+			isa = PBXGroup;
+			children = (
+				C00C0F7F29F3B743002C4D14 /* BaseViewController.swift */,
+			);
+			path = BaseView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -84,6 +172,7 @@
 			name = SOPT_Week3;
 			packageProductDependencies = (
 				C00C0F6E29F3B121002C4D14 /* SnapKit */,
+				C00C0F7B29F3B574002C4D14 /* Then */,
 			);
 			productName = SOPT_Week3;
 			productReference = C00C0F5629F3B0C7002C4D14 /* SOPT_Week3.app */;
@@ -115,6 +204,7 @@
 			mainGroup = C00C0F4D29F3B0C7002C4D14;
 			packageReferences = (
 				C00C0F6D29F3B121002C4D14 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				C00C0F7A29F3B574002C4D14 /* XCRemoteSwiftPackageReference "Then" */,
 			);
 			productRefGroup = C00C0F5729F3B0C7002C4D14 /* Products */;
 			projectDirPath = "";
@@ -142,9 +232,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C00C0F5E29F3B0C7002C4D14 /* ViewController.swift in Sources */,
+				C00C0F8A29F3BF0E002C4D14 /* Photo.swift in Sources */,
+				C00C0F7329F3B1DB002C4D14 /* Carrot+.swift in Sources */,
+				C00C0F7929F3B53E002C4D14 /* CarrotTableViewCell.swift in Sources */,
+				C00C0F5E29F3B0C7002C4D14 /* CarrotViewController.swift in Sources */,
 				C00C0F5A29F3B0C7002C4D14 /* AppDelegate.swift in Sources */,
+				C00C0F7E29F3B5F6002C4D14 /* UIView+.swift in Sources */,
+				C00C0F8029F3B743002C4D14 /* BaseViewController.swift in Sources */,
+				C00C0F7729F3B26D002C4D14 /* UIImage+.swift in Sources */,
+				C00C0F7129F3B1B9002C4D14 /* Carrot.swift in Sources */,
 				C00C0F5C29F3B0C7002C4D14 /* SceneDelegate.swift in Sources */,
+				C00C0F8829F3BEF4002C4D14 /* PhotoCell.swift in Sources */,
+				C00C0F8629F3BEAF002C4D14 /* PhotoViewController.swift in Sources */,
+				C00C0F8C29F3C062002C4D14 /* Photo+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +462,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		C00C0F7A29F3B574002C4D14 /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -369,6 +477,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C00C0F6D29F3B121002C4D14 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		C00C0F7B29F3B574002C4D14 /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C00C0F7A29F3B574002C4D14 /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
