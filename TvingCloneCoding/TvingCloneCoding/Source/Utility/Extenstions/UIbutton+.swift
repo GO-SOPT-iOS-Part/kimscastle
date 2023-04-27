@@ -110,3 +110,34 @@ extension UIButton {
         self.setImage(type.loginImage, for: type.controlState)
     }
 }
+
+extension UIButton {
+    enum ImageButtonType {
+        case back
+        case alert
+        case setting
+        case profile
+        
+        var buttonImage: UIImage? {
+            switch self {
+            case .back:
+                return UIImage(named: Constant.ImageName.backButton)
+            case .alert:
+                return UIImage(named: Constant.ImageName.alertImage)
+            case .setting:
+                return UIImage(named: Constant.ImageName.settingImage)
+            case .profile:
+                return UIImage(named: Constant.ImageName.profileImage)
+            }
+        }
+    }
+    
+    static func imageButton(_ type: ImageButtonType, _ tintColor: UIColor? = .designSystem(.white), action: @escaping ButtonAction) -> UIButton {
+        let button = UIButton()
+        button.setImage(type.buttonImage, for: .normal)
+        button.tintColor = tintColor
+        button.addButtonAction(action)
+        return button
+    }
+    
+}

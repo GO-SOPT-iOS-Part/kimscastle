@@ -7,11 +7,11 @@
 import UIKit.UIControl
 
 extension UIControl {
-    func addButtonAction(for controlEvents: UIControl.Event = .touchUpInside, _ closure: @escaping (_ sender: UIButton) -> ()) {
+    func addButtonAction(for controlEvents: UIControl.Event = .touchUpInside, _ closure: @escaping ButtonAction) {
         @objc class ClosureSleeve: NSObject {
-            let closure: (UIButton) -> ()
+            let closure: ButtonAction
             
-            init(_ closure: @escaping (UIButton) -> ()) {
+            init(_ closure: @escaping ButtonAction) {
                 self.closure = closure
             }
             

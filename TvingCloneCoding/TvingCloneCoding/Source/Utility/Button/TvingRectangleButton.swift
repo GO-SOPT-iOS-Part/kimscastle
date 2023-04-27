@@ -1,5 +1,5 @@
 //
-//  TvingButton.swift
+//  TvingRectangleButton.swift
 //  TvingCloneCoding
 //
 //  Created by uiskim on 2023/04/13.

@@ -14,6 +14,12 @@ struct Constant {
         static let showPasswordButton = "eye"
         static let backButton = "NavigationBackButton"
         static let tvingMainImage = "TvingMainImage"
+        static let alertImage = "alert"
+        static let settingImage = "setting"
+        static let cashImage = "cash"
+        static let ticketImage = "ticket"
+        static let profileImage = "profileImage"
+        static let logo = "tvingWhiteLogo"
     }
     
     struct ButtonTitle {

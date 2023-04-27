@@ -62,7 +62,8 @@ private extension LoginCompletedViewController {
     
     func setButtonTarget() {
         presentMainViewControllerButton.addButtonAction { sender in
-            self.dismiss(animated: true)
+            let mainViewController = MainViewController()
+            self.navigationController?.pushViewController(mainViewController, animated: true)
         }
     }
 }
