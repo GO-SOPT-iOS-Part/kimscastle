@@ -99,8 +99,19 @@ private extension LoginViewController {
     }
     
     func setButtonTarget() {
-        loginSettingView.makeNicknameButton.addTarget(self, action: #selector(makeNicknameButtonTapped(_:)), for: .touchUpInside)
-        loginButton.addTarget(self, action: #selector(loginButtonTapped(_:)), for: .touchUpInside)
+        loginSettingView.makeNicknameButton.addButtonAction { sender in
+            let bottomSheetVC = LoginNicknameBottomSheetViewController(bottomSheetHeightPercentage: 50)
+            bottomSheetVC.delegate = self
+            bottomSheetVC.modalPresentationStyle = .overFullScreen
+            self.present(bottomSheetVC, animated: false)
+        }
+        
+        loginButton.addButtonAction { sender in
+            let loginCompletedViewController = LoginCompletedViewController()
+            loginCompletedViewController.modalPresentationStyle = .fullScreen
+            loginCompletedViewController.userNickName = self.nickName
+            self.present(loginCompletedViewController, animated: true)
+        }
     }
     
     func setHierarchy() {
@@ -123,20 +134,6 @@ private extension LoginViewController {
     
     @objc func loginBackButtonTapped(_ sender: UIButton) {
         print("Back Button이 눌렸습니다")
-    }
-    
-    @objc func loginButtonTapped(_ sender: UIButton) {
-        let loginCompletedViewController = LoginCompletedViewController()
-        loginCompletedViewController.modalPresentationStyle = .fullScreen
-        loginCompletedViewController.userNickName = nickName
-        self.present(loginCompletedViewController, animated: true)
-    }
-    
-    @objc func makeNicknameButtonTapped(_ sender: UIButton) {
-        let bottomSheetVC = LoginNicknameBottomSheetViewController(bottomSheetHeightPercentage: 50)
-        bottomSheetVC.delegate = self
-        bottomSheetVC.modalPresentationStyle = .overFullScreen
-        self.present(bottomSheetVC, animated: false)
     }
 }
 

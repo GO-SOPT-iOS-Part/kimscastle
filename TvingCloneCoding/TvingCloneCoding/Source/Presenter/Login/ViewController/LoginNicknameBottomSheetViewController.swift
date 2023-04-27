@@ -99,7 +99,15 @@ extension LoginNicknameBottomSheetViewController {
     }
     
     private func setAddTarget() {
-        saveNicknameButton.addTarget(self, action: #selector(saveNicknameButtonTapped), for: .touchUpInside)
+        saveNicknameButton.addButtonAction { sender in
+            self.hideBottomSheet(bottomSheet: self.bottomSheetView) {
+                if self.presentationController != nil {
+                    guard let nickName = self.nicknameTextField.text else { return }
+                    self.delegate?.sendNickname(nickName)
+                    self.dismiss(animated: true)
+                }
+            }
+        }
     }
     
     private func setLayout() {
@@ -160,16 +168,6 @@ extension LoginNicknameBottomSheetViewController {
     
     @objc func backgroundViewTapped(_ tapRecongnizer: UITapGestureRecognizer) {
         hideBottomSheetAndDismissViewController()
-    }
-    
-    @objc func saveNicknameButtonTapped() {
-        hideBottomSheet(bottomSheet: bottomSheetView) {
-            if self.presentationController != nil {
-                guard let nickName = self.nicknameTextField.text else { return }
-                self.delegate?.sendNickname(nickName)
-                self.dismiss(animated: true)
-            }
-        }
     }
     
     private func hideBottomSheet<T: TvingBottomSheet>(bottomSheet: T, duration: CGFloat = 0.25, completionHandler: @escaping () -> Void) {

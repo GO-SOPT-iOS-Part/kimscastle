@@ -61,10 +61,8 @@ private extension LoginCompletedViewController {
     }
     
     func setButtonTarget() {
-        presentMainViewControllerButton.addTarget(self, action: #selector(presentMainViewControllerButtonTapped(_:)), for: .touchUpInside)
-    }
-    
-    @objc func presentMainViewControllerButtonTapped(_ sender: UIButton) {
-        self.dismiss(animated: true)
+        presentMainViewControllerButton.addButtonAction { sender in
+            self.dismiss(animated: true)
+        }
     }
 }
