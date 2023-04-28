@@ -19,9 +19,9 @@ class MainViewController: UIViewController {
 
 private extension MainViewController {
     func setNavigation() {
-        let push = { self.navigationController?.pushViewController($0, animated: true)}
+        let push = { self.navigationController?.pushViewController($0, animated: false)}
         tvingNavigationBar(.designSystem(.white),
                            left: [UIImageView(image: UIImage(named: Constant.ImageName.logo))],
-                           right: [UIButton.imageButton(.profile, action: { _ in push(SettingViewController()) })])
+                           right: [UIButton.iconButton(.profile, action: { _ in push(SettingViewController()) })], spacing: 2)
     }
 }

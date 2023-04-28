@@ -9,10 +9,10 @@ import UIKit
 
 final class TvingRectangleButton: UIButton {
     
-    init(title: String, buttonType: ButtonActive) {
+    init(title: String, buttonType: ButtonActive, size: ButtonSize = .big) {
         super.init(frame: .zero)
         self.setTitle(title, for: .normal)
-        self.makeActiveTypeButton(activeType: buttonType)
+        self.makeActiveTypeButton(activeType: buttonType, size: size)
     }
     
     required init?(coder: NSCoder) {

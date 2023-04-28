@@ -42,9 +42,28 @@ extension UIButton {
         }
     }
     
-    func makeActiveTypeButton(activeType: ButtonActive) {
+    enum ButtonSize {
+        case small
+        case big
+        
+        var weight: Font.Weight {
+            switch self {
+            case .small : return ._500
+            case .big : return ._600
+            }
+        }
+        
+        var size: Font.Size {
+            switch self {
+            case .small : return ._10
+            case .big : return ._14
+            }
+        }
+    }
+    
+    func makeActiveTypeButton(activeType: ButtonActive, size: ButtonSize = .big) {
         self.layer.cornerRadius = 3
-        self.titleLabel?.font = .pretendard(weight: ._600, size: ._14)
+        self.titleLabel?.font = .pretendard(weight: size.weight, size: size.size)
         configureButton(status: activeType)
     }
     
@@ -112,7 +131,7 @@ extension UIButton {
 }
 
 extension UIButton {
-    enum ImageButtonType {
+    enum IconButtonType {
         case back
         case alert
         case setting
@@ -127,12 +146,19 @@ extension UIButton {
             case .setting:
                 return UIImage(named: Constant.ImageName.settingImage)
             case .profile:
-                return UIImage(named: Constant.ImageName.profileImage)
+                return UIImage(named: Constant.ImageName.smallProfileImage)
             }
         }
     }
     
-    static func imageButton(_ type: ImageButtonType, _ tintColor: UIColor? = .designSystem(.white), action: @escaping ButtonAction) -> UIButton {
+    
+    /// icon모양의 버튼을 만들어주는 함수
+    /// - Parameters:
+    ///   - type: 이미지를 바로 리턴해주는 변수
+    ///   - tintColor: 버튼의 tint color
+    ///   - action: 버튼의 액션을 처리해주는 함수
+    /// - Returns: uibutton
+    static func iconButton(_ type: IconButtonType, _ tintColor: UIColor? = .designSystem(.white), action: @escaping ButtonAction) -> UIButton {
         let button = UIButton()
         button.setImage(type.buttonImage, for: .normal)
         button.tintColor = tintColor

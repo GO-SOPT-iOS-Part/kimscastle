@@ -18,7 +18,8 @@ struct Constant {
         static let settingImage = "setting"
         static let cashImage = "cash"
         static let ticketImage = "ticket"
-        static let profileImage = "profileImage"
+        static let smallProfileImage = "SmallProfileImage"
+        static let bigProfileImage = "BigProfileImage"
         static let logo = "tvingWhiteLogo"
     }
     

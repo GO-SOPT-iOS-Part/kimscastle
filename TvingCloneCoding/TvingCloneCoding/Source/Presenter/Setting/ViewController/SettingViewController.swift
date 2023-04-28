@@ -46,9 +46,9 @@ final class SettingViewController: UIViewController {
 private extension SettingViewController {
     func setNavigation() {
         tvingNavigationBar(.designSystem(.white),
-                           left: [UIButton.imageButton(.back, action: { _ in self.navigationController?.popViewController(animated: true) })],
-                           right: [UIButton.imageButton(.setting, action: { _ in print("알람View로 이동")}),
-                                   UIButton.imageButton(.alert, action: { _ in print("설정View로 이동")})])
+                           left: [UIButton.iconButton(.back, action: { _ in self.navigationController?.popViewController(animated: true) })],
+                           right: [UIButton.iconButton(.setting, action: { _ in print("알람View로 이동")}),
+                                   UIButton.iconButton(.alert, action: { _ in print("설정View로 이동")})], spacing: 2)
     }
     
     func setUI() {
