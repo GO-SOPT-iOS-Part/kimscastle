@@ -32,36 +32,36 @@ final class SettingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .designSystem(.black)
         setNavigation()
         setUI()
         setHierarchy()
         setLayout()
         setButtonTarget()
     }
-
-
 }
 
 private extension SettingViewController {
     func setNavigation() {
+
         tvingNavigationBar(.designSystem(.white),
                            left: [UIButton.iconButton(.back, action: { _ in self.navigationController?.popViewController(animated: true) })],
                            right: [UIButton.iconButton(.setting, action: { _ in print("알람View로 이동")}),
-                                   UIButton.iconButton(.alert, action: { _ in print("설정View로 이동")})], spacing: 2)
+                                   UIButton.iconButton(.alert, action: { _ in print("설정View로 이동")})],
+                           spacing: 10)
     }
     
     func setUI() {
     }
     
     func setHierarchy() {
-        view.addSubviews(settingTableView)
+//        view.addSubviews(settingTableView)
     }
     
     func setLayout() {
-        settingTableView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
+//        settingTableView.snp.makeConstraints { make in
+//            make.edges.equalToSuperview()
+//        }
     }
     
     func setButtonTarget() {

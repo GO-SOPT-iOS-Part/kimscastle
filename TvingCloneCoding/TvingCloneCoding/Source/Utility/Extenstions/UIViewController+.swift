@@ -11,12 +11,6 @@ import UIKit
 extension UIViewController {
     func tvingNavigationBar(_ tintColor: UIColor?, left leftItems: [some UIView], right rightItems: [some UIView], spacing: CGFloat) {
         typealias MakeStackViewClosure<T: UIView> = ([T], CGFloat) -> UIStackView
-        let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = .designSystem(.mainRed)
-        self.navigationController?.navigationBar.standardAppearance = appearance
-        self.navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        self.navigationController?.navigationBar.tintColor = tintColor
-        
         let makeStackView: MakeStackViewClosure = { views, spacing in
             return {
                 let stackView = UIStackView(arrangedSubviews: views)
@@ -27,6 +21,10 @@ extension UIViewController {
                 return stackView
             }()
         }
+        self.navigationController?.navigationBar.tintColor = tintColor
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: makeStackView(rightItems, spacing))
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: makeStackView(leftItems, spacing))
         

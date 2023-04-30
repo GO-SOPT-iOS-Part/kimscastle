@@ -25,10 +25,13 @@ final class LoginCompletedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
+        self.navigationController?.navigationBar.barStyle = .black
         setHierarchy()
         setLayout()
         setButtonTarget()
     }
+
+
 
 }
 
