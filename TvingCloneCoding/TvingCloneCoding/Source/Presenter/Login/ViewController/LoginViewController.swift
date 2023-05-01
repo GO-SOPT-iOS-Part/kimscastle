@@ -22,6 +22,7 @@ final class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .designSystem(.black)
+        self.navigationController?.navigationBar.barStyle = .black
         setHierarchy()
         setUI()
         setNavigationBar()
@@ -108,9 +109,8 @@ private extension LoginViewController {
         
         loginButton.addButtonAction { sender in
             let loginCompletedViewController = LoginCompletedViewController()
-            loginCompletedViewController.modalPresentationStyle = .fullScreen
             loginCompletedViewController.userNickName = self.nickName
-            self.present(loginCompletedViewController, animated: true)
+            self.navigationController?.pushViewController(loginCompletedViewController, animated: true)
         }
     }
     
@@ -124,17 +124,12 @@ private extension LoginViewController {
     }
     
     func setNavigationBar() {
-        let leftBarButtonItem = UIBarButtonItem(image: UIImage.setNavigationBackButtonImage,
-                                                style: .plain,
-                                                target: nil,
-                                                action: #selector(loginBackButtonTapped(_:)))
-        self.navigationController?.navigationBar.tintColor = .designSystem(.grayD6D6D6)
-        self.navigationItem.leftBarButtonItem = leftBarButtonItem
+        tvingNavigationBar(.designSystem(.grayD6D6D6),
+                           left: [UIButton.iconButton(.back, action: { _ in print("back Button이 눌렸습니다") })],
+                           right: [],
+                           spacing: 0)
     }
-    
-    @objc func loginBackButtonTapped(_ sender: UIButton) {
-        print("Back Button이 눌렸습니다")
-    }
+
 }
 
 extension LoginViewController: PassingNicknameDataProtocol {

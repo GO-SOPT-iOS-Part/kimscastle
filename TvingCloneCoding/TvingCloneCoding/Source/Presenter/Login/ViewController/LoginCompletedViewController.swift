@@ -25,14 +25,11 @@ final class LoginCompletedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
-        self.navigationController?.navigationBar.barStyle = .black
         setHierarchy()
         setLayout()
         setButtonTarget()
+        tvingNavigationBar(.white, left: [], right: [], spacing: 0)
     }
-
-
-
 }
 
 private extension LoginCompletedViewController {
