@@ -16,7 +16,7 @@ extension UIImage {
 extension UIImage {
     
     /// Label안에 Image를 넣을때 적절한 image타입으로 만들어주는 함수
-    /// - Returns: <#description#>
+    /// - Returns: NSAttributedString
     func makeSubscriptionAttachImage() -> NSAttributedString {
         let container = NSTextAttachment()
         container.image = self

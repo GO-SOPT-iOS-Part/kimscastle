@@ -39,10 +39,13 @@ final class LoginViewController: UIViewController {
 extension LoginViewController: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
         guard let text = textField.text, let tvingTextField = textField as? TvingTextField else { return }
-        guard let emailText = emailTextField.text, let passwordText = passwordTextField.text else { return }
+        //guard let emailText = emailTextField.text, let passwordText = passwordTextField.text else { return }
         
         tvingTextField.showClearButton = text.isNotEmpty ? false : true
-        loginButton.makeActiveTypeButton(activeType: checkUserInputIsValid(emailText)(passwordText)(nickName) ? .active : .nonActive)
+        loginButton.makeActiveTypeButton(activeType: .active)
+        
+        // MARK: - 완성되면 다시 원상태로
+        //loginButton.makeActiveTypeButton(activeType: checkUserInputIsValid(emailText)(passwordText)(nickName) ? .active : .nonActive)
     }
     
     private func checkUserInputIsValid(_ email: String) -> (_ password: String) -> (_ nickName: String?) -> Bool {

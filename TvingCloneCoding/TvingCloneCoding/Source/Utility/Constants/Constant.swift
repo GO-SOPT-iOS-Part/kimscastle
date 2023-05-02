@@ -20,7 +20,7 @@ struct Constant {
         static let ticketImage = "ticket"
         static let smallProfileImage = "SmallProfileImage"
         static let bigProfileImage = "BigProfileImage"
-        static let logo = "tvingWhiteLogo"
+        static let logo = "TvingLogo"
     }
     
     struct ButtonTitle {

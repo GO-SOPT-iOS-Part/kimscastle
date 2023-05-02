@@ -36,3 +36,10 @@ extension UIView {
         views.forEach { self.addSubview($0) }
     }
 }
+
+extension UIView {
+    /// 해당View의 SafeArea Height를 반환해주는 계산속성
+    var safeAreaHeight: CGFloat {
+        return self.safeAreaLayoutGuide.layoutFrame.size.height
+    }
+}
