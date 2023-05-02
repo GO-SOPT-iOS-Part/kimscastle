@@ -8,19 +8,37 @@
 import UIKit
 
 struct Constant {
-    struct ImageName {
-        static let clearButton = "x-circle"
-        static let hidePasswordButton = "eye-off"
-        static let showPasswordButton = "eye"
-        static let backButton = "NavigationBackButton"
-        static let tvingMainImage = "TvingMainImage"
-        static let alertImage = "alert"
-        static let settingImage = "setting"
-        static let cashImage = "cash"
-        static let ticketImage = "ticket"
-        static let smallProfileImage = "SmallProfileImage"
-        static let bigProfileImage = "BigProfileImage"
-        static let logo = "TvingLogo"
+    enum ImageName: String {
+        /// 버튼이미지
+        case clearButton = "x-circle"
+        case hidePasswordButton = "eye-off"
+        case showPasswordButton = "eye"
+        case backButton = "NavigationBackButton"
+        case tvingMainImage = "TvingMainImage"
+        case alertImage = "alert"
+        case settingImage = "setting"
+        case cashImage = "cash"
+        case ticketImage = "ticket"
+        case smallProfileImage = "SmallProfileImage"
+        case bigProfileImage = "BigProfileImage"
+        case logo = "TvingLogo"
+        
+        
+        /// Carusel이미지
+        case poster1 = "poster1"
+        case poster2 = "poster2"
+        case poster3 = "poster3"
+        case poster4 = "poster4"
+        
+        /// Program이미지
+        case program1 = "program1"
+        case program2 = "program2"
+        case program3 = "program3"
+        case program4 = "program4"
+        
+        var real: String {
+            return self.rawValue
+        }
     }
     
     struct ButtonTitle {

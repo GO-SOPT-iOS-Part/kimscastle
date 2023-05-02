@@ -37,31 +37,3 @@ extension UIViewController {
     }
 }
 
-extension UIViewController {
-    @frozen
-    enum PageType: String, CaseIterable {
-        case home = "홈"
-        case realTime = "ㅁ실시간"
-        case tvProgram = "TV프로그램"
-        case movie = "영화"
-        case prarmount = "파라마운트+"
-        case kid = "키즈"
-        
-        var viewController: UIViewController {
-            switch self {
-            case .home:
-                return HomeViewController()
-            case .realTime:
-                return RealTimeViewController()
-            case .tvProgram:
-                return TvProgramViewController()
-            case .movie:
-                return MovieViewController()
-            case .prarmount:
-                return ParamountViewController()
-            case .kid:
-                return KidViewController()
-            }
-        }
-    }
-}

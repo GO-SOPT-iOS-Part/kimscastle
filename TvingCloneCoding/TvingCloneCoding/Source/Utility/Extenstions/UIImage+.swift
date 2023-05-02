@@ -9,7 +9,13 @@ import UIKit
 
 extension UIImage {    
     static var setNavigationBackButtonImage: UIImage? {
-        return UIImage(named: Constant.ImageName.backButton)
+        return UIImage(named: Constant.ImageName.backButton.rawValue)
+    }
+}
+
+extension UIImage {
+    static func assetImage(_ name: Constant.ImageName) -> UIImage? {
+        return UIImage(named: name.real)
     }
 }
 

@@ -10,7 +10,7 @@ import UIKit
 class SettingProfileView: UIView {
     
     private let profileImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: Constant.ImageName.bigProfileImage))
+        let imageView = UIImageView(image: .assetImage(.bigProfileImage))
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()

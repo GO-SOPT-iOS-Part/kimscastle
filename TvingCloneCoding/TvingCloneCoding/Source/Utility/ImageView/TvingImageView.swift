@@ -9,9 +9,9 @@ import UIKit
 
 final class TvingImageView: UIImageView {
 
-    init(imageName: String, contentMode: ContentMode) {
+    init(imageName: Constant.ImageName, contentMode: ContentMode) {
         super.init(frame: .zero)
-        self.image = UIImage(named: imageName)
+        self.image = .assetImage(imageName)
         self.contentMode = contentMode
     }
     

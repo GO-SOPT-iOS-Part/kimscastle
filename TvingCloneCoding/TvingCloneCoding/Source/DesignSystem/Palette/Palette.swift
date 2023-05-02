@@ -13,4 +13,5 @@ enum Palette: String {
     case grayD6D6D6
     case black
     case white
+    case clear
 }

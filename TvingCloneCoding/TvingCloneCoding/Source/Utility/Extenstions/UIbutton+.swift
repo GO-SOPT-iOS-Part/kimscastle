@@ -105,11 +105,11 @@ extension UIButton {
         var loginImage: UIImage? {
             switch self {
             case .clear:
-                return UIImage(named: Constant.ImageName.clearButton)
+                return .assetImage(.clearButton)
             case .hidePassword:
-                return UIImage(named: Constant.ImageName.hidePasswordButton)
+                return .assetImage(.hidePasswordButton)
             case .showPassword:
-                return UIImage(named: Constant.ImageName.showPasswordButton)
+                return .assetImage(.showPasswordButton)
             }
         }
         
@@ -140,13 +140,13 @@ extension UIButton {
         var buttonImage: UIImage? {
             switch self {
             case .back:
-                return UIImage(named: Constant.ImageName.backButton)
+                return .assetImage(.backButton)
             case .alert:
-                return UIImage(named: Constant.ImageName.alertImage)
+                return .assetImage(.alertImage)
             case .setting:
-                return UIImage(named: Constant.ImageName.settingImage)
+                return .assetImage(.settingImage)
             case .profile:
-                return UIImage(named: Constant.ImageName.smallProfileImage)
+                return .assetImage(.smallProfileImage)
             }
         }
     }

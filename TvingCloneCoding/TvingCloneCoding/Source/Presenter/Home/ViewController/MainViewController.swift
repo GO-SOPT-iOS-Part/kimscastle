@@ -24,7 +24,7 @@ final class MainViewController: UIViewController {
     
     private var dataSourceViewController: [UIViewController] = []
     
-//    private var menu = CustomMenuBar()
+    private var menuBar = TvingMenuBar()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,13 +52,19 @@ private extension MainViewController {
     func setHierarchy() {
         addChild(mainPageViewController)
         view.addSubview(mainPageViewController.view)
-//        view.addSubview(menu)
+        view.addSubview(menuBar)
     }
     
     func setLayout() {
         mainPageViewController.view.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(-view.safeAreaHeight)
             make.leading.trailing.bottom.equalToSuperview()
+        }
+        menuBar.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.leading.equalToSuperview().inset(15)
+            make.trailing.equalToSuperview().inset(15)
+            make.height.equalTo(50)
         }
     }
     
@@ -69,28 +75,33 @@ private extension MainViewController {
     func setDelegate() {
         mainPageViewController.dataSource = self
         mainPageViewController.delegate = self
+        menuBar.delegate = self
     }
     
     func setNavigation() {
         let push = { self.navigationController?.pushViewController($0, animated: false)}
         tvingNavigationBar(.designSystem(.white),
-                           left: [UIImageView(image: UIImage(named: Constant.ImageName.logo))],
+                           left: [UIImageView(image: .assetImage(.logo))],
                            right: [UIButton.iconButton(.profile, action: { _ in push(SettingViewController()) })], spacing: 2)
     }
     
     func setPageViewController() {
-        dataSourceViewController = PageType.allCases.map{$0.viewController}
+        dataSourceViewController = MenuPageType.allCases.map{$0.viewController}
     }
     
     func changeViewController(before beforeIndex: Int, after newIndex: Int) {
         let direction: UIPageViewController.NavigationDirection = beforeIndex < newIndex ? .forward : .reverse
         mainPageViewController.setViewControllers([dataSourceViewController[currentPage]], direction: direction, animated: true, completion: nil)
-//        menu.isSelected = newIndex
+        menuBar.isSelected = newIndex
     }
 }
 
 extension MainViewController: UIPageViewControllerDelegate {
-    
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        guard let currentVC = pageViewController.viewControllers?.first,
+              let currentIndex = dataSourceViewController.firstIndex(of: currentVC) else { return }
+        currentPage = currentIndex
+    }
 }
 
 extension MainViewController: UIPageViewControllerDataSource {
@@ -106,5 +117,11 @@ extension MainViewController: UIPageViewControllerDataSource {
         let previousIndex = currentIndex - 1
         guard previousIndex >= 0 else { return nil }
         return dataSourceViewController[previousIndex]
+    }
+}
+
+extension MainViewController: MenuItemDelegate {
+    func menuView(didSelectItemAt indexPath: IndexPath) {
+        currentPage = indexPath.row
     }
 }

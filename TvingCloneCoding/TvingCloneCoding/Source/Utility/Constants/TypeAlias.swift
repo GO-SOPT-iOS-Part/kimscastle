@@ -1,8 +1,8 @@
 //
-//  CustomType.swift
+//  TypeAlias.swift
 //  TvingCloneCoding
 //
-//  Created by uiskim on 2023/04/27.
+//  Created by uiskim on 2023/05/03.
 //
 
 import UIKit

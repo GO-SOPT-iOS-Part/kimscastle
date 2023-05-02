@@ -17,8 +17,16 @@
 		C09E96DF2A01501600475DDC /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E96DE2A01501600475DDC /* MovieViewController.swift */; };
 		C09E96E12A01502200475DDC /* ParamountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E96E02A01502200475DDC /* ParamountViewController.swift */; };
 		C09E96E32A01503400475DDC /* KidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E96E22A01503400475DDC /* KidViewController.swift */; };
+		C09E96E62A015A6F00475DDC /* TvingMenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E96E52A015A6F00475DDC /* TvingMenuBar.swift */; };
+		C09E96E82A015A9200475DDC /* MenuItemDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E96E72A015A9200475DDC /* MenuItemDelegate.swift */; };
+		C09E96EA2A015C0400475DDC /* TvingMenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E96E92A015C0400475DDC /* TvingMenuCollectionViewCell.swift */; };
+		C09E96EE2A017A4C00475DDC /* MenuPageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E96ED2A017A4C00475DDC /* MenuPageType.swift */; };
+		C09E96F02A017A6B00475DDC /* TypeAlias.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E96EF2A017A6B00475DDC /* TypeAlias.swift */; };
+		C09E96F22A017AAF00475DDC /* CarueselPoster.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E96F12A017AAF00475DDC /* CarueselPoster.swift */; };
+		C09E96F62A017B8100475DDC /* VideoInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E96F52A017B8100475DDC /* VideoInfo.swift */; };
+		C09E96F82A017BB800475DDC /* MainViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E96F72A017BB800475DDC /* MainViewData.swift */; };
+		C09E96FA2A017BDB00475DDC /* ListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E96F92A017BDB00475DDC /* ListSection.swift */; };
 		C0A9FEB329FA285800B89AC7 /* UIControl+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A9FEB229FA285800B89AC7 /* UIControl+.swift */; };
-		C0A9FEE329FAAD8600B89AC7 /* CustomType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A9FEE229FAAD8600B89AC7 /* CustomType.swift */; };
 		C0A9FEEA29FAAE3900B89AC7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A9FEE929FAAE3900B89AC7 /* MainViewController.swift */; };
 		C0A9FEEE29FAB4B000B89AC7 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A9FEED29FAB4B000B89AC7 /* SettingViewController.swift */; };
 		C0A9FEF129FABD1500B89AC7 /* TableViewCellReuseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A9FEF029FABD1500B89AC7 /* TableViewCellReuseProtocol.swift */; };
@@ -69,8 +77,16 @@
 		C09E96DE2A01501600475DDC /* MovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
 		C09E96E02A01502200475DDC /* ParamountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParamountViewController.swift; sourceTree = "<group>"; };
 		C09E96E22A01503400475DDC /* KidViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KidViewController.swift; sourceTree = "<group>"; };
+		C09E96E52A015A6F00475DDC /* TvingMenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvingMenuBar.swift; sourceTree = "<group>"; };
+		C09E96E72A015A9200475DDC /* MenuItemDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemDelegate.swift; sourceTree = "<group>"; };
+		C09E96E92A015C0400475DDC /* TvingMenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvingMenuCollectionViewCell.swift; sourceTree = "<group>"; };
+		C09E96ED2A017A4C00475DDC /* MenuPageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPageType.swift; sourceTree = "<group>"; };
+		C09E96EF2A017A6B00475DDC /* TypeAlias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAlias.swift; sourceTree = "<group>"; };
+		C09E96F12A017AAF00475DDC /* CarueselPoster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarueselPoster.swift; sourceTree = "<group>"; };
+		C09E96F52A017B8100475DDC /* VideoInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoInfo.swift; sourceTree = "<group>"; };
+		C09E96F72A017BB800475DDC /* MainViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewData.swift; sourceTree = "<group>"; };
+		C09E96F92A017BDB00475DDC /* ListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSection.swift; sourceTree = "<group>"; };
 		C0A9FEB229FA285800B89AC7 /* UIControl+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+.swift"; sourceTree = "<group>"; };
-		C0A9FEE229FAAD8600B89AC7 /* CustomType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomType.swift; sourceTree = "<group>"; };
 		C0A9FEE929FAAE3900B89AC7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C0A9FEED29FAB4B000B89AC7 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		C0A9FEF029FABD1500B89AC7 /* TableViewCellReuseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellReuseProtocol.swift; sourceTree = "<group>"; };
@@ -144,6 +160,41 @@
 			path = MainPages;
 			sourceTree = "<group>";
 		};
+		C09E96E42A015A5A00475DDC /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				C09E96E52A015A6F00475DDC /* TvingMenuBar.swift */,
+				C09E96E92A015C0400475DDC /* TvingMenuCollectionViewCell.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		C09E96EB2A0179AE00475DDC /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				C09E96F72A017BB800475DDC /* MainViewData.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		C09E96EC2A017A3300475DDC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C09E96F12A017AAF00475DDC /* CarueselPoster.swift */,
+				C09E96F52A017B8100475DDC /* VideoInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C09E96FB2A017BEB00475DDC /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				C09E96F92A017BDB00475DDC /* ListSection.swift */,
+				C09E96ED2A017A4C00475DDC /* MenuPageType.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
 		C0A9FEB429FA2A4200B89AC7 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				C0A9FEF029FABD1500B89AC7 /* TableViewCellReuseProtocol.swift */,
+				C09E96E72A015A9200475DDC /* MenuItemDelegate.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -309,6 +361,7 @@
 		C0E4630129E7CE40005CCEC6 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				C09E96EB2A0179AE00475DDC /* Data */,
 				C0E4630429E7CE84005CCEC6 /* Presenter */,
 				C0E462D629E6FA01005CCEC6 /* DesignSystem */,
 				C0E4630329E7CE69005CCEC6 /* Utility */,
@@ -329,6 +382,7 @@
 		C0E4630329E7CE69005CCEC6 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				C09E96E42A015A5A00475DDC /* Menu */,
 				C0A9FEEF29FABCCF00B89AC7 /* Protocol */,
 				C00C0EE129EA92E9002C4D14 /* BottomSheet */,
 				C0E4632C29E814D7005CCEC6 /* ImageView */,
@@ -371,8 +425,10 @@
 		C0E4630929E7D064005CCEC6 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				C09E96FB2A017BEB00475DDC /* Enum */,
+				C09E96EC2A017A3300475DDC /* Model */,
 				C0E4630A29E7D087005CCEC6 /* Constant.swift */,
-				C0A9FEE229FAAD8600B89AC7 /* CustomType.swift */,
+				C09E96EF2A017A6B00475DDC /* TypeAlias.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -507,13 +563,16 @@
 				C0A9FEF129FABD1500B89AC7 /* TableViewCellReuseProtocol.swift in Sources */,
 				C0E462EC29E6FB2F005CCEC6 /* Font.swift in Sources */,
 				C00C0EE529EAA016002C4D14 /* UIViewController+.swift in Sources */,
+				C09E96F82A017BB800475DDC /* MainViewData.swift in Sources */,
 				C09E96DB2A014FFC00475DDC /* HomeViewController.swift in Sources */,
 				C0A9FEF529FBEF2000B89AC7 /* SettingHeaderView.swift in Sources */,
+				C09E96F22A017AAF00475DDC /* CarueselPoster.swift in Sources */,
 				C0E462C529E6F646005CCEC6 /* LoginViewController.swift in Sources */,
 				C0E4632129E80056005CCEC6 /* LoginSettingView.swift in Sources */,
 				C00C0EE029EA9294002C4D14 /* CGFloat+.swift in Sources */,
 				C0E462F929E703D9005CCEC6 /* String+.swift in Sources */,
 				C0E4632E29E814E3005CCEC6 /* TvingImageView.swift in Sources */,
+				C09E96E82A015A9200475DDC /* MenuItemDelegate.swift in Sources */,
 				C0E462FB29E70400005CCEC6 /* UITextField+.swift in Sources */,
 				C0E4632929E80F00005CCEC6 /* TvingLabel.swift in Sources */,
 				C0A9FEFA29FBF08300B89AC7 /* SettingProfileView.swift in Sources */,
@@ -525,22 +584,27 @@
 				C0E4630B29E7D087005CCEC6 /* Constant.swift in Sources */,
 				C0E4632629E80D28005CCEC6 /* TvingRectangleButton.swift in Sources */,
 				C00C0EE329EA9302002C4D14 /* TvingBottomSheet.swift in Sources */,
+				C09E96FA2A017BDB00475DDC /* ListSection.swift in Sources */,
 				C00C0EDE29EA881A002C4D14 /* LoginNicknameBottomSheetViewController.swift in Sources */,
 				C0E462C329E6F646005CCEC6 /* SceneDelegate.swift in Sources */,
 				C09E96DD2A01500B00475DDC /* TvProgramViewController.swift in Sources */,
 				C0E462F529E7037A005CCEC6 /* CGColor+.swift in Sources */,
+				C09E96EE2A017A4C00475DDC /* MenuPageType.swift in Sources */,
 				C0E462F729E703BC005CCEC6 /* UIView+.swift in Sources */,
 				C0E462F129E6FD67005CCEC6 /* UIColor+.swift in Sources */,
 				C0A9FEF729FBEF2D00B89AC7 /* SettingFooterView.swift in Sources */,
+				C09E96F62A017B8100475DDC /* VideoInfo.swift in Sources */,
 				C0E4630D29E7D1AC005CCEC6 /* UIImage+.swift in Sources */,
 				C0E462F329E6FD7C005CCEC6 /* Palette.swift in Sources */,
 				C09E96DF2A01501600475DDC /* MovieViewController.swift in Sources */,
 				C0A9FEEA29FAAE3900B89AC7 /* MainViewController.swift in Sources */,
 				C09E96E32A01503400475DDC /* KidViewController.swift in Sources */,
 				C09E96E12A01502200475DDC /* ParamountViewController.swift in Sources */,
-				C0A9FEE329FAAD8600B89AC7 /* CustomType.swift in Sources */,
 				C0E462FD29E70418005CCEC6 /* UIbutton+.swift in Sources */,
 				C09E96D92A014FE600475DDC /* RealTimeViewController.swift in Sources */,
+				C09E96EA2A015C0400475DDC /* TvingMenuCollectionViewCell.swift in Sources */,
+				C09E96F02A017A6B00475DDC /* TypeAlias.swift in Sources */,
+				C09E96E62A015A6F00475DDC /* TvingMenuBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
