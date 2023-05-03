@@ -27,7 +27,7 @@ final class SettingViewController: UIViewController {
     }
     
     private let data = [UserSettingType.allCases.map {$0.rawValue}, AppInfoType.allCases.map {$0.rawValue}]
-    
+    private let backButton: UIButton = .iconButton(.back)
     private let settingTableView = UITableView(frame: .zero, style: .grouped)
 
     override func viewDidLoad() {
@@ -43,29 +43,34 @@ final class SettingViewController: UIViewController {
 
 private extension SettingViewController {
     func setNavigation() {
-
+        self.navigationController?.isNavigationBarHidden = false
         tvingNavigationBar(.designSystem(.white),
-                           left: [UIButton.iconButton(.back, action: { _ in self.navigationController?.popViewController(animated: true) })],
-                           right: [UIButton.iconButton(.setting, action: { _ in print("알람View로 이동")}),
-                                   UIButton.iconButton(.alert, action: { _ in print("설정View로 이동")})],
+                           left: [backButton],
+                           right: [UIButton.iconButton(.setting),
+                                   UIButton.iconButton(.alert)],
                            spacing: 10)
     }
     
     func setUI() {
+        view.backgroundColor = .designSystem(.black)
     }
     
     func setHierarchy() {
-//        view.addSubviews(settingTableView)
+        view.addSubviews(settingTableView)
     }
     
     func setLayout() {
-//        settingTableView.snp.makeConstraints { make in
-//            make.edges.equalToSuperview()
-//        }
+        settingTableView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.leading.trailing.bottom.equalToSuperview()
+        }
     }
     
     func setButtonTarget() {
-        
+        backButton.addButtonAction { _ in
+            print("✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅")
+            self.navigationController?.popViewController(animated: true)
+        }
     }
 }
 

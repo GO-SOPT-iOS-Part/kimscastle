@@ -9,7 +9,8 @@ import UIKit
 
 import SnapKit
 
-class QuickVODCollectionViewCell: UICollectionViewCell {
+final class QuickVODCollectionViewCell: UICollectionViewCell {
+    
     static let cellId = "QuickVODCollectionViewCell"
     
     var data: VideoInfo? {
@@ -20,25 +21,25 @@ class QuickVODCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    let posterView: UIImageView = {
+    private let posterView: UIImageView = {
         let view = UIImageView()
         view.contentMode = .scaleToFill
         view.clipsToBounds = true
         return view
     }()
     
-    let title: UILabel = {
+    private let title: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 10, weight: .regular)
-        label.textColor = .white
+        label.font = .pretendard(weight: ._500, size: ._10)
+        label.textColor = .designSystem(.white)
         return label
     }()
     
-    let subtitle: UILabel = {
+    private let subtitle: UILabel = {
         let label = UILabel()
         label.text = "60화"
-        label.font = .systemFont(ofSize: 10, weight: .regular)
-        label.textColor = .cyan
+        label.font = .pretendard(weight: ._500, size: ._10)
+        label.textColor = .designSystem(.gray626262)
         return label
     }()
     
@@ -47,6 +48,7 @@ class QuickVODCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(posterView)
         contentView.addSubview(title)
         contentView.addSubview(subtitle)
+        
         posterView.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
         }

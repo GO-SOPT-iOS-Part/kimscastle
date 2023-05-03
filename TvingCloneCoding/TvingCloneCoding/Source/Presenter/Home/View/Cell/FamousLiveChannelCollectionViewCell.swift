@@ -6,8 +6,11 @@
 //
 
 import UIKit
+
 import SnapKit
-class FamousLiveChannelCollectionViewCell: UICollectionViewCell {
+
+final class FamousLiveChannelCollectionViewCell: UICollectionViewCell {
+    
     static let cellId = "FamousLiveChannelCollectionViewCell"
     
     var data: VideoInfo? {
@@ -18,34 +21,35 @@ class FamousLiveChannelCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    let posterView: UIImageView = {
+    private let posterView: UIImageView = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFill
         view.clipsToBounds = true
         return view
     }()
     
-    let title: UILabel = {
+    private let title: UILabel = {
         let label = UILabel()
-        label.textColor = .white
-        label.font = .systemFont(ofSize: 10, weight: .regular)
+        label.textColor = .designSystem(.white)
+        label.font = .pretendard(weight: ._500, size: ._10)
         return label
     }()
     
-    let subtitle: UILabel = {
+    private let subtitle: UILabel = {
         let label = UILabel()
         label.text = "34.6%"
-        label.textColor = .cyan
-        label.font = .systemFont(ofSize: 10, weight: .regular)
+        label.textColor = .designSystem(.gray626262)
+        label.font = .pretendard(weight: ._500, size: ._10)
         return label
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .black
+        backgroundColor = .designSystem(.black)
         contentView.addSubview(posterView)
         contentView.addSubview(title)
         contentView.addSubview(subtitle)
+        
         posterView.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
         }

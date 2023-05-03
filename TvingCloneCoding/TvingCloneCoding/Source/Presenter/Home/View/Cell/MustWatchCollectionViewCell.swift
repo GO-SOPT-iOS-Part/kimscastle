@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-class MustWatchCollectionViewCell: UICollectionViewCell {
+final class MustWatchCollectionViewCell: UICollectionViewCell {
     
     static let cellId = "MustWatchCollectionViewCell"
     
@@ -21,23 +21,23 @@ class MustWatchCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    let posterView: UIImageView = {
+    private let posterView: UIImageView = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFit
         view.clipsToBounds = true
         return view
     }()
     
-    let title: UILabel = {
+    private let title: UILabel = {
         let label = UILabel()
-        label.textColor = .white
-        label.font = .systemFont(ofSize: 10, weight: .regular)
+        label.textColor = .designSystem(.white)
+        label.font = .pretendard(weight: ._500, size: ._10)
         return label
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .black
+        backgroundColor = .designSystem(.black)
         contentView.addSubview(posterView)
         contentView.addSubview(title)
 

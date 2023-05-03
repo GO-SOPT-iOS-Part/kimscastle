@@ -1,8 +1,8 @@
 //
-//  CarouselView.swift
-//  ExInfiniteCarousel
+//  CaruselView.swift
+//  TvingCloneCoding
 //
-//  Created by uiskim on 2023/04/26.
+//  Created by uiskim on 2023/05/04.
 //
 
 import UIKit
@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 
 
-final class CarouselView: UIView {
+class CaruselView: UIView {
     
     enum ScrollType {
         case normal
@@ -20,18 +20,14 @@ final class CarouselView: UIView {
     
     var carouselTimer: Timer?
     
-    private var items: [CarueselPoster] = CarueselPoster.dummy()
+    private var items = CarueselPoster.dummy()
     private var initalItemCount: Int = 0
     private var carouselItemCount: Int = 0
     private let initalPage = Constant.Screen.width
 
 
     private lazy var carouselView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        layout.itemSize = .init(width: Constant.Screen.width, height: 594)
-        layout.minimumLineSpacing = 0
-        let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        let view = UICollectionView(frame: .zero, collectionViewLayout: .makeCaruselFlowLayout)
         view.isScrollEnabled = true
         view.showsHorizontalScrollIndicator = false
         view.showsVerticalScrollIndicator = false
@@ -81,8 +77,7 @@ final class CarouselView: UIView {
     }
 }
 
-
-extension CarouselView: UICollectionViewDataSource {
+extension CaruselView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         items.count
     }
@@ -93,7 +88,7 @@ extension CarouselView: UICollectionViewDataSource {
     }
 }
 
-extension CarouselView: UICollectionViewDelegate {
+extension CaruselView: UICollectionViewDelegate {
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         initalizeTimer(interval: 4)
@@ -124,7 +119,7 @@ extension CarouselView: UICollectionViewDelegate {
     }
 }
 
-private extension CarouselView {
+private extension CaruselView {
     
     func setHierarchy() {
         backgroundColor = .white
@@ -194,5 +189,17 @@ private extension CarouselView {
     
     func invalidateTimer() {
         carouselTimer?.invalidate()
+    }
+}
+
+
+
+extension UICollectionViewLayout {
+    static var makeCaruselFlowLayout: UICollectionViewFlowLayout {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.itemSize = .init(width: Constant.Screen.width, height: 594)
+        layout.minimumLineSpacing = 0
+        return layout
     }
 }

@@ -6,8 +6,11 @@
 //
 
 import UIKit
+
 import SnapKit
-class RankingCollectionViewCell: UICollectionViewCell {
+
+final class RankingCollectionViewCell: UICollectionViewCell {
+    
     static let cellId = "RankingCollectionViewCell"
     
     var data: VideoInfo? {
@@ -18,25 +21,25 @@ class RankingCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    let posterView: UIImageView = {
+    private let posterView: UIImageView = {
         let view = UIImageView()
         view.contentMode = .scaleToFill
         view.clipsToBounds = true
         return view
     }()
     
-    let title: UILabel = {
+    private let title: UILabel = {
         let label = UILabel()
-        label.textColor = .white
-        label.font = .systemFont(ofSize: 10, weight: .regular)
+        label.textColor = .designSystem(.white)
+        label.font = .pretendard(weight: ._500, size: ._10)
         return label
     }()
     
-    let subtitle: UILabel = {
+    private let subtitle: UILabel = {
         let label = UILabel()
         label.text = "1등"
-        label.font = .systemFont(ofSize: 10, weight: .regular)
-        label.textColor = .cyan
+        label.font = .pretendard(weight: ._500, size: ._10)
+        label.textColor = .designSystem(.gray626262)
         return label
     }()
     
@@ -48,6 +51,7 @@ class RankingCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(subtitle)
         posterView.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
+            make.bottom.equalTo(title.snp.top)
         }
         
         title.snp.makeConstraints { make in

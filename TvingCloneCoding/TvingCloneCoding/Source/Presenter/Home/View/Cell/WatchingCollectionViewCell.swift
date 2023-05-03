@@ -7,7 +7,9 @@
 
 import UIKit
 import SnapKit
-class WatchingCollectionViewCell: UICollectionViewCell {
+
+final class WatchingCollectionViewCell: UICollectionViewCell {
+    
     static let cellId = "WatchingCollectionViewCell"
     
     var data: VideoInfo? {
@@ -18,25 +20,25 @@ class WatchingCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    let posterView: UIImageView = {
+    private let posterView: UIImageView = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFit
         view.clipsToBounds = true
         return view
     }()
     
-    let title: UILabel = {
+    private let title: UILabel = {
         let label = UILabel()
-        label.textColor = .white
-        label.font = .systemFont(ofSize: 10, weight: .regular)
+        label.textColor = .designSystem(.white)
+        label.font = .pretendard(weight: ._500, size: ._10)
         return label
     }()
     
-    let subtitle: UILabel = {
+    private let subtitle: UILabel = {
         let label = UILabel()
         label.text = "60화"
-        label.font = .systemFont(ofSize: 10, weight: .regular)
-        label.textColor = .cyan
+        label.font = .pretendard(weight: ._500, size: ._10)
+        label.textColor = .designSystem(.gray626262)
         return label
     }()
     

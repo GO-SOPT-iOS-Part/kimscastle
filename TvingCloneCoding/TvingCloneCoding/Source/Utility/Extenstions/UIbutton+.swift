@@ -136,6 +136,7 @@ extension UIButton {
         case alert
         case setting
         case profile
+        case bluetooth
         
         var buttonImage: UIImage? {
             switch self {
@@ -147,6 +148,8 @@ extension UIButton {
                 return .assetImage(.settingImage)
             case .profile:
                 return .assetImage(.smallProfileImage)
+            case .bluetooth:
+                return UIImage(systemName: "square.and.arrow.up")
             }
         }
     }
@@ -158,11 +161,10 @@ extension UIButton {
     ///   - tintColor: 버튼의 tint color
     ///   - action: 버튼의 액션을 처리해주는 함수
     /// - Returns: uibutton
-    static func iconButton(_ type: IconButtonType, _ tintColor: UIColor? = .designSystem(.white), action: @escaping ButtonAction) -> UIButton {
+    static func iconButton(_ type: IconButtonType, _ tintColor: UIColor? = .designSystem(.white)) -> UIButton {
         let button = UIButton()
         button.setImage(type.buttonImage, for: .normal)
         button.tintColor = tintColor
-        button.addButtonAction(action)
         return button
     }
     

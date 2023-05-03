@@ -128,7 +128,7 @@ private extension LoginViewController {
     
     func setNavigationBar() {
         tvingNavigationBar(.designSystem(.grayD6D6D6),
-                           left: [UIButton.iconButton(.back, action: { _ in print("back Button이 눌렸습니다") })],
+                           left: [UIButton.iconButton(.back)],
                            right: [],
                            spacing: 0)
     }
