@@ -57,9 +57,11 @@ private extension MainViewController {
     
     func setLayout() {
         mainPageViewController.view.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(-view.safeAreaHeight)
+            make.top.equalToSuperview().inset(-90)
             make.leading.trailing.bottom.equalToSuperview()
         }
+        mainPageViewController.didMove(toParent: self)
+        
         menuBar.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.leading.equalToSuperview().inset(15)
@@ -69,7 +71,6 @@ private extension MainViewController {
     }
     
     func setButtonTarget() {
-        
     }
     
     func setDelegate() {
@@ -86,7 +87,10 @@ private extension MainViewController {
     }
     
     func setPageViewController() {
-        dataSourceViewController = MenuPageType.allCases.map{$0.viewController}
+        dataSourceViewController = MenuPageType.allCases.map{ $0.viewController }
+//        let homeViewController = HomeViewController()
+//        homeViewController.delegate = self
+//        dataSourceViewController[0] = homeViewController
     }
     
     func changeViewController(before beforeIndex: Int, after newIndex: Int) {

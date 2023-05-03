@@ -19,7 +19,7 @@ enum MenuPageType: String, CaseIterable {
     var viewController: UIViewController {
         switch self {
         case .home:
-            return HomeViewController()
+            return TotalViewController()
         case .realTime:
             return RealTimeViewController()
         case .tvProgram:
