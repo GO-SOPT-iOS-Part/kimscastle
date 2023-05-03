@@ -23,7 +23,7 @@ final class RankingCollectionViewCell: UICollectionViewCell {
     
     private let posterView: UIImageView = {
         let view = UIImageView()
-        view.contentMode = .scaleToFill
+        view.contentMode = .scaleAspectFit
         view.clipsToBounds = true
         return view
     }()

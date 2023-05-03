@@ -7,38 +7,40 @@
 
 import UIKit
 
-class SettingHeaderView: UIView {
+import SnapKit
 
-    enum TicketType {
-        case week
-        case month
-        case year
-        case none
-        
-        var ticketTitle: String {
-            switch self {
-            case .week : return "일주일 이용권을 사용중입니다."
-            case .month : return "한달 이용권을 사용중입니다."
-            case .year : return "일년 이용권을 사용중입니다."
-            case .none : return "사용중인 이용권이 없습니다."
-            }
+class SettingHeaderView: UIView {
+    
+    
+    private let profileView = SettingProfileView()
+
+    private let userInfoView = UserInfoView()
+
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        backgroundColor = .designSystem(.black)
+        addSubviews(profileView, userInfoView)
+        profileView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(110)
         }
+        userInfoView.snp.makeConstraints { make in
+            make.top.equalTo(profileView.snp.bottom)
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(160)
+        }
+
     }
-    
-    var myCash: Int
-    var myTicket: TicketType
-    
-//    let profileView
-//    
-//    let userInfoView
-//    
-//    let adInfoView
-    
-    
-    init(myCash: Int, myTicket: TicketType) {
-        self.myCash = myCash
-        self.myTicket = myTicket
-        super.init(frame: .zero)
+
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        userInfoView.snp.remakeConstraints { make in
+            make.top.equalTo(profileView.snp.bottom)
+            make.leading.trailing.equalToSuperview().inset(10)
+            make.height.equalTo(160)
+        }
     }
     
     @available(*, unavailable)

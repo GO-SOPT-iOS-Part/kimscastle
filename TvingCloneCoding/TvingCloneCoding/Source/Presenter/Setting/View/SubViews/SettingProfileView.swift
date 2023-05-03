@@ -17,7 +17,7 @@ class SettingProfileView: UIView {
     
     private let nickNameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Doosan"
+        label.text = "김의성"
         label.font = .pretendard(weight: ._500, size: ._17)
         label.textColor = .designSystem(.white)
         return label
@@ -51,7 +51,20 @@ private extension SettingProfileView {
     }
     
     func setLayout() {
-        
+        profileImageView.snp.makeConstraints { make in
+            make.leading.top.equalToSuperview().inset(10)
+            make.size.equalTo(80)
+        }
+        nickNameLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(profileImageView.snp.centerY)
+            make.leading.equalTo(profileImageView.snp.trailing).offset(10)
+        }
+        changeProfileButton.snp.makeConstraints { make in
+            make.trailing.equalToSuperview().inset(20)
+            make.centerY.equalTo(profileImageView.snp.centerY)
+            make.width.equalTo(80)
+            make.height.equalTo(30)
+        }
     }
     
     func setButtonTarget() {

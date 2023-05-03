@@ -36,6 +36,12 @@ struct Constant {
         case program3 = "program3"
         case program4 = "program4"
         
+        /// tabbar이미지
+        case home = "house.fill"
+        case release = "video"
+        case search = "magnifyingglass"
+        case record = "clock"
+        
         var real: String {
             return self.rawValue
         }

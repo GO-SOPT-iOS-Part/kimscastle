@@ -137,19 +137,22 @@ extension UIButton {
         case setting
         case profile
         case bluetooth
+        case go
         
         var buttonImage: UIImage? {
             switch self {
             case .back:
                 return .assetImage(.backButton)
             case .alert:
-                return .assetImage(.alertImage)
+                return UIImage(systemName: "alarm")
             case .setting:
-                return .assetImage(.settingImage)
+                return UIImage(systemName: "gear")
             case .profile:
                 return .assetImage(.smallProfileImage)
             case .bluetooth:
                 return UIImage(systemName: "square.and.arrow.up")
+            case .go:
+                return UIImage(systemName: "chevron.right")
             }
         }
     }

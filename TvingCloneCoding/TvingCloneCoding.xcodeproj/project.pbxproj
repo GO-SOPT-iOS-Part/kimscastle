@@ -41,6 +41,14 @@
 		C09E97712A02DB5B00475DDC /* CaruselCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E97702A02DB5B00475DDC /* CaruselCollectionViewCell.swift */; };
 		C09E97732A02DB9300475DDC /* HeaderSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E97722A02DB9300475DDC /* HeaderSupplementaryView.swift */; };
 		C09E97762A02E94100475DDC /* TvingNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E97752A02E94100475DDC /* TvingNavigationBar.swift */; };
+		C09E97782A02F69F00475DDC /* SettingTableViewSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E97772A02F69F00475DDC /* SettingTableViewSectionHeader.swift */; };
+		C09E977A2A02F6E300475DDC /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E97792A02F6E200475DDC /* SettingTableViewCell.swift */; };
+		C09E977C2A02FC3900475DDC /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E977B2A02FC3900475DDC /* UserInfoView.swift */; };
+		C09E977E2A02FC8400475DDC /* ImageLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E977D2A02FC8400475DDC /* ImageLabelView.swift */; };
+		C09E97802A03044900475DDC /* HomTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E977F2A03044900475DDC /* HomTabbarController.swift */; };
+		C09E97822A0304BC00475DDC /* ReleaseVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E97812A0304BC00475DDC /* ReleaseVideoViewController.swift */; };
+		C09E97842A0304DE00475DDC /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E97832A0304DE00475DDC /* SearchViewController.swift */; };
+		C09E97862A0304FB00475DDC /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E97852A0304FB00475DDC /* RecordViewController.swift */; };
 		C0A9FEB329FA285800B89AC7 /* UIControl+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A9FEB229FA285800B89AC7 /* UIControl+.swift */; };
 		C0A9FEEE29FAB4B000B89AC7 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A9FEED29FAB4B000B89AC7 /* SettingViewController.swift */; };
 		C0A9FEF129FABD1500B89AC7 /* TableViewCellReuseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A9FEF029FABD1500B89AC7 /* TableViewCellReuseProtocol.swift */; };
@@ -115,6 +123,14 @@
 		C09E97702A02DB5B00475DDC /* CaruselCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaruselCollectionViewCell.swift; sourceTree = "<group>"; };
 		C09E97722A02DB9300475DDC /* HeaderSupplementaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderSupplementaryView.swift; sourceTree = "<group>"; };
 		C09E97752A02E94100475DDC /* TvingNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvingNavigationBar.swift; sourceTree = "<group>"; };
+		C09E97772A02F69F00475DDC /* SettingTableViewSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewSectionHeader.swift; sourceTree = "<group>"; };
+		C09E97792A02F6E200475DDC /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		C09E977B2A02FC3900475DDC /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
+		C09E977D2A02FC8400475DDC /* ImageLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLabelView.swift; sourceTree = "<group>"; };
+		C09E977F2A03044900475DDC /* HomTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomTabbarController.swift; sourceTree = "<group>"; };
+		C09E97812A0304BC00475DDC /* ReleaseVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseVideoViewController.swift; sourceTree = "<group>"; };
+		C09E97832A0304DE00475DDC /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		C09E97852A0304FB00475DDC /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
 		C0A9FEB229FA285800B89AC7 /* UIControl+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+.swift"; sourceTree = "<group>"; };
 		C0A9FEED29FAB4B000B89AC7 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		C0A9FEF029FABD1500B89AC7 /* TableViewCellReuseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellReuseProtocol.swift; sourceTree = "<group>"; };
@@ -268,6 +284,10 @@
 				C0A9FEE629FAAE1B00B89AC7 /* ViewController */,
 				C0A9FEE529FAAE1500B89AC7 /* View */,
 				C09E976E2A02DA8000475DDC /* HomeViewController.swift */,
+				C09E977F2A03044900475DDC /* HomTabbarController.swift */,
+				C09E97812A0304BC00475DDC /* ReleaseVideoViewController.swift */,
+				C09E97832A0304DE00475DDC /* SearchViewController.swift */,
+				C09E97852A0304FB00475DDC /* RecordViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -296,6 +316,7 @@
 				C0A9FEF829FBF06C00B89AC7 /* SubViews */,
 				C0A9FEF429FBEF2000B89AC7 /* SettingHeaderView.swift */,
 				C0A9FEF629FBEF2D00B89AC7 /* SettingFooterView.swift */,
+				C09E97792A02F6E200475DDC /* SettingTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -321,6 +342,9 @@
 			isa = PBXGroup;
 			children = (
 				C0A9FEF929FBF08300B89AC7 /* SettingProfileView.swift */,
+				C09E97772A02F69F00475DDC /* SettingTableViewSectionHeader.swift */,
+				C09E977B2A02FC3900475DDC /* UserInfoView.swift */,
+				C09E977D2A02FC8400475DDC /* ImageLabelView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -635,6 +659,7 @@
 				C09E972F2A02C1FB00475DDC /* FamousLiveChannelCollectionViewCell.swift in Sources */,
 				C09E97222A02B5E900475DDC /* UIScrollView+.swift in Sources */,
 				C09E976D2A02DA2800475DDC /* CaruselView.swift in Sources */,
+				C09E97782A02F69F00475DDC /* SettingTableViewSectionHeader.swift in Sources */,
 				C0A9FEF529FBEF2000B89AC7 /* SettingHeaderView.swift in Sources */,
 				C09E96F22A017AAF00475DDC /* CarueselPoster.swift in Sources */,
 				C0E462C529E6F646005CCEC6 /* LoginViewController.swift in Sources */,
@@ -653,6 +678,7 @@
 				C09E97352A02C23E00475DDC /* RankingCollectionViewCell.swift in Sources */,
 				C0A9FEFA29FBF08300B89AC7 /* SettingProfileView.swift in Sources */,
 				C0A9FEF329FBEB0300B89AC7 /* UILabel+.swift in Sources */,
+				C09E977A2A02F6E300475DDC /* SettingTableViewCell.swift in Sources */,
 				C0E462EF29E6FC68005CCEC6 /* UIFont+.swift in Sources */,
 				C09E97732A02DB9300475DDC /* HeaderSupplementaryView.swift in Sources */,
 				C0E4632329E8081C005CCEC6 /* LoginCompletedViewController.swift in Sources */,
@@ -661,6 +687,7 @@
 				C0E4630B29E7D087005CCEC6 /* Constant.swift in Sources */,
 				C0E4632629E80D28005CCEC6 /* TvingRectangleButton.swift in Sources */,
 				C00C0EE329EA9302002C4D14 /* TvingBottomSheet.swift in Sources */,
+				C09E97862A0304FB00475DDC /* RecordViewController.swift in Sources */,
 				C09E96FA2A017BDB00475DDC /* ListSection.swift in Sources */,
 				C00C0EDE29EA881A002C4D14 /* LoginNicknameBottomSheetViewController.swift in Sources */,
 				C0E462C329E6F646005CCEC6 /* SceneDelegate.swift in Sources */,
@@ -673,15 +700,20 @@
 				C0E462F129E6FD67005CCEC6 /* UIColor+.swift in Sources */,
 				C0A9FEF729FBEF2D00B89AC7 /* SettingFooterView.swift in Sources */,
 				C09E97262A02B65600475DDC /* Timer+.swift in Sources */,
+				C09E977C2A02FC3900475DDC /* UserInfoView.swift in Sources */,
+				C09E97822A0304BC00475DDC /* ReleaseVideoViewController.swift in Sources */,
 				C09E96F62A017B8100475DDC /* VideoInfo.swift in Sources */,
+				C09E97842A0304DE00475DDC /* SearchViewController.swift in Sources */,
 				C09E97372A02C25100475DDC /* WatchingCollectionViewCell.swift in Sources */,
 				C0E4630D29E7D1AC005CCEC6 /* UIImage+.swift in Sources */,
 				C0E462F329E6FD7C005CCEC6 /* Palette.swift in Sources */,
+				C09E977E2A02FC8400475DDC /* ImageLabelView.swift in Sources */,
 				C09E96DF2A01501600475DDC /* MovieViewController.swift in Sources */,
 				C09E96E32A01503400475DDC /* KidViewController.swift in Sources */,
 				C09E96E12A01502200475DDC /* ParamountViewController.swift in Sources */,
 				C0E462FD29E70418005CCEC6 /* UIbutton+.swift in Sources */,
 				C09E96D92A014FE600475DDC /* RealTimeViewController.swift in Sources */,
+				C09E97802A03044900475DDC /* HomTabbarController.swift in Sources */,
 				C09E96EA2A015C0400475DDC /* TvingMenuCollectionViewCell.swift in Sources */,
 				C09E96F02A017A6B00475DDC /* TypeAlias.swift in Sources */,
 				C09E96E62A015A6F00475DDC /* TvingMenuBar.swift in Sources */,

@@ -38,6 +38,12 @@ final class SettingViewController: UIViewController {
         setHierarchy()
         setLayout()
         setButtonTarget()
+        settingTableView.backgroundColor = .designSystem(.black)
+        settingTableView.register(SettingTableViewCell.self, forCellReuseIdentifier: SettingTableViewCell.cellId)
+        settingTableView.dataSource = self
+        settingTableView.delegate = self
+        settingTableView.tableHeaderView = SettingHeaderView(frame: .init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 260))
+        settingTableView.tableFooterView = SettingFooterView(frame: .init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 150))
     }
 }
 
@@ -68,10 +74,34 @@ private extension SettingViewController {
     
     func setButtonTarget() {
         backButton.addButtonAction { _ in
-            print("✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅")
             self.navigationController?.popViewController(animated: true)
         }
     }
 }
 
 
+extension SettingViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return data.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return data[section].count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingTableViewCell.cellId, for: indexPath) as? SettingTableViewCell else { return SettingTableViewCell()}
+        cell.label.text = data[indexPath.section][indexPath.row]
+        return cell
+    }
+    
+    
+}
+
+extension SettingViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let sectionHeader = SettingTableViewSectionHeader()
+        sectionHeader.lineHidden = (section == 0) ? true : false
+        return sectionHeader
+    }
+}

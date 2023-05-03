@@ -17,6 +17,10 @@ extension UIImage {
     static func assetImage(_ name: Constant.ImageName) -> UIImage? {
         return UIImage(named: name.real)
     }
+    
+    static func sfImage(_ name: Constant.ImageName) -> UIImage? {
+        return UIImage(systemName: name.real)
+    }
 }
 
 extension UIImage {

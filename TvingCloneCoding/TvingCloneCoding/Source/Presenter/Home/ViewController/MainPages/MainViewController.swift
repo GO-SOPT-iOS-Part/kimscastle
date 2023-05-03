@@ -129,7 +129,7 @@ extension MainViewController {
         item.contentInsets = .init(top: 10, leading: 5, bottom: 10, trailing: 5)
         switch type {
         case .vertical:
-            let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .absolute(Constant.Size.width/3.5), heightDimension: .estimated(200)), subitems: [item])
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .absolute(Constant.Size.width/3.5), heightDimension: .estimated(180)), subitems: [item])
             let section = NSCollectionLayoutSection(group: group)
             section.contentInsets = .init(top: 0, leading: 0, bottom: 20, trailing: 0)
             section.orthogonalScrollingBehavior = .continuous
@@ -137,7 +137,7 @@ extension MainViewController {
             section.boundarySupplementaryItems = [header]
             return section
         case .horizontal:
-            let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .absolute(Constant.Size.width/2), heightDimension: .estimated(150)), subitems: [item])
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .absolute(Constant.Size.width/2), heightDimension: .estimated(130)), subitems: [item])
             let section = NSCollectionLayoutSection(group: group)
             section.contentInsets = .init(top: 0, leading: 0, bottom: 20, trailing: 0)
             section.orthogonalScrollingBehavior = .continuous

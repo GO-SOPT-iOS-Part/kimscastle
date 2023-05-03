@@ -7,14 +7,33 @@
 
 import UIKit
 
-class SettingFooterView: UIView {
+import SnapKit
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+final class SettingFooterView: UIView {
+    
+    private let logoutButton = TvingRectangleButton(title: "로그아웃", buttonType: .nonActive)
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        backgroundColor = .designSystem(.black)
+        addSubview(logoutButton)
+        logoutButton.addButtonAction { _ in
+            print("로그아웃")
+        }
+
     }
-    */
-
+    
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        logoutButton.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(20)
+            make.leading.trailing.equalToSuperview().inset(10)
+            make.height.equalTo(55)
+        }
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
