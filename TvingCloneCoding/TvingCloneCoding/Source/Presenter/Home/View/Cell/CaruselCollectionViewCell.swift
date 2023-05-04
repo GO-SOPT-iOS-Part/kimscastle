@@ -25,7 +25,6 @@ final class CaruselCollectionViewCell: UICollectionViewCell {
     // MARK: UI
     private let posterView: UIImageView = {
         let view = UIImageView()
-        view.translatesAutoresizingMaskIntoConstraints = false
         view.contentMode = .scaleAspectFit
         view.clipsToBounds = true
         return view

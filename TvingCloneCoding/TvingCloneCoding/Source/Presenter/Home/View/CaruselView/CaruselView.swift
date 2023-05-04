@@ -34,17 +34,16 @@ final class CaruselView: UIView {
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.isScrollEnabled = true
         view.showsHorizontalScrollIndicator = false
-        view.backgroundColor = .clear
+        view.backgroundColor = .designSystem(.clear)
         view.register(CaruselCollectionViewCell.self, forCellWithReuseIdentifier: CaruselCollectionViewCell.cellId)
-        view.translatesAutoresizingMaskIntoConstraints = false
         view.isPagingEnabled = true
         return view
     }()
     
     private lazy var pageControl: UIPageControl = {
         let pageControl = UIPageControl()
-        pageControl.currentPageIndicatorTintColor = .white
-        pageControl.pageIndicatorTintColor = .gray
+        pageControl.currentPageIndicatorTintColor = .designSystem(.white)
+        pageControl.pageIndicatorTintColor = .designSystem(.gray626262)
         pageControl.numberOfPages = items.count
         pageControl.currentPage = 0
         if #available(iOS 14.0, *) {
@@ -129,16 +128,17 @@ private extension CaruselView {
     }
     
     func setUI() {
-        carouselView.topAnchor.constraint(equalTo: self.topAnchor, constant: 60).isActive = true
-        carouselView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        carouselView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        carouselView.heightAnchor.constraint(equalToConstant: 594).isActive = true
+        carouselView.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(60)
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(594)
+        }
         
-        
-        pageControl.translatesAutoresizingMaskIntoConstraints = false
-        pageControl.bottomAnchor.constraint(equalTo: carouselView.bottomAnchor, constant: -20).isActive = true
-        pageControl.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: -60).isActive = true
-        pageControl.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        pageControl.snp.makeConstraints { make in
+            make.bottom.equalTo(carouselView.snp.bottom).offset(-20)
+            make.leading.equalToSuperview().inset(-60)
+            make.width.equalTo(200)
+        }
     }
     
     func setDelegate() {
@@ -150,10 +150,7 @@ private extension CaruselView {
         initalItemCount = items.count
         items.makeInfinityCarouselArray()
         carouselItemCount = items.count
-
     }
-    
-
     
     func activateTimer(_ interval: Double) {
         carouselTimer?.invalidate()
@@ -167,7 +164,7 @@ private extension CaruselView {
         guard let pageCount else { return }
         let changeInitalPage = { i in
             view.scroll(to: i, animation: true)
-            if i == pageCount+1 { DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { view.scroll(to: 1) }
+            if i == pageCount + 1 { DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { view.scroll(to: 1) }
                 self.currentItem = 1
             }
             self.pageControl.currentPage = (i - 1) % self.initalItemCount

@@ -23,7 +23,6 @@ final class MainViewController: UIViewController {
         collectionView.backgroundColor = .none
         collectionView.bounces = false
         collectionView.contentInsetAdjustmentBehavior = .never
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
     
@@ -120,7 +119,6 @@ private extension MainViewController {
     
     func setCollectionView() {
         collectionView.register(MainPosterCollectionViewCell.self, forCellWithReuseIdentifier: MainPosterCollectionViewCell.cellId)
-        
         collectionView.register(MustWatchCollectionViewCell.self, forCellWithReuseIdentifier: MustWatchCollectionViewCell.cellId)
         collectionView.register(QuickVODCollectionViewCell.self, forCellWithReuseIdentifier: QuickVODCollectionViewCell.cellId)
         collectionView.register(WatchingCollectionViewCell.self, forCellWithReuseIdentifier: WatchingCollectionViewCell.cellId)
