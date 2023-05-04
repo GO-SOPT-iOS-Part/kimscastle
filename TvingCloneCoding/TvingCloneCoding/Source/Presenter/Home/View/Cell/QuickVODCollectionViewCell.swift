@@ -9,9 +9,7 @@ import UIKit
 
 import SnapKit
 
-final class QuickVODCollectionViewCell: UICollectionViewCell {
-    
-    static let cellId = "QuickVODCollectionViewCell"
+final class QuickVODCollectionViewCell: UICollectionViewCell, CollectionViewCellReuseProtocol {
     
     var data: VideoInfo? {
         didSet {

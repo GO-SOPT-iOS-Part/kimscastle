@@ -51,6 +51,7 @@
 		C09E97862A0304FB00475DDC /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E97852A0304FB00475DDC /* RecordViewController.swift */; };
 		C09E97882A03A61100475DDC /* MainPosterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E97872A03A61100475DDC /* MainPosterCollectionViewCell.swift */; };
 		C09E978A2A03BA4300475DDC /* UserInfoType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E97892A03BA4300475DDC /* UserInfoType.swift */; };
+		C09E978C2A03CBB400475DDC /* CollectionViewCellReuseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E978B2A03CBB400475DDC /* CollectionViewCellReuseProtocol.swift */; };
 		C0A9FEB329FA285800B89AC7 /* UIControl+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A9FEB229FA285800B89AC7 /* UIControl+.swift */; };
 		C0A9FEEE29FAB4B000B89AC7 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A9FEED29FAB4B000B89AC7 /* SettingViewController.swift */; };
 		C0A9FEF129FABD1500B89AC7 /* TableViewCellReuseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A9FEF029FABD1500B89AC7 /* TableViewCellReuseProtocol.swift */; };
@@ -135,6 +136,7 @@
 		C09E97852A0304FB00475DDC /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
 		C09E97872A03A61100475DDC /* MainPosterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPosterCollectionViewCell.swift; sourceTree = "<group>"; };
 		C09E97892A03BA4300475DDC /* UserInfoType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoType.swift; sourceTree = "<group>"; };
+		C09E978B2A03CBB400475DDC /* CollectionViewCellReuseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCellReuseProtocol.swift; sourceTree = "<group>"; };
 		C0A9FEB229FA285800B89AC7 /* UIControl+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+.swift"; sourceTree = "<group>"; };
 		C0A9FEED29FAB4B000B89AC7 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		C0A9FEF029FABD1500B89AC7 /* TableViewCellReuseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellReuseProtocol.swift; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 			children = (
 				C0A9FEF029FABD1500B89AC7 /* TableViewCellReuseProtocol.swift */,
 				C09E96E72A015A9200475DDC /* MenuItemDelegate.swift */,
+				C09E978B2A03CBB400475DDC /* CollectionViewCellReuseProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -691,6 +694,7 @@
 				C09E97732A02DB9300475DDC /* HeaderSupplementaryView.swift in Sources */,
 				C0E4632329E8081C005CCEC6 /* LoginCompletedViewController.swift in Sources */,
 				C0E462C129E6F646005CCEC6 /* AppDelegate.swift in Sources */,
+				C09E978C2A03CBB400475DDC /* CollectionViewCellReuseProtocol.swift in Sources */,
 				C0A9FEB329FA285800B89AC7 /* UIControl+.swift in Sources */,
 				C0E4630B29E7D087005CCEC6 /* Constant.swift in Sources */,
 				C0E4632629E80D28005CCEC6 /* TvingRectangleButton.swift in Sources */,

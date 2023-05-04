@@ -9,9 +9,7 @@ import UIKit
 
 import SnapKit
 
-final class RankingCollectionViewCell: UICollectionViewCell {
-    
-    static let cellId = "RankingCollectionViewCell"
+final class RankingCollectionViewCell: UICollectionViewCell, CollectionViewCellReuseProtocol {
     
     var data: VideoInfo? {
         didSet {

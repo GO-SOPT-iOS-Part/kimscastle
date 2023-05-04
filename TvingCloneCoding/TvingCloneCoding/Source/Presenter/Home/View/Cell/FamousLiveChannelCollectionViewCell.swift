@@ -9,9 +9,7 @@ import UIKit
 
 import SnapKit
 
-final class FamousLiveChannelCollectionViewCell: UICollectionViewCell {
-    
-    static let cellId = "FamousLiveChannelCollectionViewCell"
+final class FamousLiveChannelCollectionViewCell: UICollectionViewCell, CollectionViewCellReuseProtocol {
     
     var data: VideoInfo? {
         didSet {

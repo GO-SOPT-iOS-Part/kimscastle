@@ -9,9 +9,7 @@ import UIKit
 
 import SnapKit
 
-final class MustWatchCollectionViewCell: UICollectionViewCell {
-    
-    static let cellId = "MustWatchCollectionViewCell"
+final class MustWatchCollectionViewCell: UICollectionViewCell, CollectionViewCellReuseProtocol {
     
     var data: VideoInfo? {
         didSet {

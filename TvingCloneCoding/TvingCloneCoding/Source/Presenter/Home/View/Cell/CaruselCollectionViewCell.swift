@@ -9,9 +9,7 @@ import UIKit
 
 import SnapKit
 
-final class CaruselCollectionViewCell: UICollectionViewCell {
-    
-    static let cellId = "CaruselCollectionViewCell"
+final class CaruselCollectionViewCell: UICollectionViewCell, CollectionViewCellReuseProtocol {
     
     var item: CarueselPoster? {
         didSet {

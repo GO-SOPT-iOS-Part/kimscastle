@@ -35,7 +35,7 @@ final class CaruselView: UIView {
         view.isScrollEnabled = true
         view.showsHorizontalScrollIndicator = false
         view.backgroundColor = .designSystem(.clear)
-        view.register(CaruselCollectionViewCell.self, forCellWithReuseIdentifier: CaruselCollectionViewCell.cellId)
+        CaruselCollectionViewCell.register(collectionView: view)
         view.isPagingEnabled = true
         return view
     }()
@@ -82,7 +82,7 @@ extension CaruselView: UICollectionViewDataSource {
         items.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CaruselCollectionViewCell.cellId, for: indexPath) as? CaruselCollectionViewCell else { return CaruselCollectionViewCell()}
+        let cell = CaruselCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
         cell.item = items[indexPath.item]
         return cell
     }

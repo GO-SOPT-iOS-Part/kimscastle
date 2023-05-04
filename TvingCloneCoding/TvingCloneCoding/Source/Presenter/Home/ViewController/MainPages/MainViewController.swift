@@ -59,26 +59,26 @@ extension MainViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch sections[indexPath.section] {
         case .mainPoster:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainPosterCollectionViewCell.cellId, for: indexPath) as? MainPosterCollectionViewCell else { return MainPosterCollectionViewCell()}
+            let cell = MainPosterCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
             return cell
         case .mustWatchList(let mustWatchList):
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MustWatchCollectionViewCell.cellId, for: indexPath) as? MustWatchCollectionViewCell else { return MustWatchCollectionViewCell()}
+            let cell = MustWatchCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
             cell.data = mustWatchList[indexPath.row]
             return cell
         case .quickVODList(let quickVODList):
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: QuickVODCollectionViewCell.cellId, for: indexPath) as? QuickVODCollectionViewCell else { return QuickVODCollectionViewCell()}
+            let cell = QuickVODCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
             cell.data = quickVODList[indexPath.row]
             return cell
         case .watchingList(let watchingList):
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WatchingCollectionViewCell.cellId, for: indexPath) as? WatchingCollectionViewCell else { return WatchingCollectionViewCell()}
+            let cell = WatchingCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
             cell.data = watchingList[indexPath.row]
             return cell
         case .rankingList(let rankingList):
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RankingCollectionViewCell.cellId, for: indexPath) as? RankingCollectionViewCell else { return RankingCollectionViewCell()}
+            let cell = RankingCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
             cell.data = rankingList[indexPath.row]
             return cell
         case .famousLiveChannel(let famousLiveChannel):
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FamousLiveChannelCollectionViewCell.cellId, for: indexPath) as? FamousLiveChannelCollectionViewCell else { return FamousLiveChannelCollectionViewCell()}
+            let cell = FamousLiveChannelCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
             cell.data = famousLiveChannel[indexPath.row]
             return cell
         }
@@ -118,12 +118,13 @@ private extension MainViewController {
     }
     
     func setCollectionView() {
-        collectionView.register(MainPosterCollectionViewCell.self, forCellWithReuseIdentifier: MainPosterCollectionViewCell.cellId)
-        collectionView.register(MustWatchCollectionViewCell.self, forCellWithReuseIdentifier: MustWatchCollectionViewCell.cellId)
-        collectionView.register(QuickVODCollectionViewCell.self, forCellWithReuseIdentifier: QuickVODCollectionViewCell.cellId)
-        collectionView.register(WatchingCollectionViewCell.self, forCellWithReuseIdentifier: WatchingCollectionViewCell.cellId)
-        collectionView.register(RankingCollectionViewCell.self, forCellWithReuseIdentifier: RankingCollectionViewCell.cellId)
-        collectionView.register(FamousLiveChannelCollectionViewCell.self, forCellWithReuseIdentifier: FamousLiveChannelCollectionViewCell.cellId)
+
+        MainPosterCollectionViewCell.register(collectionView: collectionView)
+        MustWatchCollectionViewCell.register(collectionView: collectionView)
+        QuickVODCollectionViewCell.register(collectionView: collectionView)
+        WatchingCollectionViewCell.register(collectionView: collectionView)
+        RankingCollectionViewCell.register(collectionView: collectionView)
+        FamousLiveChannelCollectionViewCell.register(collectionView: collectionView)
         
         collectionView.register(HeaderSupplementaryView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderSupplementaryView.viewId)
 
