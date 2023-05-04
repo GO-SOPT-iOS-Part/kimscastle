@@ -20,7 +20,7 @@ class HeaderSupplementaryView: UICollectionReusableView {
         }
     }
     
-    lazy var uiview = CaruselView()
+    private var uiview = CaruselView()
     
     let title: UILabel = {
         let label = UILabel()

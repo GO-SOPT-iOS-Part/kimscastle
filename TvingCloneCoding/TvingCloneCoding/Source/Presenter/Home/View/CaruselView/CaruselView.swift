@@ -24,16 +24,17 @@ class CaruselView: UIView {
     private var initalItemCount: Int = 0
     private var carouselItemCount: Int = 0
     private let initalPage = Constant.Screen.width
-
+    var currentItem = 1
 
     private lazy var carouselView: UICollectionView = {
-        let view = UICollectionView(frame: .zero, collectionViewLayout: .makeCaruselFlowLayout)
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.itemSize = .init(width: Constant.Screen.width, height: 594)
+        layout.minimumLineSpacing = 0
+        let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.isScrollEnabled = true
         view.showsHorizontalScrollIndicator = false
-        view.showsVerticalScrollIndicator = false
-        view.contentInset = .zero
         view.backgroundColor = .clear
-        view.clipsToBounds = true
         view.register(CaruselCollectionViewCell.self, forCellWithReuseIdentifier: CaruselCollectionViewCell.cellId)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.isPagingEnabled = true
@@ -61,7 +62,7 @@ class CaruselView: UIView {
         setUI()
         setDelegate()
         setCarouselProperty()
-        activateTimer(4)
+        activateTimer(2)
     }
     
     required init?(coder: NSCoder) {
@@ -91,7 +92,7 @@ extension CaruselView: UICollectionViewDataSource {
 extension CaruselView: UICollectionViewDelegate {
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        initalizeTimer(interval: 4)
+        initalizeTimer(interval: 2)
         
         let nextPage = Constant.Screen.width * Double(carouselItemCount - 2)
         let initalPage = Constant.Screen.width
@@ -149,11 +150,14 @@ private extension CaruselView {
         initalItemCount = items.count
         items.makeInfinityCarouselArray()
         carouselItemCount = items.count
+
     }
     
 
     
     func activateTimer(_ interval: Double) {
+        carouselTimer?.invalidate()
+
         carouselTimer = Timer.addCarouselTimerAction(timeInterval: interval) {
             self.slidePageAutometically(from: self.carouselView, range: self.initalItemCount)
         }
@@ -161,30 +165,18 @@ private extension CaruselView {
     
     func slidePageAutometically(from view: UICollectionView, range pageCount: Int?) {
         guard let pageCount else { return }
-        var currentItem = self.initalCellIndexPath().item
-        currentItem += 1
-        
         let changeInitalPage = { i in
             view.scroll(to: i, animation: true)
-            if i == pageCount + 1 { DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { view.scroll(to: 1) } }
+            if i == pageCount+1 { DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { view.scroll(to: 1) }
+                self.currentItem = 1
+            }
             self.pageControl.currentPage = (i - 1) % self.initalItemCount
         }
         
-        let scrollCompletion: (Int) -> ((Int) -> Void) -> Void = { i in
-            return { action in
-                action(i)
-            }
-        }
-        
+        let scrollCompletion: (Int) -> ((Int) -> Void) -> Void = { i in { $0(i) } }
+        currentItem += 1
+        currentItem = max(1, currentItem % carouselItemCount)
         scrollCompletion(currentItem)(changeInitalPage)
-    }
-    
-    func initalCellIndexPath() -> IndexPath {
-        return carouselView.indexPathsForVisibleItems[0]
-    }
-    
-    func scrollCompletion(_ item: Int, completion: (Int) -> Void) {
-        completion(item)
     }
     
     func invalidateTimer() {
@@ -192,14 +184,3 @@ private extension CaruselView {
     }
 }
 
-
-
-extension UICollectionViewLayout {
-    static var makeCaruselFlowLayout: UICollectionViewFlowLayout {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        layout.itemSize = .init(width: Constant.Screen.width, height: 594)
-        layout.minimumLineSpacing = 0
-        return layout
-    }
-}
