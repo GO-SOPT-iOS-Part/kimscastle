@@ -13,7 +13,7 @@ final class MainPosterCollectionViewCell: UICollectionViewCell {
     
     static var cellId = "MainPosterCollectionViewCell"
     
-    let carusel = CaruselView()
+    private let carusel = CaruselView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)

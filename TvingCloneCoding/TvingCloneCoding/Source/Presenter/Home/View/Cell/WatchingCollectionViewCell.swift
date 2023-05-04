@@ -44,10 +44,30 @@ final class WatchingCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .black
+        setUI()
+        setHierarchy()
+        setLayout()
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+private extension WatchingCollectionViewCell {
+    func setUI() {
+        backgroundColor = .designSystem(.black)
+    }
+
+    func setHierarchy() {
+        
         contentView.addSubview(posterView)
         contentView.addSubview(title)
         contentView.addSubview(subtitle)
+    }
+
+    func setLayout() {
         posterView.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
         }
@@ -64,10 +84,5 @@ final class WatchingCollectionViewCell: UICollectionViewCell {
             make.bottom.equalToSuperview()
             make.height.equalTo(17)
         }
-    }
-    
-    @available(*, unavailable)
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }

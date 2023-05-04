@@ -12,3 +12,4 @@ extension UICollectionView {
         self.scrollToItem(at: IndexPath(item: item, section: 0), at: .centeredHorizontally, animated: animation)
     }
 }
+

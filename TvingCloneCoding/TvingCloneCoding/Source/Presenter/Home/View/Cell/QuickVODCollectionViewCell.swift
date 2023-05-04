@@ -45,10 +45,24 @@ final class QuickVODCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setHierarchy()
+        setLayout()
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+private extension QuickVODCollectionViewCell {
+    func setHierarchy() {
         contentView.addSubview(posterView)
         contentView.addSubview(title)
         contentView.addSubview(subtitle)
-        
+    }
+
+    func setLayout() {
         posterView.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
         }
@@ -65,10 +79,5 @@ final class QuickVODCollectionViewCell: UICollectionViewCell {
             make.height.equalTo(17)
             make.bottom.equalToSuperview()
         }
-    }
-    
-    @available(*, unavailable)
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }

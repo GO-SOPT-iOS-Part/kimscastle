@@ -46,20 +46,32 @@ final class CaruselCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setHierarchy()
+        setLayout()
+    }
     
-    
-    // MARK: Initializer
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        posterView.image = nil
+    }
+}
+
+private extension CaruselCollectionViewCell {
+
+    func setHierarchy() {
         contentView.addSubview(posterView)
         contentView.addSubview(titleLabel)
         contentView.addSubview(contentLabel)
-        
+    }
+
+    func setLayout() {
         posterView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
@@ -73,10 +85,5 @@ final class CaruselCollectionViewCell: UICollectionViewCell {
             make.top.equalTo(titleLabel.snp.bottom).offset(20)
             make.leading.equalTo(titleLabel.snp.leading)
         }
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        posterView.image = nil
     }
 }

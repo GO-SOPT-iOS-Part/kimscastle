@@ -31,26 +31,13 @@ final class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .black
-        view.addSubview(collectionView)
         
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        
-        collectionView.register(MainPosterCollectionViewCell.self, forCellWithReuseIdentifier: MainPosterCollectionViewCell.cellId)
-        
-        collectionView.register(MustWatchCollectionViewCell.self, forCellWithReuseIdentifier: MustWatchCollectionViewCell.cellId)
-        collectionView.register(QuickVODCollectionViewCell.self, forCellWithReuseIdentifier: QuickVODCollectionViewCell.cellId)
-        collectionView.register(WatchingCollectionViewCell.self, forCellWithReuseIdentifier: WatchingCollectionViewCell.cellId)
-        collectionView.register(RankingCollectionViewCell.self, forCellWithReuseIdentifier: RankingCollectionViewCell.cellId)
-        collectionView.register(FamousLiveChannelCollectionViewCell.self, forCellWithReuseIdentifier: FamousLiveChannelCollectionViewCell.cellId)
-        
-        collectionView.register(HeaderSupplementaryView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderSupplementaryView.viewId)
+        setUI()
+        setHierarchy()
+        setLayout()
+        setDelegate()
+        setCollectionView()
 
-        collectionView.collectionViewLayout = createLayout()
-        collectionView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
     }
 }
 
@@ -102,7 +89,7 @@ extension MainViewController: UICollectionViewDataSource {
         switch kind {
         case UICollectionView.elementKindSectionHeader:
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HeaderSupplementaryView.viewId, for: indexPath) as! HeaderSupplementaryView
-            header.title.text = sections[indexPath.section].title
+            header.title = sections[indexPath.section].title
             return header
         default:
             return UICollectionReusableView()
@@ -110,7 +97,42 @@ extension MainViewController: UICollectionViewDataSource {
     }
 }
 
-extension MainViewController {
+private extension MainViewController {
+    
+    func setUI() {
+        view.backgroundColor = .designSystem(.black)
+    }
+    
+    func setHierarchy() {
+        view.addSubview(collectionView)
+    }
+    
+    func setLayout() {
+        collectionView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+    }
+    
+    func setDelegate() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+    }
+    
+    func setCollectionView() {
+        collectionView.register(MainPosterCollectionViewCell.self, forCellWithReuseIdentifier: MainPosterCollectionViewCell.cellId)
+        
+        collectionView.register(MustWatchCollectionViewCell.self, forCellWithReuseIdentifier: MustWatchCollectionViewCell.cellId)
+        collectionView.register(QuickVODCollectionViewCell.self, forCellWithReuseIdentifier: QuickVODCollectionViewCell.cellId)
+        collectionView.register(WatchingCollectionViewCell.self, forCellWithReuseIdentifier: WatchingCollectionViewCell.cellId)
+        collectionView.register(RankingCollectionViewCell.self, forCellWithReuseIdentifier: RankingCollectionViewCell.cellId)
+        collectionView.register(FamousLiveChannelCollectionViewCell.self, forCellWithReuseIdentifier: FamousLiveChannelCollectionViewCell.cellId)
+        
+        collectionView.register(HeaderSupplementaryView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderSupplementaryView.viewId)
+
+        collectionView.collectionViewLayout = createLayout()
+    }
+
+    
     private func createLayout() -> UICollectionViewCompositionalLayout {
         UICollectionViewCompositionalLayout { [weak self] secitonIndex, _ in
             guard let self = self else { return nil }

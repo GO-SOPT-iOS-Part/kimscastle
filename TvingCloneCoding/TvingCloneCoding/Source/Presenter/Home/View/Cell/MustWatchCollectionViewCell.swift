@@ -37,10 +37,29 @@ final class MustWatchCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setUI()
+        setHierarchy()
+        setLayout()
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+}
+
+private extension MustWatchCollectionViewCell {
+    func setUI() {
         backgroundColor = .designSystem(.black)
+    }
+    
+    func setHierarchy() {
         contentView.addSubview(posterView)
         contentView.addSubview(title)
-
+    }
+    
+    func setLayout() {
         posterView.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
         }
@@ -52,10 +71,6 @@ final class MustWatchCollectionViewCell: UICollectionViewCell {
             make.height.equalTo(17)
         }
     }
-    
-    @available(*, unavailable)
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
+
+
 }

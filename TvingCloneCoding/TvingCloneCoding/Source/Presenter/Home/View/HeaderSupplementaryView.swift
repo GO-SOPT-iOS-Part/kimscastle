@@ -11,11 +11,18 @@ import SnapKit
 
 final class HeaderSupplementaryView: UICollectionReusableView {
     
+    var title: String? {
+        didSet {
+            guard let title = title else { return }
+            sectionTitle.text = title
+        }
+    }
+    
     static var viewId = "HeaderSupplementaryView"
     
     private var uiview = CaruselView()
     
-    let title: UILabel = {
+    private let sectionTitle: UILabel = {
         let label = UILabel()
         label.textColor = .designSystem(.white)
         label.font = .pretendard(weight: ._500, size: ._15)
@@ -32,21 +39,30 @@ final class HeaderSupplementaryView: UICollectionReusableView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        addSubview(title)
+        setHierarchy()
+        setLayout()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setHierarchy() {
+        addSubview(sectionTitle)
         addSubview(showAllLabel)
-        title.snp.makeConstraints { make in
+    }
+    
+    private func setLayout() {
+        sectionTitle.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(10)
             make.bottom.equalToSuperview()
             make.height.equalTo(20)
         }
+        
         showAllLabel.snp.makeConstraints { make in
             make.trailing.equalToSuperview().inset(10)
             make.bottom.equalToSuperview()
             make.height.equalTo(20)
         }
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }
