@@ -9,6 +9,7 @@ import UIKit
 
 import SnapKit
 
+/// 이것도 범용성있게 바꿀예정
 final class TvingNavigationBar: UIView {
 
     private let navigationImageView = TvingImageView(imageName: .logo, contentMode: .scaleAspectFit)

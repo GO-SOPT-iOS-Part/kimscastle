@@ -13,7 +13,7 @@ protocol ScrollDelegate: AnyObject {
     func scroll(yContentOffset: CGFloat)
 }
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
     
     weak var delgate: ScrollDelegate?
     
@@ -33,9 +33,11 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .black
         view.addSubview(collectionView)
-
+        
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        collectionView.register(MainPosterCollectionViewCell.self, forCellWithReuseIdentifier: MainPosterCollectionViewCell.cellId)
         
         collectionView.register(MustWatchCollectionViewCell.self, forCellWithReuseIdentifier: MustWatchCollectionViewCell.cellId)
         collectionView.register(QuickVODCollectionViewCell.self, forCellWithReuseIdentifier: QuickVODCollectionViewCell.cellId)
@@ -70,6 +72,9 @@ extension MainViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch sections[indexPath.section] {
+        case .mainPoster:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainPosterCollectionViewCell.cellId, for: indexPath) as? MainPosterCollectionViewCell else { return MainPosterCollectionViewCell()}
+            return cell
         case .mustWatchList(let mustWatchList):
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MustWatchCollectionViewCell.cellId, for: indexPath) as? MustWatchCollectionViewCell else { return MustWatchCollectionViewCell()}
             cell.data = mustWatchList[indexPath.row]
@@ -97,9 +102,6 @@ extension MainViewController: UICollectionViewDataSource {
         switch kind {
         case UICollectionView.elementKindSectionHeader:
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HeaderSupplementaryView.viewId, for: indexPath) as! HeaderSupplementaryView
-            if indexPath.section == 0 {
-                header.isFirst = true
-            }
             header.title.text = sections[indexPath.section].title
             return header
         default:
@@ -114,8 +116,10 @@ extension MainViewController {
             guard let self = self else { return nil }
             let section = self.sections[secitonIndex]
             switch section {
+            case .mainPoster:
+                return createMainVideoSection(type: .header)
             case .mustWatchList(_):
-                return createMainVideoSection(type: .vertical, headerHeight: 670)
+                return createMainVideoSection(type: .vertical)
             case .watchingList(_), .rankingList(_):
                 return createMainVideoSection(type: .vertical)
             case .quickVODList(_), .famousLiveChannel(_):
@@ -124,12 +128,13 @@ extension MainViewController {
         }
     }
     
+    /// 추후수정할 코드
     private func createMainVideoSection(type: PosterType, headerHeight: CGFloat = 20) -> NSCollectionLayoutSection {
         let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
         item.contentInsets = .init(top: 10, leading: 5, bottom: 10, trailing: 5)
         switch type {
         case .vertical:
-            let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .absolute(Constant.Size.width/3.5), heightDimension: .estimated(180)), subitems: [item])
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .absolute(Constant.Screen.width/3.5), heightDimension: .estimated(180)), subitems: [item])
             let section = NSCollectionLayoutSection(group: group)
             section.contentInsets = .init(top: 0, leading: 0, bottom: 20, trailing: 0)
             section.orthogonalScrollingBehavior = .continuous
@@ -137,12 +142,18 @@ extension MainViewController {
             section.boundarySupplementaryItems = [header]
             return section
         case .horizontal:
-            let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .absolute(Constant.Size.width/2), heightDimension: .estimated(130)), subitems: [item])
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .absolute(Constant.Screen.width/2), heightDimension: .estimated(130)), subitems: [item])
             let section = NSCollectionLayoutSection(group: group)
             section.contentInsets = .init(top: 0, leading: 0, bottom: 20, trailing: 0)
             section.orthogonalScrollingBehavior = .continuous
             let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(headerHeight)), elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
             section.boundarySupplementaryItems = [header]
+            return section
+        case .header:
+            item.contentInsets = .zero
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .absolute(Constant.Screen.width), heightDimension: .estimated(654)), subitems: [item])
+            let section = NSCollectionLayoutSection(group: group)
+            section.orthogonalScrollingBehavior = .continuous
             return section
         }
     }

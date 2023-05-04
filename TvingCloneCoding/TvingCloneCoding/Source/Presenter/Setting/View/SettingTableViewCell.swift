@@ -9,9 +9,9 @@ import UIKit
 
 import SnapKit
 
-final class SettingTableViewCell: UITableViewCell {
+final class SettingTableViewCell: UITableViewCell, TableViewCellReuseProtocol {
     
-    static let cellId = "SettingTableViewCell"
+//    static let cellId = "SettingTableViewCell"
     
     let label: UILabel = {
         let label = UILabel()

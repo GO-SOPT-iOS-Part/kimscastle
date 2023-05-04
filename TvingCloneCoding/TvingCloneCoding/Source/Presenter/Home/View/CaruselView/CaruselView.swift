@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 
 
-class CaruselView: UIView {
+final class CaruselView: UIView {
     
     enum ScrollType {
         case normal
@@ -24,7 +24,7 @@ class CaruselView: UIView {
     private var initalItemCount: Int = 0
     private var carouselItemCount: Int = 0
     private let initalPage = Constant.Screen.width
-    var currentItem = 1
+    private var currentItem = 1
 
     private lazy var carouselView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -129,7 +129,7 @@ private extension CaruselView {
     }
     
     func setUI() {
-        carouselView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        carouselView.topAnchor.constraint(equalTo: self.topAnchor, constant: 60).isActive = true
         carouselView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         carouselView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         carouselView.heightAnchor.constraint(equalToConstant: 594).isActive = true

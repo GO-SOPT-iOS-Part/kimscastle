@@ -9,16 +9,9 @@ import UIKit
 
 import SnapKit
 
-class HeaderSupplementaryView: UICollectionReusableView {
+final class HeaderSupplementaryView: UICollectionReusableView {
     
     static var viewId = "HeaderSupplementaryView"
-    
-    var isFirst: Bool = false {
-        didSet {
-            guard isFirst == true else { return }
-            setHeaderView()
-        }
-    }
     
     private var uiview = CaruselView()
     
@@ -55,14 +48,5 @@ class HeaderSupplementaryView: UICollectionReusableView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func setHeaderView() {
-        addSubview(uiview)
-        uiview.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(50)
-            make.leading.trailing.equalToSuperview()
-            make.height.equalTo(594)
-        }
     }
 }

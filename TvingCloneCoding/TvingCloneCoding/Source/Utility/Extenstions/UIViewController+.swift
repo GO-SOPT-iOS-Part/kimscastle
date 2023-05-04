@@ -27,6 +27,7 @@ extension UIViewController {
                 return stackView
             }()
         }
+
         self.navigationController?.navigationBar.tintColor = tintColor
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)

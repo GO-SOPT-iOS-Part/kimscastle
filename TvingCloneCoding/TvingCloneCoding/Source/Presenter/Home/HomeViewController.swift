@@ -45,7 +45,6 @@ final class HomeViewController: UIViewController {
         setPageViewController()
         setButtonAction()
     }
-    
 
     
     override func viewWillAppear(_ animated: Bool) {
@@ -117,6 +116,7 @@ private extension HomeViewController {
         profileButton.addButtonAction { _ in
             let settingViewController = SettingViewController()
             self.navigationController?.pushViewController(settingViewController, animated: false)
+            self.navigationController?.isNavigationBarHidden = false
         }
     }
     

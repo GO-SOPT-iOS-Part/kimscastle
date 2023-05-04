@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-class SettingTableViewSectionHeader: UIView {
+final class SettingTableViewSectionHeader: UIView {
     
     var lineHidden: Bool? {
         didSet {

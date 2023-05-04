@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SettingProfileView: UIView {
+final class SettingProfileView: UIView {
     
     private let profileImageView: UIImageView = {
         let imageView = UIImageView(image: .assetImage(.bigProfileImage))

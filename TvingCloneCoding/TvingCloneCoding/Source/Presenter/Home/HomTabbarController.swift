@@ -11,7 +11,6 @@ final class HomTabbarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let homeViewController = HomeViewController()
         homeViewController.tabBarItem = UITabBarItem(title: "홈", image: .sfImage(.home), tag: 0)
         let releaseVideoViewController = ReleaseVideoViewController()
@@ -23,8 +22,6 @@ final class HomTabbarController: UITabBarController {
         
         tabBar.barTintColor = .designSystem(.black)
         tabBar.isTranslucent = false
-        setViewControllers([homeViewController, releaseVideoViewController, searchViewController, recordViewController], animated: false)
+        setViewControllers([homeViewController, releaseVideoViewController, searchViewController, recordViewController].map{UINavigationController(rootViewController: $0)}, animated: false)
     }
-
-
 }

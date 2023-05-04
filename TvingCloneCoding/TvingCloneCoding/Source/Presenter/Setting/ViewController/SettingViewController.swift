@@ -38,23 +38,18 @@ final class SettingViewController: UIViewController {
         setHierarchy()
         setLayout()
         setButtonTarget()
-        settingTableView.backgroundColor = .designSystem(.black)
-        settingTableView.register(SettingTableViewCell.self, forCellReuseIdentifier: SettingTableViewCell.cellId)
-        settingTableView.dataSource = self
-        settingTableView.delegate = self
-        settingTableView.tableHeaderView = SettingHeaderView(frame: .init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 260))
-        settingTableView.tableFooterView = SettingFooterView(frame: .init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 150))
-    }
+        setTableView()
+    }    
 }
 
 private extension SettingViewController {
     func setNavigation() {
-        self.navigationController?.isNavigationBarHidden = false
-        tvingNavigationBar(.designSystem(.white),
+        tvingNavigationBar(.designSystem(.black),
                            left: [backButton],
                            right: [UIButton.iconButton(.setting),
                                    UIButton.iconButton(.alert)],
                            spacing: 10)
+
     }
     
     func setUI() {
@@ -77,6 +72,15 @@ private extension SettingViewController {
             self.navigationController?.popViewController(animated: true)
         }
     }
+    
+    func setTableView() {
+        settingTableView.backgroundColor = .designSystem(.black)
+        SettingTableViewCell.register(tableView: settingTableView)
+        settingTableView.dataSource = self
+        settingTableView.delegate = self
+        settingTableView.tableHeaderView = SettingHeaderView(frame: .init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 260))
+        settingTableView.tableFooterView = SettingFooterView(frame: .init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 150))
+    }
 }
 
 
@@ -90,7 +94,7 @@ extension SettingViewController: UITableViewDataSource {
         return data[section].count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingTableViewCell.cellId, for: indexPath) as? SettingTableViewCell else { return SettingTableViewCell()}
+        let cell = SettingTableViewCell.dequeueReusableCell(tableView: settingTableView)
         cell.label.text = data[indexPath.section][indexPath.row]
         return cell
     }

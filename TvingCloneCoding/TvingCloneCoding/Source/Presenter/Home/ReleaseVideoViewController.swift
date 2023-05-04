@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ReleaseVideoViewController: UIViewController {
+final class ReleaseVideoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

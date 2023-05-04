@@ -10,6 +10,10 @@ import UIKit
 struct MainViewData {
     static let shared = MainViewData()
     
+    private let mainPoster: ListSection = .mainPoster([
+        .init(name: "", image: .assetImage(.poster1))
+    ])
+    
     private let mustWatchList: ListSection = .mustWatchList([
         .init(name: "더 디저트", image: .assetImage(.program1)),
         .init(name: "더 타임호텔", image: .assetImage(.program2)),
@@ -47,6 +51,6 @@ struct MainViewData {
     ])
     
     var pageData: [ListSection] {
-        return [mustWatchList, quickVODList, watchingList, rankingList, famousLiveChannel]
+        return [mainPoster, mustWatchList, quickVODList, watchingList, rankingList, famousLiveChannel]
     }
 }

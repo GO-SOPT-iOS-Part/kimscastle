@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RealTimeViewController: UIViewController {
+final class RealTimeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

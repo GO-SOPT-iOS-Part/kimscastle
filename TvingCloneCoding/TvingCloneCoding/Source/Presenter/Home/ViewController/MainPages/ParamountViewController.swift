@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ParamountViewController: UIViewController {
+final class ParamountViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

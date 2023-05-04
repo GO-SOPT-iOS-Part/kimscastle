@@ -8,6 +8,7 @@
 import Foundation
 
 enum PosterType {
+    case header
     case vertical
     case horizontal
 }

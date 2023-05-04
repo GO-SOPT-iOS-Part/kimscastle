@@ -9,6 +9,7 @@ import Foundation
 
 @frozen
 enum ListSection {
+    case mainPoster([VideoInfo])
     case mustWatchList([VideoInfo])
     case quickVODList([VideoInfo])
     case watchingList([VideoInfo])
@@ -21,9 +22,9 @@ enum ListSection {
                 .quickVODList(let items),
                 .watchingList(let items),
                 .rankingList(let items),
-                .famousLiveChannel(let items):
+                .famousLiveChannel(let items),
+                .mainPoster(let items):
             return items
-
         }
     }
     
@@ -43,6 +44,8 @@ enum ListSection {
             return "티빙 TOP20 프로그램"
         case .famousLiveChannel(_):
             return "인기 LIVE채널"
+        case .mainPoster:
+            return ""
         }
     }
 }

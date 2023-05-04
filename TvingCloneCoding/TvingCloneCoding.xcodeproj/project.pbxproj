@@ -49,6 +49,8 @@
 		C09E97822A0304BC00475DDC /* ReleaseVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E97812A0304BC00475DDC /* ReleaseVideoViewController.swift */; };
 		C09E97842A0304DE00475DDC /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E97832A0304DE00475DDC /* SearchViewController.swift */; };
 		C09E97862A0304FB00475DDC /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E97852A0304FB00475DDC /* RecordViewController.swift */; };
+		C09E97882A03A61100475DDC /* MainPosterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E97872A03A61100475DDC /* MainPosterCollectionViewCell.swift */; };
+		C09E978A2A03BA4300475DDC /* UserInfoType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E97892A03BA4300475DDC /* UserInfoType.swift */; };
 		C0A9FEB329FA285800B89AC7 /* UIControl+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A9FEB229FA285800B89AC7 /* UIControl+.swift */; };
 		C0A9FEEE29FAB4B000B89AC7 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A9FEED29FAB4B000B89AC7 /* SettingViewController.swift */; };
 		C0A9FEF129FABD1500B89AC7 /* TableViewCellReuseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A9FEF029FABD1500B89AC7 /* TableViewCellReuseProtocol.swift */; };
@@ -131,6 +133,8 @@
 		C09E97812A0304BC00475DDC /* ReleaseVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseVideoViewController.swift; sourceTree = "<group>"; };
 		C09E97832A0304DE00475DDC /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		C09E97852A0304FB00475DDC /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
+		C09E97872A03A61100475DDC /* MainPosterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPosterCollectionViewCell.swift; sourceTree = "<group>"; };
+		C09E97892A03BA4300475DDC /* UserInfoType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoType.swift; sourceTree = "<group>"; };
 		C0A9FEB229FA285800B89AC7 /* UIControl+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+.swift"; sourceTree = "<group>"; };
 		C0A9FEED29FAB4B000B89AC7 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		C0A9FEF029FABD1500B89AC7 /* TableViewCellReuseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellReuseProtocol.swift; sourceTree = "<group>"; };
@@ -236,6 +240,7 @@
 				C09E96F92A017BDB00475DDC /* ListSection.swift */,
 				C09E96ED2A017A4C00475DDC /* MenuPageType.swift */,
 				C09E973A2A02C53500475DDC /* PosterType.swift */,
+				C09E97892A03BA4300475DDC /* UserInfoType.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -257,6 +262,7 @@
 				C09E97342A02C23E00475DDC /* RankingCollectionViewCell.swift */,
 				C09E97362A02C25100475DDC /* WatchingCollectionViewCell.swift */,
 				C09E97702A02DB5B00475DDC /* CaruselCollectionViewCell.swift */,
+				C09E97872A03A61100475DDC /* MainPosterCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -648,12 +654,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C09E978A2A03BA4300475DDC /* UserInfoType.swift in Sources */,
 				C0A9FEEE29FAB4B000B89AC7 /* SettingViewController.swift in Sources */,
 				C09E97312A02C21300475DDC /* MustWatchCollectionViewCell.swift in Sources */,
 				C0E4630829E7CF22005CCEC6 /* TvingTextField.swift in Sources */,
 				C0A9FEF129FABD1500B89AC7 /* TableViewCellReuseProtocol.swift in Sources */,
 				C0E462EC29E6FB2F005CCEC6 /* Font.swift in Sources */,
 				C00C0EE529EAA016002C4D14 /* UIViewController+.swift in Sources */,
+				C09E97882A03A61100475DDC /* MainPosterCollectionViewCell.swift in Sources */,
 				C09E96F82A017BB800475DDC /* MainViewData.swift in Sources */,
 				C09E96DB2A014FFC00475DDC /* MainViewController.swift in Sources */,
 				C09E972F2A02C1FB00475DDC /* FamousLiveChannelCollectionViewCell.swift in Sources */,
