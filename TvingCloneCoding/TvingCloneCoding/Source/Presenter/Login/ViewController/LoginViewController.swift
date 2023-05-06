@@ -22,6 +22,7 @@ final class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .designSystem(.black)
+        self.navigationController?.navigationBar.barStyle = .black
         setHierarchy()
         setUI()
         setNavigationBar()
@@ -38,10 +39,13 @@ final class LoginViewController: UIViewController {
 extension LoginViewController: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
         guard let text = textField.text, let tvingTextField = textField as? TvingTextField else { return }
-        guard let emailText = emailTextField.text, let passwordText = passwordTextField.text else { return }
+        //guard let emailText = emailTextField.text, let passwordText = passwordTextField.text else { return }
         
         tvingTextField.showClearButton = text.isNotEmpty ? false : true
-        loginButton.makeActiveTypeButton(activeType: checkUserInputIsValid(emailText)(passwordText)(nickName) ? .active : .nonActive)
+        loginButton.makeActiveTypeButton(activeType: .active)
+        
+        // MARK: - 완성되면 다시 원상태로
+        //loginButton.makeActiveTypeButton(activeType: checkUserInputIsValid(emailText)(passwordText)(nickName) ? .active : .nonActive)
     }
     
     private func checkUserInputIsValid(_ email: String) -> (_ password: String) -> (_ nickName: String?) -> Bool {
@@ -99,8 +103,18 @@ private extension LoginViewController {
     }
     
     func setButtonTarget() {
-        loginSettingView.makeNicknameButton.addTarget(self, action: #selector(makeNicknameButtonTapped(_:)), for: .touchUpInside)
-        loginButton.addTarget(self, action: #selector(loginButtonTapped(_:)), for: .touchUpInside)
+        loginSettingView.makeNicknameButton.addButtonAction { sender in
+            let bottomSheetVC = LoginNicknameBottomSheetViewController(bottomSheetHeightPercentage: 50)
+            bottomSheetVC.delegate = self
+            bottomSheetVC.modalPresentationStyle = .overFullScreen
+            self.present(bottomSheetVC, animated: false)
+        }
+        
+        loginButton.addButtonAction { sender in
+            let loginCompletedViewController = LoginCompletedViewController()
+            loginCompletedViewController.userNickName = self.nickName
+            self.navigationController?.pushViewController(loginCompletedViewController, animated: true)
+        }
     }
     
     func setHierarchy() {
@@ -113,31 +127,12 @@ private extension LoginViewController {
     }
     
     func setNavigationBar() {
-        let leftBarButtonItem = UIBarButtonItem(image: UIImage.setNavigationBackButtonImage,
-                                                style: .plain,
-                                                target: nil,
-                                                action: #selector(loginBackButtonTapped(_:)))
-        self.navigationController?.navigationBar.tintColor = .designSystem(.grayD6D6D6)
-        self.navigationItem.leftBarButtonItem = leftBarButtonItem
+        tvingNavigationBar(.designSystem(.grayD6D6D6),
+                           left: [UIButton.iconButton(.back)],
+                           right: [],
+                           spacing: 0)
     }
-    
-    @objc func loginBackButtonTapped(_ sender: UIButton) {
-        print("Back Button이 눌렸습니다")
-    }
-    
-    @objc func loginButtonTapped(_ sender: UIButton) {
-        let loginCompletedViewController = LoginCompletedViewController()
-        loginCompletedViewController.modalPresentationStyle = .fullScreen
-        loginCompletedViewController.userNickName = nickName
-        self.present(loginCompletedViewController, animated: true)
-    }
-    
-    @objc func makeNicknameButtonTapped(_ sender: UIButton) {
-        let bottomSheetVC = LoginNicknameBottomSheetViewController(bottomSheetHeightPercentage: 50)
-        bottomSheetVC.delegate = self
-        bottomSheetVC.modalPresentationStyle = .overFullScreen
-        self.present(bottomSheetVC, animated: false)
-    }
+
 }
 
 extension LoginViewController: PassingNicknameDataProtocol {

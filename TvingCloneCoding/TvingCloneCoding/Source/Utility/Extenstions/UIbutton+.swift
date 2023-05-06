@@ -42,9 +42,28 @@ extension UIButton {
         }
     }
     
-    func makeActiveTypeButton(activeType: ButtonActive) {
+    enum ButtonSize {
+        case small
+        case big
+        
+        var weight: Font.Weight {
+            switch self {
+            case .small : return ._500
+            case .big : return ._600
+            }
+        }
+        
+        var size: Font.Size {
+            switch self {
+            case .small : return ._10
+            case .big : return ._14
+            }
+        }
+    }
+    
+    func makeActiveTypeButton(activeType: ButtonActive, size: ButtonSize = .big) {
         self.layer.cornerRadius = 3
-        self.titleLabel?.font = .pretendard(weight: ._600, size: ._14)
+        self.titleLabel?.font = .pretendard(weight: size.weight, size: size.size)
         configureButton(status: activeType)
     }
     
@@ -86,11 +105,11 @@ extension UIButton {
         var loginImage: UIImage? {
             switch self {
             case .clear:
-                return UIImage(named: Constant.ImageName.clearButton)
+                return .assetImage(.clearButton)
             case .hidePassword:
-                return UIImage(named: Constant.ImageName.hidePasswordButton)
+                return .assetImage(.hidePasswordButton)
             case .showPassword:
-                return UIImage(named: Constant.ImageName.showPasswordButton)
+                return .assetImage(.showPasswordButton)
             }
         }
         
@@ -109,4 +128,47 @@ extension UIButton {
     func setLoginImage(type: LoginButtonImageType) {
         self.setImage(type.loginImage, for: type.controlState)
     }
+}
+
+extension UIButton {
+    enum IconButtonType {
+        case back
+        case alert
+        case setting
+        case profile
+        case bluetooth
+        case go
+        
+        var buttonImage: UIImage? {
+            switch self {
+            case .back:
+                return .assetImage(.backButton)
+            case .alert:
+                return UIImage(systemName: "alarm")
+            case .setting:
+                return UIImage(systemName: "gear")
+            case .profile:
+                return .assetImage(.smallProfileImage)
+            case .bluetooth:
+                return UIImage(systemName: "square.and.arrow.up")
+            case .go:
+                return UIImage(systemName: "chevron.right")
+            }
+        }
+    }
+    
+    
+    /// icon모양의 버튼을 만들어주는 함수
+    /// - Parameters:
+    ///   - type: 이미지를 바로 리턴해주는 변수
+    ///   - tintColor: 버튼의 tint color
+    ///   - action: 버튼의 액션을 처리해주는 함수
+    /// - Returns: uibutton
+    static func iconButton(_ type: IconButtonType, _ tintColor: UIColor? = .designSystem(.white)) -> UIButton {
+        let button = UIButton()
+        button.setImage(type.buttonImage, for: .normal)
+        button.tintColor = tintColor
+        return button
+    }
+    
 }

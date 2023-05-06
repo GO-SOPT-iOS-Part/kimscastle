@@ -15,8 +15,10 @@ enum Font {
     
     // 피그마기준 존재하는 font size => 14,15,23
     enum Size: CGFloat {
+        case _10 = 10
         case _14 = 14
         case _15 = 15
+        case _17 = 17
         case _23 = 23
     }
 

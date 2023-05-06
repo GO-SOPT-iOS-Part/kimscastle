@@ -49,7 +49,6 @@ final class TvingTextField: UITextField {
         let button = UIButton()
         button.setLoginImage(type: .clear)
         button.contentMode = .scaleAspectFill
-        button.addTarget(self, action: #selector(clearButtonTapped(_:)), for: .touchUpInside)
         return button
     }()
     
@@ -59,7 +58,6 @@ final class TvingTextField: UITextField {
         button.setLoginImage(type: .hidePassword)
         button.setLoginImage(type: .showPassword)
         button.contentMode = .scaleAspectFill
-        button.addTarget(self, action: #selector(securityButtonTapped(_:)), for: .touchUpInside)
         return button
     }()
     
@@ -68,6 +66,7 @@ final class TvingTextField: UITextField {
         self.sidePadding = sidePadding
         super.init(frame: .zero)
         setUI()
+        setButtonAction()
     }
     
     required init?(coder: NSCoder) {
@@ -93,13 +92,15 @@ final class TvingTextField: UITextField {
         }
     }
     
-    @objc func clearButtonTapped(_ sender: UIButton) {
-        self.text = ""
-        sender.isHidden = true
+    private func setButtonAction() {
+        clearButton.addButtonAction { sender in
+            self.text = ""
+            sender.isHidden = true
+        }
+        
+        securityButton.addButtonAction { sender in
+            sender.isSelected = !sender.isSelected
+            self.isSecureTextEntry = !sender.isSelected
+        }
     }
-    
-    @objc func securityButtonTapped(_ sender: UIButton) {
-        sender.isSelected = !sender.isSelected
-        self.isSecureTextEntry = !sender.isSelected
-    } 
 }

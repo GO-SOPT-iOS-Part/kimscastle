@@ -36,3 +36,20 @@ extension UIView {
         views.forEach { self.addSubview($0) }
     }
 }
+
+extension UIView {
+    /// 해당View의 SafeArea Height를 반환해주는 계산속성
+    var safeAreaHeight: CGFloat {
+        let verticalSafeAreaInset = self.safeAreaInsets.bottom + self.safeAreaInsets.top
+        let safeAreaHeight = self.frame.height - verticalSafeAreaInset
+        return safeAreaHeight
+    }
+}
+//
+//let verticalSafeAreaInset: CGFloat
+//if #available(iOS 11.0, *) {
+//  verticalSafeAreaInset = self.view.safeAreaInsets.bottom + self.view.safeAreaInsets.top
+//} else {
+//  verticalSafeAreaInset = 0.0
+//}
+//let safeAreaHeight = self.view.frame.height - verticalSafeAreaInset

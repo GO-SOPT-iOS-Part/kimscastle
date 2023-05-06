@@ -28,8 +28,8 @@ final class LoginCompletedViewController: UIViewController {
         setHierarchy()
         setLayout()
         setButtonTarget()
+        tvingNavigationBar(.white, left: [], right: [], spacing: 0)
     }
-
 }
 
 private extension LoginCompletedViewController {
@@ -61,10 +61,10 @@ private extension LoginCompletedViewController {
     }
     
     func setButtonTarget() {
-        presentMainViewControllerButton.addTarget(self, action: #selector(presentMainViewControllerButtonTapped(_:)), for: .touchUpInside)
-    }
-    
-    @objc func presentMainViewControllerButtonTapped(_ sender: UIButton) {
-        self.dismiss(animated: true)
+        presentMainViewControllerButton.addButtonAction { sender in
+            let homTabbarController = HomTabbarController()
+            self.navigationController?.pushViewController(homTabbarController, animated: false)
+            homTabbarController.navigationController?.navigationBar.isHidden = true
+        }
     }
 }

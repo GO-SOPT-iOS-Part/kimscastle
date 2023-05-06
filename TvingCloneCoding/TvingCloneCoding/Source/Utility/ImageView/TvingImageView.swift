@@ -9,10 +9,17 @@ import UIKit
 
 final class TvingImageView: UIImageView {
 
-    init(imageName: String, contentMode: ContentMode) {
+    init(imageName: Constant.ImageName, contentMode: ContentMode) {
         super.init(frame: .zero)
-        self.image = UIImage(named: imageName)
+        self.image = .assetImage(imageName)
         self.contentMode = contentMode
+    }
+    
+    init(imageName: UIButton.IconButtonType, tintColor: UIColor? = .designSystem(.gray626262)) {
+        super.init(frame: .zero)
+        self.image = imageName.buttonImage
+        self.contentMode = .scaleAspectFit
+        self.tintColor = tintColor
     }
     
     required init?(coder: NSCoder) {
