@@ -66,7 +66,7 @@ final class SignUpService: SignUpProtocol {
     private func isValidData(data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
         
-        guard let decodedData = try? decoder.decode(SignUpResponse.self, from: data) else { return .pathErr }
+        guard let decodedData = try? decoder.decode(SignUpResponse.self, from: data) else { fatalError("decode error") }
         
         return .success(decodedData as Any)
     }
