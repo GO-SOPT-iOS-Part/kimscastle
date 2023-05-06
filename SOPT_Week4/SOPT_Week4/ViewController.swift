@@ -7,14 +7,26 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+final class ViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
-        // Do any additional setup after loading the view.
+        signUp()
     }
-
-
+    
+    private func signUp() {
+        
+        SignUpService.shared.signUp(email: "seungchan@naver.com",
+                                    nickname: "godios",
+                                    password: "Qwer1234!") { response in
+            switch response {
+            case .success(let data):
+                guard let data = data as? SignUpResponse else { return }
+                dump(data)
+            default:
+                return
+            }
+        }
+    }
 }
 
