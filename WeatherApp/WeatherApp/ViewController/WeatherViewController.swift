@@ -11,11 +11,11 @@ import SnapKit
 
 final class WeatherViewController: UIViewController {
     
-    var weatherDatas: [Weathers] = []
-    var weatherTableView = UITableView()
+    private var weatherDatas: [Weathers] = []
+    private var weatherTableView = UITableView()
     private let placeNames = ["gongju", "gwangju", "gumi", "gunsan", "daegu", "daejeon", "mokpo", "busan", "seosan", "seoul", "sokcho", "suwon", "suncheon", "ulsan", "iksan", "jeonju", "jeju", "cheonan", "cheongju", "chuncheon"]
     
-    lazy var activityIndicator: UIActivityIndicatorView = {
+    private lazy var activityIndicator: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView()
         activityIndicator.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         activityIndicator.center = self.view.center
@@ -44,32 +44,11 @@ final class WeatherViewController: UIViewController {
         weatherTableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        fetchData(placeNames: placeNames, dataType: Weathers.self) { datas in
+        fetchWeatherData(placeNames, to: Weathers.self) { datas in
             self.weatherDatas = datas
             self.weatherTableView.reloadData()
         }
 
-    }
-    
-    private func fetchData<T: Codable>(placeNames: [String], dataType: T.Type, completionHandler: @escaping([T]) -> Void) {
-        
-        var datas: [T] = []
-        self.activityIndicator.startAnimating()
-        placeNames.forEach { WeatherService.shared.findWeatherInfo(place: $0, returnType: T.self) { response in
-            switch response {
-            case .success(let data):
-                datas.append(data)
-                
-                if datas.count == placeNames.count {
-                    self.activityIndicator.stopAnimating()
-                    completionHandler(datas)
-                }
-            case .serverErr:
-                fatalError("서버에러")
-            case .networkErr:
-                fatalError("네트워크에러")
-            }
-        }}
     }
 }
 
@@ -90,5 +69,26 @@ extension WeatherViewController: UITableViewDelegate {
         let detailViewController = WeatherDetailViewController()
         detailViewController.data = weatherDatas[indexPath.row]
         self.navigationController?.pushViewController(detailViewController, animated: true)
+    }
+}
+
+private extension WeatherViewController {
+    func fetchWeatherData<T: Codable>(_ placeNames: [String], to dataType: T.Type, completionHandler: @escaping([T]) -> Void) {
+        var datas: [T] = []
+        self.activityIndicator.startAnimating()
+        placeNames.forEach { WeatherService.shared.findWeatherInfo(place: $0, returnType: T.self) { response in
+            switch response {
+            case .success(let data):
+                datas.append(data)
+                if datas.count == placeNames.count {
+                    self.activityIndicator.stopAnimating()
+                    completionHandler(datas)
+                }
+            case .serverErr:
+                fatalError("서버에러")
+            case .networkErr:
+                fatalError("네트워크에러")
+            }
+        }}
     }
 }

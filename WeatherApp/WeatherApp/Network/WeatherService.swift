@@ -18,9 +18,7 @@ final class WeatherService {
     }
     
     func findWeatherInfo<T: Codable>(place: String, returnType: T.Type, completion: @escaping (NetworkResult<T>) -> Void) {
-        
         let header: HTTPHeaders = ["Content-Type" : "application/json"]
-        
         let dataRequest = AF.request(makeUrl(place: place),
                                      method: .get,
                                      parameters: nil,
@@ -33,7 +31,6 @@ final class WeatherService {
                 guard let value = response.value else { return }
                 let networkResult = self.judgeStatus(by: statusCode, value, changeData: T.self)
                 completion(networkResult)
-                
             case .failure:
                 completion(.networkErr)
             }
@@ -50,9 +47,7 @@ final class WeatherService {
     
     private func isValidData<T: Codable>(data: Data, changeData: T.Type) -> NetworkResult<T> {
         let decoder = JSONDecoder()
-        
         guard let decodedData = try? decoder.decode(T.self, from: data) else { fatalError("decode error") }
-        
         return .success(decodedData)
     }
 }
