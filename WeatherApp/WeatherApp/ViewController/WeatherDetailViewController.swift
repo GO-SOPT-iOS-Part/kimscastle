@@ -12,20 +12,11 @@ final class WeatherDetailViewController: UIViewController {
     var data: Weathers? {
         didSet {
             guard let data else { return }
-            self.title = data.name
-            weatherImageView.getImageFromURL(data.weather[0].icon)
-            temperatureLabel.text = data.main.temp.description  + "℃"
-            weatherDetailLabel.text = data.weather[0].description
-            maxTemperatureLabel.text = "최대 " + data.main.temp_max.description + "℃"
-            minTemperatureLabel.text = "최소 " + data.main.temp_min.description + "℃"
-            winChillTemperatureView.data = data.main.feels_like.description + "℃"
-            humidityView.data = data.main.humidity.description + "%"
-            pascalView.data = data.main.pressure.description + "hpa"
-            windSpeedView.data = data.wind.speed.description + "m/s"
+            dataBind(from: data)
         }
     }
     
-    let weatherImageView: UIImageView = {
+    private let weatherImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         return imageView
@@ -116,5 +107,18 @@ final class WeatherDetailViewController: UIViewController {
             make.trailing.equalToSuperview().inset(10)
             make.size.equalTo((UIScreen.main.bounds.width-30)/2)
         }
+    }
+    
+    private func dataBind(from inputData : Weathers) {
+        self.title = inputData.name
+        weatherImageView.getImageFromURL(inputData.weather[0].icon)
+        temperatureLabel.text = inputData.main.temp.description.addSymbol(.temperature)
+        weatherDetailLabel.text = inputData.weather[0].description
+        maxTemperatureLabel.text = "최대 " + inputData.main.temp_max.description.addSymbol(.temperature)
+        minTemperatureLabel.text = "최소 " + inputData.main.temp_min.description.addSymbol(.temperature)
+        winChillTemperatureView.data = inputData.main.feels_like.description.addSymbol(.temperature)
+        humidityView.data = inputData.main.humidity.description.addSymbol(.humidity)
+        pascalView.data = inputData.main.pressure.description.addSymbol(.pressure)
+        windSpeedView.data = inputData.wind.speed.description.addSymbol(.windSpeed)
     }
 }

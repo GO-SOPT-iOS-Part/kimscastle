@@ -12,34 +12,31 @@ class WeatherTableViewCell: UITableViewCell, TableViewCellReuseProtocol {
     var data: Weathers? {
         didSet {
             guard let data else { return }
-            weatherImageView.getImageFromURL(data.weather[0].icon)
-            placeLabel.text = data.name
-            temperatureLabel.text = "현재온도 : " + data.main.temp.description  + "℃"
-            humidityLabel.text = "습도 : " + data.main.humidity.description + "%"
+            dataBind(from: data)
         }
     }
     
-    let weatherImageView: UIImageView = {
+    private let weatherImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
 
-    let placeLabel: UILabel = {
+    private let placeLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.font = .boldSystemFont(ofSize: 25)
         return label
     }()
     
-    let temperatureLabel: UILabel = {
+    private let temperatureLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.font = .systemFont(ofSize: 12, weight: .light)
         return label
     }()
     
-    let humidityLabel: UILabel = {
+    private let humidityLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.font = .systemFont(ofSize: 12, weight: .light)
@@ -74,5 +71,12 @@ class WeatherTableViewCell: UITableViewCell, TableViewCellReuseProtocol {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func dataBind(from inputData : Weathers) {
+        weatherImageView.getImageFromURL(inputData.weather[0].icon)
+        placeLabel.text = inputData.name
+        temperatureLabel.text = "현재온도 : " + inputData.main.temp.description.addSymbol(.temperature)
+        humidityLabel.text = "습도 : " + inputData.main.humidity.description.addSymbol(.humidity)
     }
 }
