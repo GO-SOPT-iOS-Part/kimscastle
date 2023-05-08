@@ -27,12 +27,7 @@ final class WeatherService {
     ///   - returnType: NetworkResult enum Type인데  Success타입인경우 연관값으로 T타입을 가지고있음(타입의 타입을 input으로받아야하기 때문에 `메타타입` 을 사용했음)
     ///   - completion: 연관값 T를 가지고있는 NetworkResult enum Type를 input으로 넣은 escaping 클로저(api를 호출하고 결과를 얻은 후에 호출되는 클로저)
     func findWeatherInfo<T: Codable>(place: String, returnType: T.Type, completion: @escaping (NetworkResult<T>) -> Void) {
-        let header: HTTPHeaders = ["Content-Type" : "application/json"]
-        let dataRequest = AF.request(makeUrl(place: place),
-                                     method: .get,
-                                     parameters: nil,
-                                     headers: header)
-        
+        let dataRequest = AF.request(makeUrl(place: place), method: .get)
         dataRequest.responseData { response in
             switch response.result {
             case .success:
