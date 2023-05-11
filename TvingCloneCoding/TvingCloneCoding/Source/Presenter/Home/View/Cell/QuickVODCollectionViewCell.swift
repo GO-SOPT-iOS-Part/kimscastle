@@ -11,11 +11,15 @@ import SnapKit
 
 final class QuickVODCollectionViewCell: UICollectionViewCell, CollectionViewCellReuseProtocol {
     
+    private var task: URLSessionDataTask?
+    
     var data: VideoInfo? {
         didSet {
             guard let data = data else { return }
             guard let imagePath = data.image else { return }
-            posterView.setImageUrl(imagePath)
+            if task == nil {
+                task = posterView.loadImage(from: imagePath)
+            }
             title.text = data.name
         }
     }
@@ -54,7 +58,8 @@ final class QuickVODCollectionViewCell: UICollectionViewCell, CollectionViewCell
     }
     
     override func prepareForReuse() {
-        super.prepareForReuse()
+        task?.cancel()
+        task = nil
         posterView.image = nil
         title.text = nil
     }

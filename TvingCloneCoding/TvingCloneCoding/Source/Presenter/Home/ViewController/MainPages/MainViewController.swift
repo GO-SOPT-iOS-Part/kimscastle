@@ -16,6 +16,7 @@ protocol ScrollDelegate: AnyObject {
 final class MainViewController: UIViewController {
     
     weak var delgate: ScrollDelegate?
+    private let cache = ImageCacheManager.shared
     
     private let collectionView: UICollectionView = {
         let collectionViewLayout = UICollectionViewLayout()

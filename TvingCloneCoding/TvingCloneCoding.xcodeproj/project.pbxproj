@@ -14,6 +14,7 @@
 		C07161702A0CD083001BDDCE /* MovieData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C071616F2A0CD083001BDDCE /* MovieData.swift */; };
 		C07161732A0CD120001BDDCE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = C07161722A0CD120001BDDCE /* Alamofire */; };
 		C07161752A0CD714001BDDCE /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07161742A0CD714001BDDCE /* ImageCacheManager.swift */; };
+		C07161802A0D39C7001BDDCE /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C071617F2A0D39C7001BDDCE /* UIImageView+.swift */; };
 		C09E96D92A014FE600475DDC /* RealTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E96D82A014FE600475DDC /* RealTimeViewController.swift */; };
 		C09E96DB2A014FFC00475DDC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E96DA2A014FFC00475DDC /* MainViewController.swift */; };
 		C09E96DD2A01500B00475DDC /* TvProgramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E96DC2A01500B00475DDC /* TvProgramViewController.swift */; };
@@ -101,6 +102,7 @@
 		C00C0EE429EAA016002C4D14 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		C071616F2A0CD083001BDDCE /* MovieData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieData.swift; sourceTree = "<group>"; };
 		C07161742A0CD714001BDDCE /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
+		C071617F2A0D39C7001BDDCE /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 		C09E96D82A014FE600475DDC /* RealTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeViewController.swift; sourceTree = "<group>"; };
 		C09E96DA2A014FFC00475DDC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C09E96DC2A01500B00475DDC /* TvProgramViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvProgramViewController.swift; sourceTree = "<group>"; };
@@ -460,6 +462,7 @@
 				C09E97232A02B63E00475DDC /* Array+.swift */,
 				C09E97252A02B65600475DDC /* Timer+.swift */,
 				C09E97272A02B68900475DDC /* UICollectionView+.swift */,
+				C071617F2A0D39C7001BDDCE /* UIImageView+.swift */,
 			);
 			path = Extenstions;
 			sourceTree = "<group>";
@@ -736,6 +739,7 @@
 				C09E96E32A01503400475DDC /* KidViewController.swift in Sources */,
 				C09E96E12A01502200475DDC /* ParamountViewController.swift in Sources */,
 				C0E462FD29E70418005CCEC6 /* UIbutton+.swift in Sources */,
+				C07161802A0D39C7001BDDCE /* UIImageView+.swift in Sources */,
 				C09E96D92A014FE600475DDC /* RealTimeViewController.swift in Sources */,
 				C09E97802A03044900475DDC /* HomTabbarController.swift in Sources */,
 				C09E96EA2A015C0400475DDC /* TvingMenuCollectionViewCell.swift in Sources */,

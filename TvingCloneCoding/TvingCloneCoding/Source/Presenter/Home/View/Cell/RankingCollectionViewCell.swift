@@ -11,11 +11,15 @@ import SnapKit
 
 final class RankingCollectionViewCell: UICollectionViewCell, CollectionViewCellReuseProtocol {
     
+    private var task: URLSessionDataTask?
+    
     var data: VideoInfo? {
         didSet {
             guard let data = data else { return }
             guard let imagePath = data.image else { return }
-            posterView.setImageUrl(imagePath)
+            if task == nil {
+                task = posterView.loadImage(from: imagePath)
+            }
             title.text = data.name
         }
     }
@@ -55,7 +59,8 @@ final class RankingCollectionViewCell: UICollectionViewCell, CollectionViewCellR
     }
     
     override func prepareForReuse() {
-        super.prepareForReuse()
+        task?.cancel()
+        task = nil
         posterView.image = nil
         title.text = nil
     }
