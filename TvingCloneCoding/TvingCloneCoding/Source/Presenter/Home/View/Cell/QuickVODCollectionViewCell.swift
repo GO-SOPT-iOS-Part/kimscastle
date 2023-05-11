@@ -14,7 +14,8 @@ final class QuickVODCollectionViewCell: UICollectionViewCell, CollectionViewCell
     var data: VideoInfo? {
         didSet {
             guard let data = data else { return }
-            posterView.image = data.image
+            guard let imagePath = data.image else { return }
+            posterView.setImageUrl(imagePath)
             title.text = data.name
         }
     }
@@ -51,6 +52,12 @@ final class QuickVODCollectionViewCell: UICollectionViewCell, CollectionViewCell
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        posterView.image = nil
+        title.text = nil
+    }
 }
 
 private extension QuickVODCollectionViewCell {
@@ -68,7 +75,7 @@ private extension QuickVODCollectionViewCell {
         title.snp.makeConstraints { make in
             make.top.equalTo(posterView.snp.bottom)
             make.height.equalTo(17)
-            make.leading.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
         }
         
         subtitle.snp.makeConstraints { make in

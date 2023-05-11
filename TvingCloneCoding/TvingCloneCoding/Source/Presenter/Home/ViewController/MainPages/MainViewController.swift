@@ -26,7 +26,7 @@ final class MainViewController: UIViewController {
         return collectionView
     }()
     
-    private var sections = MainViewData.shared.pageData
+    private var sections: [ListSection] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +36,10 @@ final class MainViewController: UIViewController {
         setLayout()
         setDelegate()
         setCollectionView()
+        MainViewDataService.shared.fetchMovie { datas in
+            self.sections = datas
+            self.collectionView.reloadData()
+        }
 
     }
 }

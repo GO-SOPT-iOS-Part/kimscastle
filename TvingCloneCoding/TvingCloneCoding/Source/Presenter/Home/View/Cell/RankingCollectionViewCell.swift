@@ -14,7 +14,8 @@ final class RankingCollectionViewCell: UICollectionViewCell, CollectionViewCellR
     var data: VideoInfo? {
         didSet {
             guard let data = data else { return }
-            posterView.image = data.image
+            guard let imagePath = data.image else { return }
+            posterView.setImageUrl(imagePath)
             title.text = data.name
         }
     }
@@ -52,6 +53,12 @@ final class RankingCollectionViewCell: UICollectionViewCell, CollectionViewCellR
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        posterView.image = nil
+        title.text = nil
+    }
 }
 
 private extension RankingCollectionViewCell {
@@ -73,7 +80,7 @@ private extension RankingCollectionViewCell {
         
         title.snp.makeConstraints { make in
             make.top.equalTo(posterView.snp.bottom)
-            make.leading.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
             make.height.equalTo(17)
         }
         

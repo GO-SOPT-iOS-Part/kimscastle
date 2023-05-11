@@ -14,7 +14,8 @@ final class MustWatchCollectionViewCell: UICollectionViewCell, CollectionViewCel
     var data: VideoInfo? {
         didSet {
             guard let data = data else { return }
-            posterView.image = data.image
+            guard let imagePath = data.image else { return }
+            posterView.setImageUrl(imagePath)
             title.text = data.name
         }
     }
@@ -45,6 +46,12 @@ final class MustWatchCollectionViewCell: UICollectionViewCell, CollectionViewCel
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        posterView.image = nil
+        title.text = nil
+    }
+    
 }
 
 private extension MustWatchCollectionViewCell {
@@ -64,7 +71,7 @@ private extension MustWatchCollectionViewCell {
         
         title.snp.makeConstraints { make in
             make.top.equalTo(posterView.snp.bottom)
-            make.leading.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
             make.bottom.equalToSuperview()
             make.height.equalTo(17)
         }
