@@ -9,10 +9,6 @@ import Foundation
 
 struct MovieData: Codable {
     let results: [Result]
-    
-    enum CodingKeys: String, CodingKey {
-        case results
-    }
 
     struct Result: Codable {
         let posterPath, releaseDate, title: String

@@ -7,10 +7,6 @@
 
 import UIKit
 
-enum ImageNetworkError: Error {
-  case `default`
-}
-
 class ImageCacheManager {
   static let shared = NSCache<NSString, UIImage>()
   private init() { }
