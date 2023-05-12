@@ -33,7 +33,7 @@ struct MainViewDataService {
         return "https://api.themoviedb.org/3/movie/\(type.url)?api_key=1862a0edf74034806700802061bd0ce4&language=ko-KR"
     }
     
-    func fetchMovie(completion: @escaping([ListSection])->Void) {
+    func fetchMovie(completion: @escaping([ListSection]) -> Void) {
         var movieData: [ListSection] = []
         movieData.append(.mainPoster([.init(name: "", image: nil)]))
         for type in APIType.allCases {

@@ -9,14 +9,10 @@ import UIKit
 
 import SnapKit
 
-protocol ScrollDelegate: AnyObject {
-    func scroll(yContentOffset: CGFloat)
-}
-
 final class MainViewController: UIViewController {
     
     weak var delgate: ScrollDelegate?
-    private let cache = ImageCacheManager.shared
+    private let dataFetchable: DataFechable
     
     private let collectionView: UICollectionView = {
         let collectionViewLayout = UICollectionViewLayout()
@@ -28,7 +24,17 @@ final class MainViewController: UIViewController {
     }()
     
     private var sections: [ListSection] = []
-
+    
+    init(dataFetchable: DataFechable) {
+        self.dataFetchable = dataFetchable
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,7 +43,7 @@ final class MainViewController: UIViewController {
         setLayout()
         setDelegate()
         setCollectionView()
-        MainViewDataService.shared.fetchMovie { datas in
+        dataFetchable.fetchMovie { datas in
             self.sections = datas
             self.collectionView.reloadData()
         }
@@ -154,34 +160,16 @@ private extension MainViewController {
         }
     }
     
-    /// 추후수정할 코드
     private func createMainVideoSection(type: PosterType, headerHeight: CGFloat = 20) -> NSCollectionLayoutSection {
         let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
-        item.contentInsets = .init(top: 10, leading: 5, bottom: 10, trailing: 5)
-        switch type {
-        case .vertical:
-            let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .absolute(Constant.Screen.width/3.5), heightDimension: .estimated(180)), subitems: [item])
-            let section = NSCollectionLayoutSection(group: group)
-            section.contentInsets = .init(top: 0, leading: 0, bottom: 20, trailing: 0)
-            section.orthogonalScrollingBehavior = .continuous
-            let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(headerHeight)), elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
-            section.boundarySupplementaryItems = [header]
-            return section
-        case .horizontal:
-            let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .absolute(Constant.Screen.width/2), heightDimension: .estimated(130)), subitems: [item])
-            let section = NSCollectionLayoutSection(group: group)
-            section.contentInsets = .init(top: 0, leading: 0, bottom: 20, trailing: 0)
-            section.orthogonalScrollingBehavior = .continuous
-            let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(headerHeight)), elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
-            section.boundarySupplementaryItems = [header]
-            return section
-        case .header:
-            item.contentInsets = .zero
-            let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .absolute(Constant.Screen.width), heightDimension: .estimated(654)), subitems: [item])
-            let section = NSCollectionLayoutSection(group: group)
-            section.orthogonalScrollingBehavior = .continuous
-            return section
-        }
+        item.contentInsets = type.itemContentInset
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .absolute(type.groupWidth), heightDimension: .estimated(type.groupHeight)), subitems: [item])
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = type.sectionContentInset
+        section.orthogonalScrollingBehavior = .continuous
+        let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(type.headerHeight(height: headerHeight))), elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+        section.boundarySupplementaryItems = [header]
+        return section
     }
 }
 

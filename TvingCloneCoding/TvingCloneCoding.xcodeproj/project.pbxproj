@@ -15,6 +15,8 @@
 		C07161732A0CD120001BDDCE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = C07161722A0CD120001BDDCE /* Alamofire */; };
 		C07161752A0CD714001BDDCE /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07161742A0CD714001BDDCE /* ImageCacheManager.swift */; };
 		C07161802A0D39C7001BDDCE /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C071617F2A0D39C7001BDDCE /* UIImageView+.swift */; };
+		C07161822A0DE226001BDDCE /* ScrollDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07161812A0DE226001BDDCE /* ScrollDelegate.swift */; };
+		C07161842A0DE233001BDDCE /* DataFechable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07161832A0DE233001BDDCE /* DataFechable.swift */; };
 		C09E96D92A014FE600475DDC /* RealTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E96D82A014FE600475DDC /* RealTimeViewController.swift */; };
 		C09E96DB2A014FFC00475DDC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E96DA2A014FFC00475DDC /* MainViewController.swift */; };
 		C09E96DD2A01500B00475DDC /* TvProgramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E96DC2A01500B00475DDC /* TvProgramViewController.swift */; };
@@ -103,6 +105,8 @@
 		C071616F2A0CD083001BDDCE /* MovieData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieData.swift; sourceTree = "<group>"; };
 		C07161742A0CD714001BDDCE /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
 		C071617F2A0D39C7001BDDCE /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
+		C07161812A0DE226001BDDCE /* ScrollDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollDelegate.swift; sourceTree = "<group>"; };
+		C07161832A0DE233001BDDCE /* DataFechable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFechable.swift; sourceTree = "<group>"; };
 		C09E96D82A014FE600475DDC /* RealTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeViewController.swift; sourceTree = "<group>"; };
 		C09E96DA2A014FFC00475DDC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C09E96DC2A01500B00475DDC /* TvProgramViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvProgramViewController.swift; sourceTree = "<group>"; };
@@ -353,6 +357,8 @@
 				C0A9FEF029FABD1500B89AC7 /* TableViewCellReuseProtocol.swift */,
 				C09E96E72A015A9200475DDC /* MenuItemDelegate.swift */,
 				C09E978B2A03CBB400475DDC /* CollectionViewCellReuseProtocol.swift */,
+				C07161812A0DE226001BDDCE /* ScrollDelegate.swift */,
+				C07161832A0DE233001BDDCE /* DataFechable.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -707,7 +713,9 @@
 				C0E462EF29E6FC68005CCEC6 /* UIFont+.swift in Sources */,
 				C09E97732A02DB9300475DDC /* HeaderSupplementaryView.swift in Sources */,
 				C0E4632329E8081C005CCEC6 /* LoginCompletedViewController.swift in Sources */,
+				C07161822A0DE226001BDDCE /* ScrollDelegate.swift in Sources */,
 				C0E462C129E6F646005CCEC6 /* AppDelegate.swift in Sources */,
+				C07161842A0DE233001BDDCE /* DataFechable.swift in Sources */,
 				C09E978C2A03CBB400475DDC /* CollectionViewCellReuseProtocol.swift in Sources */,
 				C0A9FEB329FA285800B89AC7 /* UIControl+.swift in Sources */,
 				C0E4630B29E7D087005CCEC6 /* Constant.swift in Sources */,
