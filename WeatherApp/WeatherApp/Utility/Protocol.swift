@@ -7,6 +7,7 @@
 
 import UIKit
 
+//프로토콜
 protocol TableViewCellReuseProtocol where Self: UITableViewCell {
     static func register(tableView: UITableView)
     static func dequeueReusableCell(tableView: UITableView) -> Self
