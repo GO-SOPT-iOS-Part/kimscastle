@@ -9,5 +9,5 @@ import UIKit
 
 struct VideoInfo {
     let name: String
-    let image: UIImage?
+    let image: String?
 }

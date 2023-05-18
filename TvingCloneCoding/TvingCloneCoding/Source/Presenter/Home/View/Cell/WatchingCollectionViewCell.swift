@@ -10,10 +10,15 @@ import SnapKit
 
 final class WatchingCollectionViewCell: UICollectionViewCell, CollectionViewCellReuseProtocol {
     
+    private var task: URLSessionDataTask?
+    
     var data: VideoInfo? {
         didSet {
             guard let data = data else { return }
-            posterView.image = data.image
+            guard let imagePath = data.image else { return }
+            if task == nil {
+                task = posterView.loadImage(from: imagePath)
+            }
             title.text = data.name
         }
     }
@@ -51,6 +56,13 @@ final class WatchingCollectionViewCell: UICollectionViewCell, CollectionViewCell
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    override func prepareForReuse() {
+        task?.cancel()
+        task = nil
+        posterView.image = nil
+        title.text = nil
+    }
 }
 
 private extension WatchingCollectionViewCell {
@@ -72,7 +84,7 @@ private extension WatchingCollectionViewCell {
         
         title.snp.makeConstraints { make in
             make.top.equalTo(posterView.snp.bottom)
-            make.leading.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
             make.height.equalTo(17)
         }
         

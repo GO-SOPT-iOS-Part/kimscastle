@@ -19,8 +19,7 @@ final class CaruselCollectionViewCell: UICollectionViewCell, CollectionViewCellR
             contentLabel.text = item.content
         }
     }
-    
-    // MARK: UI
+
     private let posterView: UIImageView = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFit
@@ -52,11 +51,6 @@ final class CaruselCollectionViewCell: UICollectionViewCell, CollectionViewCellR
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        posterView.image = nil
     }
 }
 

@@ -9,6 +9,8 @@ import UIKit
 
 import SnapKit
 
+extension MainViewDataService: DataFechable {}
+
 final class HomeViewController: UIViewController {
     private var currentPage: Int = 0 {
         didSet {
@@ -107,7 +109,7 @@ private extension HomeViewController {
     
     func setPageViewController() {
         dataSourceViewController = MenuPageType.allCases.map{ $0.viewController }
-        let firstVC = MainViewController()
+        let firstVC = MainViewController(dataFetchable: MainViewDataService.shared)
         firstVC.delgate = self
         dataSourceViewController[0] = firstVC
     }
