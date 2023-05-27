@@ -8,12 +8,14 @@
 import UIKit
 
 struct Carrot {
+    let id: Int
     let image: UIImage
     let product: String
     let place: String
     let time: String
     let tradeStatus: Trade
     let price: Int
+    var isChecked: Bool
 }
 
 @frozen

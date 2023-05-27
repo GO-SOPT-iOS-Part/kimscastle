@@ -17,12 +17,8 @@ class RealmTestViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let task = CarrotRealm(id: 1, product: "아이폰", place: "마석", time: "11시", price: 20000)
         
-        try! localRealm.write {
-            localRealm.add(task)
-        }
-
-        print(Realm.Configuration.defaultConfiguration.fileURL!)
+        task = localRealm.objects(CarrotRealm.self)
+        print(Array(task))
     }
 }

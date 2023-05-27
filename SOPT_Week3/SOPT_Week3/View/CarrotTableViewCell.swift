@@ -10,9 +10,17 @@ import UIKit
 import SnapKit
 import Then
 
+protocol starTapped: AnyObject {
+    func changeStarData(data: Carrot)
+}
+
 final class CarrotTableViewCell: UITableViewCell {
     
     static let identifier = "CarrotTableViewCell"
+    
+    weak var delegate: starTapped?
+    
+    var data: Carrot = .init(id: 0, image: .hypeBoy, product: "", place: "", time: "", tradeStatus: .clear, price: 0, isChecked: false)
     
     private lazy var carrotImage = UIImageView()
     private let productLabel = UILabel()
@@ -21,6 +29,10 @@ final class CarrotTableViewCell: UITableViewCell {
     private let reservationLabel = UILabel()
     private let priceLabel = UILabel()
     private let horizontalStackView = UIStackView()
+    private var starButton: UIButton = {
+        let button = UIButton()
+        return button
+    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -73,12 +85,22 @@ final class CarrotTableViewCell: UITableViewCell {
             $0.alignment = .center
             $0.spacing = 5
         }
+        
+        starButton.addTarget(self, action: #selector(starButtonTapped(_:)), for: .touchUpInside)
+    }
+    
+    @objc
+    func starButtonTapped(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        sender.isSelected ? sender.setImage(UIImage(systemName: "star.fill"), for: .normal) : sender.setImage(UIImage(systemName: "star"), for: .normal)
+        data.isChecked = sender.isSelected
+        delegate?.changeStarData(data: data)
     }
     
     func setLayout() {
         
         [carrotImage, productLabel, placeLabel,
-         timeLabel, horizontalStackView]
+         timeLabel, horizontalStackView, starButton]
             .forEach { contentView.addSubview($0) }
         
         [reservationLabel, priceLabel]
@@ -115,9 +137,17 @@ final class CarrotTableViewCell: UITableViewCell {
             $0.top.equalTo(timeLabel.snp.bottom).offset(6)
             $0.height.equalTo(30)
         }
+        
+        starButton.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.size.equalTo(30)
+            make.trailing.equalToSuperview().inset(30)
+        }
     }
     
     func configureCell(_ carrot: Carrot) {
+        
+        data = carrot
         
         switch carrot.tradeStatus {
         case .reservation:
@@ -144,5 +174,7 @@ final class CarrotTableViewCell: UITableViewCell {
         
         price.insert(",", at: price.index(price.endIndex, offsetBy: -3))
         priceLabel.text = price + "원"
+        
+        starButton.setImage(carrot.isChecked ? UIImage(systemName: "star.fill") : UIImage(systemName: "star"), for: .normal)
     }
 }
