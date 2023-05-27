@@ -11,51 +11,18 @@ import RealmSwift
 
 class RealmTestViewController: UIViewController {
     
-    var task: Results<User>!
+    var task: Results<CarrotRealm>!
     
     let localRealm = try! Realm()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let task1 = User(id: 100, name: "승찬", age: 27, phoneNumber: 01012345678)
+        let task = CarrotRealm(id: 1, product: "아이폰", place: "마석", time: "11시", price: 20000)
         
         try! localRealm.write {
-            localRealm.add(task1)
+            localRealm.add(task)
         }
-        
-        task = localRealm.objects(User.self)
-        
-//        print(tasks)
 
         print(Realm.Configuration.defaultConfiguration.fileURL!)
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-}
-
-class User: Object {
-    
-    @Persisted(primaryKey: true) var id: Int = 0
-    @Persisted var name: String = ""
-    @Persisted var age: Int = 0
-    @Persisted var phoneNumber: Int = 0
-    
-    convenience init(id: Int, name: String, age: Int, phoneNumber: Int) {
-        self.init()
-        self.id = id
-        self.name = name
-        self.age = age
-        self.phoneNumber = phoneNumber
     }
 }

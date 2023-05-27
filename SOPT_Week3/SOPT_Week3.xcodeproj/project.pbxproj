@@ -28,6 +28,7 @@
 		C011709A2A21D5C100BFF272 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C01170992A21D5C100BFF272 /* RealmSwift */; };
 		C011709D2A21D61600BFF272 /* RealmTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C011709C2A21D61600BFF272 /* RealmTestViewController.swift */; };
 		C01170A02A21D80400BFF272 /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C011709F2A21D80400BFF272 /* TabbarViewController.swift */; };
+		C01170A22A21DBF800BFF272 /* CarrotRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01170A12A21DBF800BFF272 /* CarrotRealm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		C00C0F8B29F3C062002C4D14 /* Photo+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+.swift"; sourceTree = "<group>"; };
 		C011709C2A21D61600BFF272 /* RealmTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmTestViewController.swift; sourceTree = "<group>"; };
 		C011709F2A21D80400BFF272 /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
+		C01170A12A21DBF800BFF272 /* CarrotRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrotRealm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 			children = (
 				C00C0F7029F3B1B9002C4D14 /* Carrot.swift */,
 				C00C0F8929F3BF0E002C4D14 /* Photo.swift */,
+				C01170A12A21DBF800BFF272 /* CarrotRealm.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 				C00C0F5A29F3B0C7002C4D14 /* AppDelegate.swift in Sources */,
 				C00C0F7E29F3B5F6002C4D14 /* UIView+.swift in Sources */,
 				C00C0F8029F3B743002C4D14 /* BaseViewController.swift in Sources */,
+				C01170A22A21DBF800BFF272 /* CarrotRealm.swift in Sources */,
 				C01170A02A21D80400BFF272 /* TabbarViewController.swift in Sources */,
 				C00C0F7729F3B26D002C4D14 /* UIImage+.swift in Sources */,
 				C00C0F7129F3B1B9002C4D14 /* Carrot.swift in Sources */,
