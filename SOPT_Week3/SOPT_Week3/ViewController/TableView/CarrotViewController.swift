@@ -74,10 +74,15 @@ extension CarrotViewController: UITableViewDataSource {
     }
 }
 
-extension CarrotViewController: starTapped {
+extension CarrotViewController: StarTapped {
     func changeStarData(data: Carrot) {
         try! localRealm.write {
-            localRealm.add(CarrotRealm(id: data.id, product: data.product, place: data.place, time: data.time, price: data.price, isChecked: data.isChecked), update: .modified)
+            localRealm.add(CarrotRealm(id: data.id,
+                                       product: data.product,
+                                       place: data.place,
+                                       time: data.time,
+                                       price: data.price,
+                                       isChecked: data.isChecked), update: .modified)
         }
     }
 }

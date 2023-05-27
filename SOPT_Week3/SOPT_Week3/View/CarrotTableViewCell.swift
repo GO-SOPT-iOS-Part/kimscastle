@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-protocol starTapped: AnyObject {
+protocol StarTapped: AnyObject {
     func changeStarData(data: Carrot)
 }
 
@@ -18,7 +18,7 @@ final class CarrotTableViewCell: UITableViewCell {
     
     static let identifier = "CarrotTableViewCell"
     
-    weak var delegate: starTapped?
+    weak var delegate: StarTapped?
     
     var data: Carrot = .init(id: 0, image: .hypeBoy, product: "", place: "", time: "", tradeStatus: .clear, price: 0, isChecked: false)
     
